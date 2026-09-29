@@ -21,17 +21,17 @@
   <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
 
-  <!-- Tipografías Google Fonts: PolyLab Studio Aesthetic (Inter, Space Grotesk, JetBrains Mono) -->
+  <!-- Tipografías Google Fonts: Corporate Trust (Plus Jakarta Sans, Inter, JetBrains Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Leaflet CSS y MarkerCluster CSS para Mapa y Agrupación Inteligente -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <!-- Tailwind CSS CDN con configuración personalizada PolyLab Studio -->
+  <!-- Tailwind CSS CDN con configuración personalizada Monochrome (Blanco y Negro) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -39,51 +39,44 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Inter"', '"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-            display: ['"Space Grotesk"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            // PolyLab Palette: Warm Paper Studio Neutral Grays
-            slate: {
-              50: '#fcfbf9',
-              100: '#f4f2ef',
-              200: '#eeece8',
-              300: '#e2ded8',
-              400: '#9c958a',
-              500: '#6d665a',
-              600: '#544e45',
-              700: '#38332b',
-              800: '#221f1a',
-              900: '#090a0f',
+            // Monochrome Design Tokens (Blanco y Negro)
+            zinc: {
+              50: '#FAFAFA',
+              100: '#F4F4F5',
+              200: '#E4E4E7',
+              300: '#D4D4D8',
+              400: '#A1A1AA',
+              500: '#71717A',
+              600: '#52525B',
+              700: '#3F3F46',
+              800: '#27272A',
+              900: '#18181B',
+              950: '#09090B',
+            },
+            primary: {
+              50: '#FAFAFA',
+              100: '#F4F4F5',
+              200: '#E4E4E7',
+              300: '#D4D4D8',
+              400: '#A1A1AA',
+              500: '#71717A',
+              600: '#18181B',
+              700: '#09090B',
+              800: '#000000',
+              900: '#000000',
               950: '#000000',
-            },
-            poly: {
-              bg: '#fcfbf9',
-              secondary: '#f4f2ef',
-              surface: '#ffffff',
-              card: '#ffffff',
-              black: '#090a0f',
-              border: '#e2ded8',
-              subtle: '#eeece8',
-              gray400: '#9c958a',
-              gray600: '#544e45',
-              gray800: '#221f1a',
-            },
-            civic: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
-              800: '#065f46',
-              900: '#064e3b',
-            },
-            whatsapp: {
-              DEFAULT: '#25D366',
-              dark: '#128C7E',
-              hover: '#1ebe5d'
             }
+          },
+          boxShadow: {
+            'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.03)',
+            'hover': '0 14px 30px -4px rgba(0, 0, 0, 0.16), 0 8px 12px -6px rgba(0, 0, 0, 0.10)',
+            'btn': '0 4px 14px 0 rgba(0, 0, 0, 0.30)',
+            'glow': '0 0 24px rgba(0, 0, 0, 0.20)',
           }
         }
       }
@@ -91,31 +84,33 @@
   </script>
 
   <style>
-    /* Estilos base y variables PolyLab Studio */
+    /* Estilos base y variables Blanco y Negro (Monochrome Minimalist) */
     :root {
-      --color-black: #090a0f;
-      --color-white: #ffffff;
-      --color-bg-primary: #fcfbf9;
-      --color-bg-secondary: #f4f2ef;
-      --color-border: #e2ded8;
-      --color-border-subtle: #eeece8;
+      --color-primary: #09090B;
+      --color-secondary: #27272A;
+      --color-bg-base: #FFFFFF;
+      --color-surface: #FFFFFF;
+      --color-text-main: #09090B;
+      --color-text-muted: #71717A;
+      --color-border: #E4E4E7;
     }
 
     body {
-      font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background-color: #fcfbf9;
-      color: #090a0f;
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #FAFAFA;
+      color: #09090B;
       -webkit-tap-highlight-color: transparent;
+      letter-spacing: -0.011em;
     }
 
     ::selection {
-      background-color: #090a0f;
-      color: #ffffff;
+      background-color: #000000;
+      color: #FFFFFF;
     }
 
     .dark ::selection {
-      background-color: #ffffff;
-      color: #090a0f;
+      background-color: #FFFFFF;
+      color: #000000;
     }
 
     .no-scrollbar::-webkit-scrollbar {
@@ -131,76 +126,137 @@
       height: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #fcfbf9;
+      background: #FAFAFA;
     }
     .dark ::-webkit-scrollbar-track {
-      background: #000000;
+      background: #09090B;
     }
     ::-webkit-scrollbar-thumb {
-      background: #e2ded8;
+      background: #D4D4D8;
       border-radius: 9999px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #9c958a;
+      background: #A1A1AA;
     }
     .dark ::-webkit-scrollbar-thumb {
-      background: #1c1c1c;
+      background: #27272A;
     }
     .dark ::-webkit-scrollbar-thumb:hover {
-      background: #333333;
+      background: #3F3F46;
     }
 
+    /* Transición y elevación de tarjetas Blanco y Negro */
     .card-transition {
-      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s ease;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
     }
     .card-transition:hover {
-      box-shadow: 0 4px 20px rgba(9, 10, 15, 0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -6px rgba(0, 0, 0, 0.12), 0 8px 16px -6px rgba(0, 0, 0, 0.08);
+      border-color: #09090B !important;
     }
     .dark .card-transition:hover {
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
+      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.08);
+      border-color: #FFFFFF !important;
     }
 
-    /* PolyLab Interactive Glow */
-    .btn-glow {
-      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s ease;
+    /* Botón Primario Blanco y Negro con Alto Contraste */
+    .btn-gradient-primary {
+      background: #09090B;
+      color: #FFFFFF;
+      border: 1px solid #27272A;
+      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), background 0.15s ease;
+      box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.25);
     }
-    .btn-glow:hover {
-      box-shadow: 0 4px 14px rgba(9, 10, 15, 0.18), 0 0 8px rgba(9, 10, 15, 0.1);
-      transform: translateY(-1px);
+    .btn-gradient-primary:hover {
+      background: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px 0 rgba(0, 0, 0, 0.35);
     }
-    .dark .btn-glow:hover {
-      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.18), 0 0 10px rgba(255, 255, 255, 0.1);
-      transform: translateY(-1px);
+    .btn-gradient-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    .dark .btn-gradient-primary {
+      background: #FFFFFF;
+      color: #09090B;
+      border: 1px solid #E4E4E7;
+      box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.15);
+    }
+    .dark .btn-gradient-primary:hover {
+      background: #F4F4F5;
+      box-shadow: 0 8px 22px 0 rgba(255, 255, 255, 0.25);
     }
 
-    /* Estilos de pines personalizados en Leaflet */
+    .btn-gradient-emerald {
+      background: #18181B;
+      color: #FFFFFF;
+      border: 1px solid #27272A;
+      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2);
+    }
+    .btn-gradient-emerald:hover {
+      transform: translateY(-1.5px);
+      background: #000000;
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.3);
+    }
+    .dark .btn-gradient-emerald {
+      background: #27272A;
+      color: #FFFFFF;
+      border: 1px solid #3F3F46;
+    }
+    .dark .btn-gradient-emerald:hover {
+      background: #3F3F46;
+    }
+
+    /* Glow y Gradientes de Fondo Atmosféricos Grises */
+    .blob-ambient {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(80px);
+      pointer-events: none;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    /* Estilos de pines personalizados en Leaflet Blanco y Negro */
     .custom-marker-pin {
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      background: #090a0f;
-      border: 2px solid #10b981;
-      color: #ffffff;
+      background: #09090B;
+      border: 2.5px solid #FFFFFF;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 17px;
-      box-shadow: 0 4px 12px rgba(9, 10, 15, 0.35);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
       cursor: pointer;
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, background 0.2s ease;
     }
     .custom-marker-pin:hover {
-      transform: scale(1.22);
-      border-color: #34d399;
-      background: #047857;
+      transform: scale(1.24);
+      border-color: #000000;
+      background: #FFFFFF;
+      color: #000000;
       z-index: 1000 !important;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+    }
+    .dark .custom-marker-pin {
+      background: #FFFFFF;
+      border: 2.5px solid #09090B;
+      color: #09090B;
+    }
+    .dark .custom-marker-pin:hover {
+      background: #09090B;
+      border-color: #FFFFFF;
+      color: #FFFFFF;
     }
     .custom-marker-pin.emergency-pin {
-      border-color: #f59e0b;
-      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.35);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.25), 0 6px 18px rgba(0, 0, 0, 0.3);
     }
     .custom-marker-pin.has-photo-pin {
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.45), 0 4px 12px rgba(9, 10, 15, 0.4);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2), 0 6px 18px rgba(0, 0, 0, 0.25);
     }
     .custom-picker-pin {
       background: transparent !important;
@@ -212,32 +268,32 @@
     @keyframes pulse-pin-glow {
       0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8), 0 4px 12px rgba(9, 10, 15, 0.4);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.3);
       }
       50% {
         transform: scale(1.35);
-        box-shadow: 0 0 0 14px rgba(16, 185, 129, 0), 0 6px 16px rgba(9, 10, 15, 0.5);
+        box-shadow: 0 0 0 16px rgba(0, 0, 0, 0), 0 8px 20px rgba(0, 0, 0, 0.4);
       }
       100% {
         transform: scale(1.15);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0), 0 4px 12px rgba(9, 10, 15, 0.4);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 4px 12px rgba(0, 0, 0, 0.3);
       }
     }
     .custom-marker-pin.pulse-pin {
       animation: pulse-pin-glow 1.2s infinite ease-in-out;
-      border-color: #10b981 !important;
-      background: #064e3b !important;
+      border-color: #000000 !important;
+      background: #18181B !important;
       z-index: 10000 !important;
     }
 
     /* Estilo del Popup de Leaflet */
     .leaflet-popup-content-wrapper {
-      border-radius: 0.75rem;
+      border-radius: 1rem;
       padding: 0;
       overflow: hidden;
-      box-shadow: 0 12px 30px -4px rgba(9, 10, 15, 0.2);
-      border: 1px solid #e2ded8;
-      background: #ffffff;
+      box-shadow: 0 18px 36px -4px rgba(0, 0, 0, 0.2), 0 8px 16px -4px rgba(0, 0, 0, 0.08);
+      border: 1px solid #E4E4E7;
+      background: #FFFFFF;
     }
     .leaflet-popup-content {
       margin: 0 !important;
@@ -246,14 +302,14 @@
     .leaflet-container a.leaflet-popup-close-button {
       top: 10px;
       right: 10px;
-      color: #090a0f;
+      color: #09090B;
       font-size: 16px;
       font-weight: bold;
       width: 26px;
       height: 26px;
       border-radius: 9999px;
-      background: rgba(252, 251, 249, 0.9);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -261,31 +317,31 @@
       z-index: 30;
     }
     .leaflet-container a.leaflet-popup-close-button:hover {
-      background: #ffffff;
-      color: #e11d48;
+      background: #F4F4F5;
+      color: #000000;
     }
 
-    /* Estilos de Modo Oscuro para Leaflet y Contenedores */
+    /* Modo Oscuro para Leaflet */
     .dark body {
-      background-color: #000000;
-      color: #f5f5f5;
+      background-color: #09090B;
+      color: #FAFAFA;
     }
     .dark .leaflet-tile {
-      filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.2) brightness(0.85);
+      filter: grayscale(1) brightness(0.7) invert(1) contrast(2.5);
     }
     .dark .leaflet-container {
-      background: #000000;
+      background: #09090B;
     }
     .dark .leaflet-popup-content-wrapper {
-      background: #0a0a0a;
-      color: #f5f5f5;
-      border: 1px solid #1c1c1c;
+      background: #18181B;
+      color: #FAFAFA;
+      border: 1px solid #27272A;
     }
     .dark .leaflet-popup-tip {
-      background: #0a0a0a;
+      background: #18181B;
     }
 
-    /* Reglas para Impresión Nítida del Cartel Comunitario (Opción 5) */
+    /* Impresión Nítida */
     @media print {
       body * {
         visibility: hidden !important;
@@ -311,7 +367,7 @@
         display: none !important;
       }
       #poster-printable-area {
-        border: 4px solid #0f172a !important;
+        border: 4px solid #000000 !important;
         box-shadow: none !important;
         margin: 0 auto !important;
         max-width: 100% !important;
@@ -323,236 +379,304 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col selection:bg-slate-900 selection:text-white dark:selection:bg-white dark:selection:text-slate-900 transition-colors duration-200">
+<body class="bg-zinc-50 dark:bg-[#09090B] text-zinc-900 dark:text-zinc-100 antialiased min-h-screen flex flex-col selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-200 relative overflow-x-hidden">
 
-  <!-- Barra Superior de Aviso Cívico y Estado de Conexión -->
-  <aside aria-label="Aviso cívico" class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
-    <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
-      <div class="flex items-center gap-2 truncate">
-        <span class="inline-block w-2 h-2 rounded-full bg-slate-400 animate-pulse"></span>
-        <span class="font-medium text-slate-200">Iniciativa Cívica Libre</span>
-        <span class="hidden sm:inline text-slate-500">•</span>
-        <span class="hidden sm:inline text-slate-400">Sin comisiones, sin registros y sin intermediarios en Ahome</span>
-      </div>
-      <div class="flex items-center gap-3 shrink-0">
-        <!-- Indicador de conexión Online/Offline -->
-        <span id="network-status" class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-slate-800 text-slate-200 border border-slate-700">
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Conectado
-        </span>
-      </div>
-    </div>
-  </aside>
+
+  <!-- Orbes de luz atmosféricos de fondo (Monochrome Ambient Glow) -->
+  <div class="blob-ambient w-[600px] h-[600px] bg-gradient-to-tr from-zinc-400/20 via-zinc-300/10 to-transparent dark:from-zinc-700/20 dark:via-zinc-800/10 -top-32 -left-32"></div>
+  <div class="blob-ambient w-[500px] h-[500px] bg-gradient-to-r from-zinc-300/15 to-transparent dark:from-zinc-800/15 top-[900px] left-1/4"></div>
 
   <!-- Banner de Notificación Offline: Modo Sin Conexión Garantizado -->
-  <div id="offline-banner" class="hidden bg-slate-100 dark:bg-slate-900 border-b border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 px-4 py-2.5 text-xs sm:text-sm text-center font-medium shadow-xs">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2">
-      <div class="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white shrink-0">
-        <span class="w-2.5 h-2.5 rounded-full bg-slate-500 animate-pulse"></span>
+  <div id="offline-banner" class="hidden bg-black/95 border-b border-zinc-800 text-zinc-100 px-4 py-2.5 text-xs sm:text-sm text-center font-medium shadow-md backdrop-blur-md z-40 sticky top-0">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2">
+      <div class="flex items-center gap-1.5 font-bold text-white shrink-0">
+        <span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
         <span>Modo sin conexión garantizado activo</span>
       </div>
-      <span class="hidden sm:inline text-slate-400">•</span>
-      <span class="text-slate-700 dark:text-slate-300">
-        Base de datos guardada en tu teléfono. Si te quedaste sin datos en la calle, <strong>puedes seguir viendo todos los oficios y pulsar "Llamar" para comunicarte por red celular convencional</strong> (sin necesidad de internet ni megas).
+      <span class="hidden sm:inline text-zinc-400">•</span>
+      <span class="text-zinc-300">
+        Base de datos guardada en tu teléfono. Si te quedaste sin datos en la calle, <strong>puedes seguir viendo todos los oficios y pulsar "Llamar" para comunicarte por red celular convencional</strong>.
       </span>
     </div>
   </div>
 
-  <!-- Encabezado Principal y Barra de Navegación -->
-  <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 shadow-2xs transition-colors duration-200">
-    <div class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+  <!-- ========================================================================= -->
+  <!-- NAVBAR FULL-WIDTH FIJA EN EL BORDE SUPERIOR (MONOCHROME)                  -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-[#09090B]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 flex items-center justify-between gap-4">
       
-      <!-- Identidad de Marca Cívica -->
-      <div class="flex items-center justify-between">
-        <a href="./" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-slate-900 rounded-lg p-1 -m-1">
-          <!-- Logos lado a lado: Oficios Ahome + Polylab -->
-          <div class="flex items-center gap-1.5 shrink-0">
-            <!-- Logo Oficios Ahome -->
-            <div class="w-10 h-10 sm:w-11 sm:h-11 bg-slate-900 text-white rounded-xl flex items-center justify-center shadow-xs group-hover:bg-slate-800 transition" title="Oficios Ahome">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                <path d="M14.7 9.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-              </svg>
-            </div>
-            <!-- Logo Polylab -->
-            <div class="w-10 h-10 sm:w-11 sm:h-11 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 rounded-xl flex items-center justify-center shadow-xs p-2 group-hover:border-slate-300 dark:group-hover:border-slate-600 transition" title="Polylab">
-              <img src="./images/polylab-logo.png" alt="Logo de Polylab" class="w-full h-full object-contain dark:invert transition" width="28" height="28" />
-            </div>
+      <!-- Marca & Logo Cívico -->
+      <a href="./" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white rounded-xl p-1 -m-1 transition">
+        <div class="flex items-center gap-2 shrink-0">
+          <div class="w-10 h-10 bg-black text-white dark:bg-white dark:text-black rounded-xl flex items-center justify-center shadow-btn group-hover:scale-105 transition duration-200" title="Oficios Ahome">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <path d="M14.7 9.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
           </div>
-
-          <!-- Título y leyenda de autoría -->
-          <div>
-            <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-950 dark:text-white leading-none">
-              Oficios Ahome
-            </h1>
-            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
-              Desarrollado por <strong class="font-bold text-slate-800 dark:text-slate-200">Polylab</strong> - Ramsses García
-            </p>
+          <div class="w-10 h-10 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl flex items-center justify-center shadow-2xs p-2 group-hover:border-black dark:group-hover:border-white transition duration-200" title="PolyLab">
+            <img src="./images/polylab-logo.png" alt="PolyLab" class="w-full h-full object-contain dark:invert transition" width="24" height="24" />
           </div>
-        </a>
-
-        <!-- Acciones rápidas móviles (Sobre nosotros, Términos, Modo Oscuro y Sumar) -->
-        <div class="md:hidden flex items-center gap-1">
-          <!-- Sobre nosotros móvil -->
-          <a href="./sobre-nosotros.html" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Sobre nosotros" aria-label="Sobre nosotros">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </a>
-
-          <!-- Términos móvil -->
-          <a href="./terminos-y-privacidad.html" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Términos y Privacidad" aria-label="Términos y Privacidad">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </a>
-
-          <!-- Modo Oscuro móvil (Opción 8) -->
-          <button id="btn-toggle-theme-mobile" type="button" onclick="window.toggleTheme()" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer" title="Cambiar a modo oscuro / claro" aria-label="Cambiar tema">
-            <span class="theme-icon text-sm">🌙</span>
-          </button>
-
-          <!-- Botón rápido móvil para sumar oficio -->
-          <button id="btn-quick-add-mobile" class="inline-flex items-center gap-1 px-3 py-1.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-950 text-white rounded-lg text-xs font-bold shadow-xs transition btn-glow cursor-pointer">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-            <span>Sumar</span>
-          </button>
         </div>
-      </div>
 
-      <!-- Acciones Principales en Barra de Encabezado (Desktop) -->
-      <div class="hidden md:flex items-center gap-2">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-none font-heading">
+              Oficios<span class="underline decoration-1 underline-offset-4">Ahome</span>
+            </span>
+          </div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 font-medium hidden sm:block">
+            Desarrollado por PolyLab - Ramsses García
+          </p>
+        </div>
+      </a>
+
+      <!-- Navegación Central (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-1 bg-zinc-100/80 dark:bg-zinc-800/80 p-1 rounded-xl border border-zinc-200 dark:border-zinc-700 text-xs font-bold text-zinc-600 dark:text-zinc-300">
+        <a href="#directorio" class="px-3.5 py-1.5 rounded-lg bg-white dark:bg-zinc-950 text-black dark:text-white shadow-2xs transition font-semibold">
+          ⚡ Directorio
+        </a>
+        <a href="#seccion-mapa-central" class="px-3.5 py-1.5 rounded-lg hover:text-black dark:hover:text-white transition">
+          🗺️ Mapa en Vivo
+        </a>
+        <a href="./sobre-nosotros.html" class="px-3.5 py-1.5 rounded-lg hover:text-black dark:hover:text-white transition">
+          🏛️ Sobre Nosotros
+        </a>
+        <a href="./terminos-y-privacidad.html" class="px-3.5 py-1.5 rounded-lg hover:text-black dark:hover:text-white transition">
+          ⚖️ Términos
+        </a>
+      </nav>
+
+      <!-- Botones de Acción y Tema -->
+      <div class="flex items-center gap-2">
         
-        <!-- Botón Sobre Nosotros -->
-        <a href="./sobre-nosotros.html" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition" title="Conoce la historia e iniciativa ciudadana de PolyLab">
-          <svg class="w-4 h-4 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>Sobre nosotros</span>
-        </a>
-
-        <!-- Botón Términos y Privacidad -->
-        <a href="./terminos-y-privacidad.html" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition" title="Ver términos cívicos, deslinde y privacidad">
-          <svg class="w-4 h-4 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          <span>Términos</span>
-        </a>
-
-        <!-- Botón para alternar Modo Oscuro (Opción 8) -->
+        <!-- Botón Modo Oscuro -->
         <button 
           id="btn-toggle-theme" 
           type="button" 
           onclick="window.toggleTheme()" 
-          class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition cursor-pointer" 
+          class="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 shadow-2xs hover:border-black dark:hover:border-white transition cursor-pointer" 
           title="Alternar entre modo claro y modo oscuro" 
           aria-label="Cambiar tema"
         >
           <span class="theme-icon text-sm">🌙</span>
         </button>
 
-        <!-- Botón para instalar PWA (se muestra dinámicamente) -->
-        <button id="btn-install-pwa" class="hidden items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition">
-          <svg class="w-4 h-4 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-          <span>Instalar</span>
+        <!-- Botón Móvil Tema Oculto para sincronizar -->
+        <button id="btn-toggle-theme-mobile" type="button" onclick="window.toggleTheme()" class="hidden"></button>
+
+        <!-- Botón Instalar PWA -->
+        <button id="btn-install-pwa" class="hidden items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 border border-zinc-200 dark:border-zinc-700 shadow-2xs transition">
+          <svg class="w-4 h-4 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          <span class="hidden sm:inline">Instalar</span>
         </button>
 
-        <!-- Botón "Suma tu oficio" PolyLab Studio -->
-        <button id="btn-open-register" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 shadow-sm transition btn-glow cursor-pointer">
+        <!-- Botón Principal "Sumar Oficio" -->
+        <button id="btn-open-register" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs font-extrabold text-white dark:text-black btn-gradient-primary shadow-btn transition cursor-pointer hover:scale-[1.02] active:scale-[0.98]">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
           <span>Sumar oficio</span>
         </button>
+
+        <!-- Botones móviles auxiliares ocultos para mantener compatibilidad JS -->
+        <button id="btn-quick-add-mobile" class="hidden"></button>
       </div>
+
     </div>
   </header>
 
-  <!-- Contenedor Principal -->
-  <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-6 sm:py-8 space-y-6">
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION: FULL-WIDTH COMMAND HUB (MONOCHROME)                           -->
+  <!-- ========================================================================= -->
+  <section class="w-full relative overflow-hidden bg-gradient-to-b from-zinc-100/60 via-white to-zinc-50 dark:from-[#09090B] dark:via-[#121215] dark:to-[#09090B] border-b border-zinc-200 dark:border-zinc-800 flex flex-col justify-between pt-8 pb-8 sm:pt-12 sm:pb-10 lg:pt-14 lg:pb-12 text-center">
+    
+    <!-- Orbe de iluminación atmosférica extendido en escala de grises -->
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-to-tr from-zinc-300/30 via-zinc-200/20 to-transparent dark:from-zinc-700/20 dark:via-zinc-800/15 dark:to-transparent rounded-full blur-3xl pointer-events-none"></div>
 
-    <!-- Banner de Auxilio Nocturno 24 Horas (Opción 6, oculto por defecto) -->
-    <div id="auxilio-nocturno-banner" class="hidden bg-[#fdf6f0] dark:bg-[#1f120a] border border-[#e8d5c4] dark:border-[#452312] rounded-2xl p-4 sm:p-5 text-[#7c3a1e] dark:text-[#e8a37f] shadow-2xs space-y-2">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col justify-center space-y-6 sm:space-y-8">
+      
+      <!-- Contenedor centralizado de textos y búsqueda -->
+      <div class="max-w-4xl mx-auto space-y-5 sm:space-y-7">
+        
+        <!-- Badge de Contexto Cívico -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-bold bg-zinc-100/90 dark:bg-zinc-800/90 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 shadow-xs backdrop-blur-md">
+          <span class="w-2.5 h-2.5 rounded-full bg-black dark:bg-white animate-pulse"></span>
+          <span>DIRECTORIO CIUDADANO EN VIVO • MUNICIPIO DE AHOME, SINALOA</span>
+        </div>
+
+        <!-- Titular Display Expansivo Blanco y Negro -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-[1.1] font-heading">
+          Encuentra al oficio de confianza en <br class="hidden sm:inline"/>
+          <span class="bg-gradient-to-r from-zinc-950 via-zinc-700 to-zinc-900 dark:from-white dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">tu colonia, sindicatura o ejido</span>
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="text-sm sm:text-base lg:text-lg text-zinc-600 dark:text-zinc-400 font-normal max-w-2xl mx-auto leading-relaxed">
+          Plomeros, electricistas, técnicos en refrigeración, herreros y cerrajeros calificados. Con fotos reales y contacto directo a WhatsApp sin intermediarios.
+        </p>
+
+        <!-- =================================================================== -->
+        <!-- UNIVERSAL COMMAND SEARCH BAR (BUSCADOR INTELIGENTE CENTRAL)         -->
+        <!-- =================================================================== -->
+        <div class="pt-1 sm:pt-2">
+          <div class="relative bg-white dark:bg-zinc-900 backdrop-blur-md rounded-2xl shadow-hover border-2 border-zinc-300 dark:border-zinc-700 focus-within:border-black dark:focus-within:border-white transition-all duration-200 p-2 sm:p-2.5 flex items-center gap-3 max-w-3xl mx-auto">
+            
+            <div class="pl-2 sm:pl-3 text-zinc-800 dark:text-zinc-200 shrink-0">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Escribe un oficio, nombre, trabajo o colonia (ej. plomero, fuga, Álamos, Topolobampo)..." 
+              class="w-full py-1.5 px-1 text-sm sm:text-base bg-transparent border-0 text-zinc-950 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-0 font-medium"
+              autocomplete="off"
+            />
+
+            <!-- Botón Limpiar Búsqueda -->
+            <button 
+              id="btn-clear-search" 
+              type="button" 
+              class="hidden p-2 text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition cursor-pointer"
+              title="Borrar búsqueda"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <!-- Atajo de Teclado -->
+            <div class="hidden sm:flex items-center gap-1 pr-2 text-zinc-400 text-xs font-mono select-none">
+              <kbd class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-2xs font-bold text-zinc-700 dark:text-zinc-300">/</kbd>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- PÍLDORAS DE ACCESO RÁPIDO A CATEGORÍAS POPULARES                     -->
+        <!-- =================================================================== -->
+        <div class="pt-1">
+          <div class="text-[11px] font-mono font-bold text-zinc-400 uppercase tracking-wider mb-2.5">Búsquedas rápidas y especialidades:</div>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            
+            <button type="button" onclick="window.filterByQuickCategory('Electricidad')" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm font-bold border border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white shadow-2xs hover:shadow-soft transition cursor-pointer">
+              <span>⚡</span> Electricista
+            </button>
+
+            <button type="button" onclick="window.filterByQuickCategory('Plomería')" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm font-bold border border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white shadow-2xs hover:shadow-soft transition cursor-pointer">
+              <span>🔧</span> Plomero
+            </button>
+
+            <button type="button" onclick="window.filterByQuickCategory('Reparación de electrodomésticos')" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm font-bold border border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white shadow-2xs hover:shadow-soft transition cursor-pointer">
+              <span>❄️</span> Climas & Minisplits
+            </button>
+
+            <button type="button" onclick="window.filterByQuickCategory('Herrería')" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm font-bold border border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white shadow-2xs hover:shadow-soft transition cursor-pointer">
+              <span>🛠️</span> Herrero
+            </button>
+
+            <button type="button" onclick="window.filterByQuickCategory('Cerrajería')" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm font-bold border border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white shadow-2xs hover:shadow-soft transition cursor-pointer">
+              <span>🔑</span> Cerrajero
+            </button>
+
+            <button type="button" onclick="window.filterByQuickCategory('Albañilería')" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm font-bold border border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white shadow-2xs hover:shadow-soft transition cursor-pointer">
+              <span>🧱</span> Albañil
+            </button>
+
+            <button type="button" onclick="window.filterByQuickCategory('Mecánica ligera')" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm font-bold border border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white shadow-2xs hover:shadow-soft transition cursor-pointer">
+              <span>🚗</span> Mecánico
+            </button>
+
+            <!-- Botón Urgencias 24h Blanco y Negro -->
+            <button type="button" onclick="window.toggleAuxilioNocturno()" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 text-xs sm:text-sm font-extrabold border border-black dark:border-white shadow-2xs hover:opacity-90 transition cursor-pointer">
+              <span>🚨</span> Urgencias 24h
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- =================================================================== -->
+      <!-- 4 BENTO PILLARS DE CONFIANZA CÍVICA (BLANCO Y NEGRO)                -->
+      <!-- =================================================================== -->
+      <div class="pt-4 sm:pt-6 border-t border-zinc-200 dark:border-zinc-800 max-w-6xl mx-auto w-full">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+          
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-soft hover:shadow-hover transition duration-200">
+            <div class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white font-heading">288+</div>
+            <div class="text-xs text-zinc-600 dark:text-zinc-400 font-semibold mt-0.5">Oficios Verificados</div>
+          </div>
+
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-soft hover:shadow-hover transition duration-200">
+            <div class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white font-heading">7</div>
+            <div class="text-xs text-zinc-600 dark:text-zinc-400 font-semibold mt-0.5">Sindicaturas Cubiertas</div>
+          </div>
+
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-soft hover:shadow-hover transition duration-200">
+            <div class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white font-heading">0%</div>
+            <div class="text-xs text-zinc-600 dark:text-zinc-400 font-semibold mt-0.5">Comisiones (100% Libre)</div>
+          </div>
+
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-soft hover:shadow-hover transition duration-200">
+            <div class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white font-heading">100%</div>
+            <div class="text-xs text-zinc-600 dark:text-zinc-400 font-semibold mt-0.5">Funciona Sin Internet</div>
+          </div>
+
+        </div>
+
+        <!-- Indicador de desplazamiento hacia el directorio -->
+        <div class="pt-4 sm:pt-6 flex items-center justify-center">
+          <a href="#directorio" class="inline-flex items-center gap-2 text-xs font-bold text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition group">
+            <span>Explorar mapa interactivo y directorio de 288 oficios</span>
+            <svg class="w-4 h-4 transform group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- CONTENEDOR PRINCIPAL DE LA APLICACIÓN (DIRECTORIO & MAPA)                 -->
+  <!-- ========================================================================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-6 space-y-6 relative z-10">
+
+    <!-- Banner de Auxilio Nocturno 24 Horas -->
+    <div id="auxilio-nocturno-banner" class="hidden bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 rounded-2xl p-4 sm:p-5 text-rose-900 dark:text-rose-200 shadow-soft space-y-2">
       <div class="flex items-center justify-between gap-2">
-        <div class="flex items-center gap-2.5 font-extrabold text-sm sm:text-base text-[#7c3a1e] dark:text-[#e8a37f]">
-          <span class="w-2.5 h-2.5 rounded-full bg-[#8c4d29] animate-pulse"></span>
+        <div class="flex items-center gap-2.5 font-extrabold text-sm sm:text-base text-rose-800 dark:text-rose-300">
+          <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
           <span>🚨 Modo Auxilio Rápido Nocturno 24h Activo</span>
         </div>
         <button 
           type="button" 
           onclick="window.toggleAuxilioNocturno()" 
-          class="text-xs font-bold text-[#7c3a1e] dark:text-[#e8a37f] hover:underline px-2.5 py-1 rounded bg-[#f5e4d5] dark:bg-[#381c0f] cursor-pointer"
+          class="text-xs font-bold text-rose-700 dark:text-rose-300 hover:underline px-3 py-1 rounded-lg bg-rose-100 dark:bg-rose-900/60 cursor-pointer"
         >
           ✕ Desactivar auxilio
         </button>
       </div>
-      <p class="text-xs sm:text-sm text-[#7c3a1e]/90 dark:text-[#e8a37f]/90 leading-relaxed">
+      <p class="text-xs sm:text-sm text-rose-800/90 dark:text-rose-200/90 leading-relaxed">
         Mostrando únicamente prestadores con disponibilidad para emergencias nocturnas (fugas de agua, cortos eléctricos, chapas trabadas). <strong>Se recomienda realizar una llamada directa por red celular convencional</strong> para atención inmediata.
       </p>
     </div>
 
-    <!-- Mensaje Cívico / Introductorio PolyLab Studio -->
-    <section class="bg-slate-900 text-white rounded-2xl p-5 sm:p-7 shadow-sm border border-slate-800 relative overflow-hidden">
-      <div class="relative z-10 max-w-3xl space-y-2.5">
-        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-slate-800 text-slate-300 border border-slate-700">
-          📍 MUNICIPIO DE AHOME • GUÍA CÍVICA
-        </div>
-        <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white leading-tight">
-          Encuentra al trabajador de oficio de tu colonia o ejido en el mapa
-        </h2>
-        <p class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
-          Plomeros, electricistas, herreros, modistas y técnicos de confianza cerca de ti. Con fotos de sus trabajos y contacto directo a WhatsApp o llamada telefónica sin intermediarios.
-        </p>
-      </div>
-    </section>
-
-    <!-- Barra de Búsqueda y Filtros Reactivos -->
-    <section id="directorio" class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800 shadow-2xs space-y-4 transition-colors duration-200">
+    <!-- ======================================================================= -->
+    <!-- BARRA DE CONTROL DE EXPLORACIÓN: FILTROS AVANZADOS Y VISTAS             -->
+    <!-- ======================================================================= -->
+    <section id="directorio" class="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-4 sm:p-5 shadow-soft space-y-4">
       
-      <!-- Campo de Búsqueda Instantánea -->
-      <div class="relative">
-        <label for="search-input" class="sr-only">Buscar oficio o servicio por necesidad</label>
-        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        </div>
-        <input 
-          type="search" 
-          id="search-input" 
-          placeholder="¿Qué necesitas reparar? (ej. balcón, fuga, minisplit, portón, cerradura, lavadora, bastilla, frenos)..." 
-          class="w-full pl-11 pr-10 py-3 text-sm sm:text-base bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-slate-900 dark:focus:border-white focus:ring-2 focus:ring-slate-900/10 dark:focus:ring-white/10 outline-none transition"
-          autocomplete="off"
-        >
-        <button id="btn-clear-search" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" title="Limpiar búsqueda">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-
-      <!-- Atajos Rápidos de Búsqueda y Filtro de Guardados -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pt-0.5">
-        <div class="flex flex-wrap items-center gap-1.5 text-xs">
-          <span class="text-slate-400 font-mono text-[11px] font-semibold mr-0.5">Sugerencias:</span>
-          <button type="button" onclick="window.applyQuickSearch('fuga')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 text-slate-700 dark:text-slate-300 font-mono text-xs transition cursor-pointer border border-slate-200 dark:border-slate-700">🔧 Fugas</button>
-          <button type="button" onclick="window.applyQuickSearch('clima')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 text-slate-700 dark:text-slate-300 font-mono text-xs transition cursor-pointer border border-slate-200 dark:border-slate-700">❄️ Climas</button>
-          <button type="button" onclick="window.applyQuickSearch('porton')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 text-slate-700 dark:text-slate-300 font-mono text-xs transition cursor-pointer border border-slate-200 dark:border-slate-700">🚪 Portones</button>
-          <button type="button" onclick="window.applyQuickSearch('chapa')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 text-slate-700 dark:text-slate-300 font-mono text-xs transition cursor-pointer border border-slate-200 dark:border-slate-700">🔑 Chapas</button>
-          <button type="button" onclick="window.applyQuickSearch('corto')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 text-slate-700 dark:text-slate-300 font-mono text-xs transition cursor-pointer border border-slate-200 dark:border-slate-700">⚡ Cortos</button>
-        </div>
-
-        <div class="flex items-center gap-2">
-          <!-- Botón de Mis Guardados Rápido en Filtros -->
-          <button 
-            type="button" 
-            id="btn-filter-favorites" 
-            onclick="window.toggleFavoritesFilter()" 
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-mono font-bold rounded-lg border border-slate-200 dark:border-slate-700 transition cursor-pointer shadow-2xs" 
-            title="Mostrar solo mis oficios guardados de confianza"
-          >
-            <span>⭐</span> <span>Mis Guardados</span>
-            <span id="favorites-count-badge-quick" class="px-1.5 py-0.2 rounded-full text-[10px] font-mono bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold">0</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Filtros Secundarios: Selector de Oficio y Selector Exhaustivo de Zona -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-1">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         
-        <!-- Selector de Oficio -->
-        <div>
-          <label for="select-oficio" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-            Oficio / Categoría
-          </label>
+        <!-- Selectores de Oficio y Zona -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1">
+          
+          <!-- Selector de Oficio -->
           <div class="relative">
-            <select id="select-oficio" class="w-full py-2.5 pl-3 pr-8 text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-800 font-medium focus:ring-2 focus:ring-slate-900 focus:border-slate-900 dark:focus:ring-white dark:focus:border-white outline-none transition appearance-none cursor-pointer">
-              <option value="todos">Todos los oficios</option>
+            <label for="select-oficio" class="sr-only">Filtrar por oficio</label>
+            <select id="select-oficio" class="w-full py-2.5 pl-3.5 pr-8 text-xs sm:text-sm bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl text-zinc-800 dark:text-zinc-200 font-bold focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition appearance-none cursor-pointer">
+              <option value="todos">🛠️ Todas las categorías</option>
               <option value="Herrería">🛠️ Herrería y Balcones</option>
               <option value="Plomería">🔧 Plomería y Destapes</option>
               <option value="Electricidad">⚡ Electricidad e Instalaciones</option>
@@ -565,22 +689,17 @@
               <option value="Mecánica ligera">🚗 Mecánica Ligera y Frenos</option>
               <option value="Otros">✨ Otros Oficios (Carpintería, Vidriería)</option>
             </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-500">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-zinc-500">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
             </div>
           </div>
-        </div>
 
-        <!-- Selector de Zona: Todas las Sindicaturas, Colonias y Ejidos de Ahome -->
-        <div>
-          <label for="select-zona" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-            Sindicatura, Colonia o Ejido
-          </label>
+          <!-- Selector de Zona (Sindicatura / Colonia) -->
           <div class="relative">
-            <select id="select-zona" class="w-full py-2.5 pl-3 pr-8 text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-800 font-medium focus:ring-2 focus:ring-slate-900 focus:border-slate-900 dark:focus:ring-white dark:focus:border-white outline-none transition appearance-none cursor-pointer">
-              <option value="todas">Todo el Municipio de Ahome (Todas las Zonas)</option>
+            <label for="select-zona" class="sr-only">Filtrar por zona o sindicatura</label>
+            <select id="select-zona" class="w-full py-2.5 pl-3.5 pr-8 text-xs sm:text-sm bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl text-zinc-800 dark:text-zinc-200 font-bold focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition appearance-none cursor-pointer">
+              <option value="todas">📍 Todo el Municipio de Ahome</option>
               
-              <!-- 1. Las 7 Sindicaturas Oficiales de Ahome -->
               <optgroup label="🏛️ Las 7 Sindicaturas de Ahome">
                 <option value="Central (Los Mochis)">Sindicatura Central (Los Mochis)</option>
                 <option value="Topolobampo">Sindicatura de Topolobampo</option>
@@ -591,7 +710,6 @@
                 <option value="El Carrizo">Sindicatura Villa Gustavo Díaz Ordaz (El Carrizo)</option>
               </optgroup>
 
-              <!-- 2. Colonias y Fraccionamientos de Los Mochis -->
               <optgroup label="🏘️ Colonias y Fraccionamientos de Los Mochis">
                 <option value="12 de Octubre">12 de Octubre</option>
                 <option value="Álamos Country">Álamos Country</option>
@@ -719,7 +837,6 @@
                 <option value="Virreyes">Virreyes</option>
               </optgroup>
 
-              <!-- 3. Ejidos y Comunidades Rurales de Ahome -->
               <optgroup label="🌾 Ejidos y Comunidades Rurales">
                 <option value="Ejido Mochis">Ejido Mochis</option>
                 <option value="Ejido México">Ejido México (San Mateo)</option>
@@ -743,128 +860,128 @@
                 <option value="Mayocoba">Mayocoba</option>
                 <option value="El Bule">El Bule</option>
               </optgroup>
-
             </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-500">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-zinc-500">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
             </div>
           </div>
+
         </div>
 
-        <!-- Checkbox de Emergencias 24h -->
-        <div class="flex items-end">
-          <label class="w-full h-[42px] px-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-lg flex items-center gap-2.5 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition select-none">
-            <input type="checkbox" id="check-emergencias" class="w-4 h-4 text-slate-900 rounded border-slate-300 focus:ring-slate-900">
-            <span class="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-              <span>🚨</span> Solo emergencias 24h
-            </span>
+        <!-- Acciones Rápidas de la Barra: Favoritos y Checkbox Emergencias -->
+        <div class="flex items-center gap-2 flex-wrap">
+          
+          <!-- Botón Mis Favoritos -->
+          <button 
+            type="button" 
+            onclick="window.toggleFavoritesFilter()" 
+            class="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs font-bold border border-zinc-300 dark:border-zinc-700 shadow-2xs hover:bg-zinc-200 dark:hover:bg-zinc-700 transition cursor-pointer"
+          >
+            <span>⭐</span>
+            <span>Guardados</span>
+            <span id="favorites-count-badge" class="px-1.5 py-0.2 rounded-full bg-zinc-200 dark:bg-zinc-700 text-[10px] font-mono font-bold">0</span>
+          </button>
+
+          <!-- Checkbox Emergencias 24h -->
+          <label class="inline-flex items-center gap-2 px-3 py-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl text-xs font-bold text-zinc-700 dark:text-zinc-300 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-700/80 transition select-none">
+            <input type="checkbox" id="check-emergencias" class="w-4 h-4 text-black rounded border-zinc-300 focus:ring-black dark:focus:ring-white">
+            <span>🚨 Solo 24h</span>
           </label>
+
         </div>
 
       </div>
 
-      <!-- Barra de Estado de Filtros y Conteo de Resultados -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500">
-        <div id="results-count" class="font-medium text-slate-700 dark:text-slate-300 font-mono text-[11px]">
+      <!-- Barra de Estado y Resultados -->
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-zinc-100 dark:border-zinc-800 text-xs">
+        <div id="results-count" class="font-mono text-xs font-bold text-zinc-700 dark:text-zinc-300">
           Cargando directorio comunitario...
         </div>
-        <button id="btn-reset-filters" class="hidden text-slate-900 dark:text-white font-bold underline cursor-pointer">
+        <button id="btn-reset-filters" class="hidden text-black dark:text-white font-bold hover:underline cursor-pointer">
           Restablecer todos los filtros
         </button>
       </div>
 
-      <!-- Píldoras de Filtros Activos con eliminación rápida individual -->
-      <div id="active-filters-bar" class="hidden flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
-        <span class="text-[11px] font-bold text-slate-400 mr-1 select-none font-mono">Filtros activos:</span>
+      <!-- Píldoras de Filtros Activos -->
+      <div id="active-filters-bar" class="hidden flex flex-wrap items-center gap-1.5 pt-2 border-t border-zinc-100 dark:border-zinc-800">
+        <span class="text-[11px] font-bold text-zinc-400 mr-1 select-none font-mono">Filtros activos:</span>
         <div id="active-filter-chips" class="flex flex-wrap items-center gap-1.5"></div>
       </div>
 
     </section>
 
-    <!-- ===================================================================== -->
-    <!-- MAPA COMUNITARIO CENTRAL DE OFICIOS EN AHOME (LEAFLET / OPENSTREETMAP) -->
-    <!-- ===================================================================== -->
-    <section id="seccion-mapa-central" class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-2xs space-y-4 transition-colors duration-200">
+    <!-- ======================================================================= -->
+    <!-- MAPA COMUNITARIO CENTRAL DE OFICIOS EN AHOME (LEAFLET)                  -->
+    <!-- ======================================================================= -->
+    <section id="seccion-mapa-central" class="bg-white dark:bg-zinc-900 rounded-3xl p-5 sm:p-6 border border-zinc-200 dark:border-zinc-800 shadow-soft space-y-4">
       
-      <!-- Encabezado Central del Mapa -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
+      <!-- Encabezado del Mapa -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-zinc-100 dark:border-zinc-800">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
             <span class="text-xl">🗺️</span>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-950 dark:text-white">
-              Mapa de Oficios en el Municipio de Ahome
+            <h2 class="text-base sm:text-lg font-extrabold text-zinc-950 dark:text-white font-heading">
+              Mapa Interactivo de Ahome
             </h2>
-            <span id="map-workers-badge" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
-              20 pines activos
+            <span id="map-workers-badge" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700">
+              Pines activos
             </span>
           </div>
-          <p class="text-xs text-slate-500 dark:text-slate-400">
-            Explora prestadores con fotos, trabajos realizados y contacto directo por colonia, sindicatura y ejidos.
+          <p class="text-xs text-zinc-500 dark:text-zinc-400">
+            Ubica a los trabajadores cerca de tu zona o sindicatura en tiempo real.
           </p>
         </div>
 
         <div class="flex items-center gap-2">
-          <!-- Botón Re-centrar Ahome -->
-          <button id="btn-recenter-map" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 active:bg-slate-300 rounded-lg border border-slate-200 dark:border-slate-700 transition cursor-pointer" title="Re-centrar mapa en Ahome">
-            <svg class="w-3.5 h-3.5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+          <!-- Botón Re-centrar -->
+          <button id="btn-recenter-map" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-zinc-700 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-xl border border-zinc-200 dark:border-zinc-700 transition cursor-pointer shadow-2xs" title="Re-centrar mapa en Ahome">
+            <svg class="w-4 h-4 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
             <span>Centrar Ahome</span>
           </button>
           
           <!-- Botón Minimizar/Expandir Mapa -->
-          <button id="btn-toggle-map" class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg border border-slate-200 dark:border-slate-700 transition cursor-pointer">
+          <button id="btn-toggle-map" class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-bold text-zinc-700 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-xl border border-zinc-200 dark:border-zinc-700 transition cursor-pointer shadow-2xs">
             <span id="toggle-map-text">Ocultar</span>
           </button>
         </div>
       </div>
 
-      <!-- Contenedor del Mapa Leaflet en el Centro -->
+      <!-- Contenedor del Mapa Leaflet -->
       <div id="map-wrapper" class="relative">
-        <div id="map" class="w-full h-[400px] sm:h-[480px] rounded-xl border border-slate-200 dark:border-slate-800 z-10"></div>
-        <div id="map-empty-overlay" class="hidden absolute inset-0 bg-slate-900/60 backdrop-blur-xs rounded-xl flex items-center justify-center z-20 text-white text-xs font-semibold p-4 text-center">
+        <div id="map" class="w-full h-[360px] sm:h-[440px] rounded-2xl border border-zinc-200 dark:border-zinc-800 z-10 shadow-inner"></div>
+        <div id="map-empty-overlay" class="hidden absolute inset-0 bg-black/75 backdrop-blur-xs rounded-2xl flex items-center justify-center z-20 text-white text-xs font-semibold p-4 text-center">
           No hay trabajadores que coincidan con los filtros seleccionados en el mapa.
         </div>
       </div>
 
-      <!-- Leyenda Rápida de Categorías en el Mapa -->
-      <div class="pt-1 flex flex-wrap items-center gap-2 text-[11px] text-slate-600 dark:text-slate-400 font-mono">
-        <span class="font-bold text-slate-800 dark:text-slate-200">Pines:</span>
-        <span class="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700"><span>🛠️</span> Herrería</span>
-        <span class="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700"><span>🔧</span> Plomería</span>
-        <span class="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700"><span>⚡</span> Electricidad</span>
-        <span class="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700"><span>❄️</span> Climas</span>
-        <span class="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700"><span>🔑</span> Cerrajería</span>
-        <span class="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700"><span>🧱</span> Albañilería</span>
-        <span class="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700"><span>🌿</span> Jardinería</span>
-        <span class="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700"><span>🚗</span> Mecánica</span>
-        <span class="inline-flex items-center gap-1 bg-[#fdf6f0] dark:bg-[#1f120a] text-[#7c3a1e] dark:text-[#e8a37f] px-2 py-0.5 rounded font-semibold border border-[#e8d5c4] dark:border-[#452312]"><span>🚨</span> Urgencias 24h</span>
-      </div>
-
     </section>
 
-    <!-- Lista de Tarjetas de Oficio con Soporte de Foto -->
-    <section aria-label="Directorio de trabajadores y talleres">
+    <!-- ======================================================================= -->
+    <!-- DIRECTORIO DE TARJETAS DE OFICIOS (GRID RESPONSIVO)                     -->
+    <!-- ======================================================================= -->
+    <section aria-label="Directorio de trabajadores y talleres" class="space-y-4">
       
-      <!-- Contenedor Grid Dinámico con alineación natural -->
-      <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
+      <!-- Contenedor Grid Dinámico -->
+      <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
         <!-- Renderizado dinámico desde app.js -->
       </div>
 
       <!-- Estado Vacío (Zero Results) -->
-      <div id="empty-state" class="hidden bg-white dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-700 rounded-2xl p-8 text-center max-w-lg mx-auto my-8 space-y-4">
-        <div class="w-16 h-16 bg-slate-100 dark:bg-slate-800 text-slate-400 rounded-2xl mx-auto flex items-center justify-center">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      <div id="empty-state" class="hidden bg-white dark:bg-zinc-900 border border-dashed border-zinc-300 dark:border-zinc-700 rounded-3xl p-8 text-center max-w-lg mx-auto my-8 space-y-4 shadow-soft">
+        <div class="w-16 h-16 bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white rounded-2xl mx-auto flex items-center justify-center shadow-xs">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
         <div>
-          <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">No encontramos ningún oficio con estos filtros</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
-            Intenta con otra palabra clave, selecciona "Todos los oficios" o elimina el filtro de zona o favoritos.
+          <h3 class="text-lg font-extrabold text-zinc-950 dark:text-white font-heading">No encontramos oficios con estos filtros</h3>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 max-w-sm mx-auto">
+            Intenta con otra palabra clave, selecciona "Todas las categorías" o elimina el filtro de zona.
           </p>
         </div>
-        <div class="flex flex-wrap justify-center gap-2 pt-2">
-          <button id="btn-empty-reset" class="px-3.5 py-2 text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-lg transition cursor-pointer">
+        <div class="flex flex-wrap justify-center gap-2.5 pt-2">
+          <button id="btn-empty-reset" class="px-4 py-2.5 text-xs font-bold bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 rounded-xl transition cursor-pointer border border-zinc-200 dark:border-zinc-700">
             Limpiar filtros
           </button>
-          <button id="btn-empty-register" class="px-4 py-2 text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-950 text-white rounded-xl transition btn-glow cursor-pointer">
+          <button id="btn-empty-register" class="px-5 py-2.5 text-xs font-extrabold btn-gradient-primary text-white dark:text-black rounded-xl shadow-btn transition cursor-pointer">
             Registrar este oficio gratis
           </button>
         </div>
@@ -875,29 +992,31 @@
   </main>
 
   <!-- Banner Flotante Fijo en Móviles para Registrar Oficio -->
-  <div class="md:hidden fixed bottom-4 right-4 z-20">
-    <button id="btn-float-add" class="flex items-center gap-2 px-4 py-3 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-950 text-white font-bold text-sm rounded-full shadow-lg transition transform active:scale-95 border border-slate-700 dark:border-slate-200 btn-glow cursor-pointer">
+  <div class="md:hidden fixed bottom-5 right-5 z-30">
+    <button id="btn-float-add" class="flex items-center gap-2 px-5 py-3.5 btn-gradient-primary font-extrabold text-sm rounded-full shadow-hover transition transform active:scale-95 cursor-pointer">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
       <span>Suma tu oficio</span>
     </button>
   </div>
 
-  <!-- Pie de Página Cívico y Accesible con Canal de WhatsApp -->
-  <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 text-xs py-8 mt-12 transition-colors duration-200">
-    <div class="max-w-6xl mx-auto px-4 space-y-8">
+
+  <!-- Pie de Página Cívico Blanco y Negro -->
+  <footer class="bg-white dark:bg-[#09090B] border-t border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs py-10 mt-16 transition-colors duration-200 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
       
       <!-- Canal Directo de WhatsApp: Bajas, Modificaciones y Soporte -->
-      <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-800 relative overflow-hidden">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-5 relative z-10">
-          <div class="space-y-2 text-center md:text-left">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-slate-300 font-mono font-bold text-xs border border-slate-700">
-              <span class="w-2 h-2 rounded-full bg-slate-400 animate-pulse"></span>
+      <div class="bg-black text-white rounded-3xl p-7 sm:p-9 shadow-hover border border-zinc-800 relative overflow-hidden">
+        
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+          <div class="space-y-2.5 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 text-zinc-200 font-mono font-bold text-xs border border-zinc-800 shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
               <span>Canal Directo de WhatsApp • Atención y Soporte Ciudadano</span>
             </div>
-            <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">
+            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight font-heading">
               ¿Deseas dar de baja tu oficio, reportar una ficha o tienes dudas?
             </h3>
-            <p class="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+            <p class="text-xs sm:text-sm text-zinc-300 max-w-xl leading-relaxed">
               Mándame un mensaje directo por WhatsApp para solicitar altas, actualizar tus datos o pedir tu <strong>baja temporal o permanente</strong> si no tienes disponibilidad y así cuidar tu reputación profesional.
             </p>
           </div>
@@ -906,7 +1025,7 @@
               href="https://wa.me/526683956301?text=Hola,%20me%20comunico%20desde%20la%20plataforma%20Oficios%20Ahome.%20Quisiera%20solicitar%20información/soporte/baja%20de%20ficha." 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#164e37] hover:bg-[#113d2b] text-white font-extrabold text-sm rounded-xl shadow-xs transition btn-glow"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-white hover:bg-zinc-200 text-black font-extrabold text-sm rounded-2xl shadow-btn transition hover:scale-[1.02] active:scale-[0.98]"
               title="Enviar mensaje de WhatsApp al 668 395 6301"
             >
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
@@ -917,67 +1036,68 @@
       </div>
 
       <!-- Deslinde Cívico Destacado -->
-      <div class="mb-6 p-3.5 bg-slate-100 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
-        <div class="flex items-center gap-2">
-          <span class="text-base">🏛️</span>
-          <span class="font-medium"><strong class="font-bold text-slate-800 dark:text-white">Iniciativa Ciudadana Independiente:</strong> Plataforma comunitaria y de software libre sin fines de lucro. No pertenece, no representa ni está afiliada al H. Ayuntamiento de Ahome ni a ninguna dependencia gubernamental.</span>
+      <div class="p-4 bg-zinc-100 dark:bg-zinc-800/80 rounded-2xl border border-zinc-200 dark:border-zinc-700/80 text-xs text-zinc-600 dark:text-zinc-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
+        <div class="flex items-center gap-2.5">
+          <span class="text-xl">🏛️</span>
+          <span class="font-medium"><strong class="font-bold text-zinc-900 dark:text-white">Iniciativa Ciudadana Independiente:</strong> Plataforma comunitaria y de software libre sin fines de lucro. No pertenece ni representa a ninguna dependencia gubernamental.</span>
         </div>
-        <a href="./terminos-y-privacidad.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-slate-900 dark:text-white font-bold underline shrink-0 text-xs">
+        <a href="./terminos-y-privacidad.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-black dark:text-white font-bold hover:underline shrink-0 text-xs">
           <span>Ver Términos y Privacidad</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-        <div class="space-y-2">
-          <div class="flex items-center gap-2 font-bold text-slate-900 dark:text-white text-sm">
-            <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span> Oficios Ahome
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-2">
+        <div class="space-y-2.5">
+          <div class="flex items-center gap-2 font-extrabold text-zinc-900 dark:text-white text-base font-heading">
+            <span class="w-2.5 h-2.5 rounded-full bg-black dark:bg-white"></span> Oficios Ahome
           </div>
-          <p class="text-slate-500 leading-relaxed">
+          <p class="text-zinc-500 dark:text-zinc-400 leading-relaxed text-xs">
             Iniciativa cívica autogestiva y de código abierto para fortalecer la economía barrial y de las sindicaturas en el Municipio de Ahome, Sinaloa. Cero intermediarios, cero comisiones.
           </p>
         </div>
 
-        <div class="space-y-2">
-          <h4 class="font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider text-[11px] font-mono">Compromiso Comunitario</h4>
-          <ul class="space-y-1.5 text-slate-500">
-            <li class="flex items-center gap-1.5">
-              <span class="text-slate-700 dark:text-slate-300">✓</span> 100% Gratuito: Sin comisiones ni cobros ocultos
+        <div class="space-y-2.5">
+          <h4 class="font-bold text-zinc-900 dark:text-zinc-200 uppercase tracking-wider text-[11px] font-mono">Compromiso de Calidad y Confianza</h4>
+          <ul class="space-y-2 text-zinc-500 dark:text-zinc-400 text-xs">
+            <li class="flex items-center gap-2">
+              <span class="font-bold text-black dark:text-white">✓</span> 100% Gratuito: Sin comisiones ni cobros ocultos
             </li>
-            <li class="flex items-center gap-1.5">
-              <span class="text-slate-700 dark:text-slate-300">✓</span> Conexión directa Persona a Persona (P2P) vía WhatsApp
+            <li class="flex items-center gap-2">
+              <span class="font-bold text-black dark:text-white">✓</span> Conexión directa Persona a Persona (P2P) vía WhatsApp
             </li>
-            <li class="flex items-center gap-1.5">
-              <span class="text-slate-700 dark:text-slate-300">✓</span> Protección de Datos y Privacidad Cívica (LFPDPPP)
+            <li class="flex items-center gap-2">
+              <span class="font-bold text-black dark:text-white">✓</span> Protección de Datos y Privacidad Cívica (LFPDPPP)
             </li>
-            <li class="flex items-center gap-1.5">
-              <span class="text-slate-700 dark:text-slate-300">✓</span> Funciona sin internet mediante PWA
+            <li class="flex items-center gap-2">
+              <span class="font-bold text-black dark:text-white">✓</span> Funciona sin internet mediante PWA
             </li>
           </ul>
         </div>
       </div>
 
-      <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 dark:text-slate-500 text-xs">
+      <div class="pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-zinc-400 dark:text-zinc-500 text-xs">
         <div>
           <p>© 2026 Oficios Ahome • Software Cívico de Libre Distribución</p>
-          <p class="text-[11px] text-slate-400/90 dark:text-slate-500/90 mt-1 flex items-center gap-1.5">
+          <p class="text-[11px] text-zinc-400 dark:text-zinc-500 mt-1 flex items-center gap-1.5">
             <img src="./images/polylab-logo.png" alt="Logo de Polylab" class="w-3.5 h-3.5 object-contain dark:invert shrink-0 opacity-80" width="14" height="14" />
-            <span>Creación y desarrollo por <span class="font-semibold text-slate-600 dark:text-slate-400">POLYLAB (Ramsses García)</span></span>
+            <span>Creación y desarrollo por <span class="font-semibold text-zinc-700 dark:text-zinc-300">POLYLAB (Ramsses García)</span></span>
           </p>
         </div>
         <div class="flex flex-wrap items-center gap-3">
-          <a href="./sobre-nosotros.html" class="hover:text-slate-700 dark:hover:text-slate-300 transition font-medium">Sobre nosotros</a>
+          <a href="./sobre-nosotros.html" class="hover:text-black dark:hover:text-white transition font-medium">Sobre nosotros</a>
           <span>•</span>
-          <a href="./terminos-y-privacidad.html#privacidad" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 dark:hover:text-slate-300 transition">Aviso de Privacidad</a>
+          <a href="./terminos-y-privacidad.html#privacidad" target="_blank" rel="noopener noreferrer" class="hover:text-black dark:hover:text-white transition">Aviso de Privacidad</a>
           <span>•</span>
-          <a href="./terminos-y-privacidad.html#deslinde" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 dark:hover:text-slate-300 transition">Términos y Deslinde</a>
+          <a href="./terminos-y-privacidad.html#deslinde" target="_blank" rel="noopener noreferrer" class="hover:text-black dark:hover:text-white transition">Términos y Deslinde</a>
           <span>•</span>
-          <a href="./terminos-y-privacidad.html#arco" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 dark:hover:text-slate-300 transition">Derechos ARCO</a>
+          <a href="./terminos-y-privacidad.html#arco" target="_blank" rel="noopener noreferrer" class="hover:text-black dark:hover:text-white transition">Derechos ARCO</a>
         </div>
       </div>
 
     </div>
   </footer>
+
 
   <!-- ========================================================================= -->
   <!-- MODAL: VISOR DE FOTOS EN PANTALLA COMPLETA (LIGHTBOX)                     -->
@@ -1042,19 +1162,19 @@
   <div id="modal-quote" style="z-index: 70;" role="dialog" aria-modal="true" aria-label="Cotizar por WhatsApp" class="hidden fixed inset-0 z-[70] overflow-y-auto bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
     <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 dark:border-slate-800 relative overflow-hidden animate-in fade-in zoom-in-95 duration-150 max-h-[94vh] flex flex-col">
       
-      <!-- Encabezado con datos del prestador -->
-      <div class="bg-slate-900 text-white p-5 relative shrink-0 border-b border-slate-800">
+      <!-- Encabezado con datos del prestador con Gradiente Corporate Trust -->
+      <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 relative shrink-0 border-b border-indigo-900/60">
         <button id="btn-close-quote" type="button" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition cursor-pointer" title="Cerrar generador de mensaje">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
         <div class="flex items-center gap-2 mb-1">
-          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-slate-800 text-slate-300 border border-slate-700">
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-indigo-900/80 text-indigo-200 border border-indigo-700/80 shadow-xs">
             <span>💬</span> Mensaje Claro para Cotización
           </span>
           <span id="quote-worker-badge" class="text-[11px] font-semibold text-slate-300"></span>
         </div>
-        <h3 id="quote-worker-name" class="text-lg sm:text-xl font-black text-white leading-tight">Cotizar servicio</h3>
-        <p class="text-xs text-slate-300 mt-1">Completa estas 3 casillas para enviar un mensaje formal y directo que le ahorre tiempo al trabajador.</p>
+        <h3 id="quote-worker-name" class="text-lg sm:text-xl font-extrabold text-white leading-tight font-heading">Cotizar servicio</h3>
+        <p class="text-xs text-indigo-200/90 mt-1">Completa estas 3 casillas para enviar un mensaje formal y directo que le ahorre tiempo al trabajador.</p>
       </div>
 
       <!-- Cuerpo del formulario -->
@@ -1063,7 +1183,7 @@
         <!-- Casilla 1: Tipo de trabajo -->
         <div class="space-y-1.5">
           <div class="flex items-center justify-between">
-            <label for="quote-trabajo" class="block text-xs font-bold text-slate-800">
+            <label for="quote-trabajo" class="block text-xs font-bold text-slate-800 dark:text-slate-200">
               1. Tipo de trabajo que necesitas <span class="text-rose-500">*</span>
             </label>
             <span class="text-[10px] text-slate-400">Ej. reparación de fuga, portón, etc.</span>
@@ -1073,7 +1193,7 @@
             id="quote-trabajo" 
             placeholder="ej. reparación de fuga" 
             required
-            class="w-full px-3.5 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:bg-white outline-none transition"
+            class="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 focus:bg-white dark:focus:bg-slate-800 outline-none transition text-slate-900 dark:text-white"
           >
           <!-- Sugerencias rápidas en chips según el oficio -->
           <div id="quote-chips" class="flex flex-wrap gap-1.5 pt-1">
@@ -1084,7 +1204,7 @@
         <!-- Casilla 2: Colonia o Sindicatura -->
         <div class="space-y-1.5">
           <div class="flex items-center justify-between">
-            <label for="quote-colonia" class="block text-xs font-bold text-slate-800">
+            <label for="quote-colonia" class="block text-xs font-bold text-slate-800 dark:text-slate-200">
               2. Colonia, Fraccionamiento o Ejido <span class="text-rose-500">*</span>
             </label>
             <span class="text-[10px] text-slate-400">¿Dónde se realizará el trabajo?</span>
@@ -1095,7 +1215,7 @@
             list="quote-zonas-list"
             placeholder="ej. Col. Bienestar / Álamos Country / Topolobampo" 
             required
-            class="w-full px-3.5 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:bg-white outline-none transition"
+            class="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 focus:bg-white dark:focus:bg-slate-800 outline-none transition text-slate-900 dark:text-white"
           >
           <datalist id="quote-zonas-list">
             <!-- Opciones extraídas dinámicamente de AHOME_ZONA_COORDS -->
@@ -1104,13 +1224,13 @@
 
         <!-- Casilla 3: Urgencia / Disponibilidad -->
         <div class="space-y-2">
-          <label class="block text-xs font-bold text-slate-800">
+          <label class="block text-xs font-bold text-slate-800 dark:text-slate-200">
             3. Urgencia / ¿Para cuándo requieres disponibilidad? <span class="text-rose-500">*</span>
           </label>
           <div class="grid grid-cols-3 gap-2">
             <button 
               type="button" 
-              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100" 
+              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100" 
               data-urgencia="hoy mismo"
             >
               <span class="text-base">🚨</span>
@@ -1119,16 +1239,16 @@
             </button>
             <button 
               type="button" 
-              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-slate-900 bg-slate-900 text-white shadow-2xs" 
+              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-indigo-600 bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-btn" 
               data-urgencia="esta semana"
             >
               <span class="text-base">📅</span>
               <span>Esta semana</span>
-              <span class="text-[9px] font-mono text-slate-300">Recomendado</span>
+              <span class="text-[9px] font-mono text-indigo-100">Recomendado</span>
             </button>
             <button 
               type="button" 
-              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100" 
+              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100" 
               data-urgencia="próxima semana / sin prisa"
             >
               <span class="text-base">🗓️</span>
@@ -1139,33 +1259,33 @@
         </div>
 
         <!-- Caja de Vista Previa del Mensaje Compilado (Estilo WhatsApp) -->
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-1.5">
-          <div class="flex items-center justify-between text-[11px] font-mono font-bold text-slate-800">
+        <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-3.5 space-y-1.5">
+          <div class="flex items-center justify-between text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200">
             <span class="flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5 text-slate-700 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
+              <svg class="w-3.5 h-3.5 text-emerald-600 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
               <span>Vista previa del mensaje predeterminado:</span>
             </span>
-            <span class="text-[10px] text-slate-800 font-mono font-bold bg-slate-200 px-1.5 py-0.5 rounded">WhatsApp</span>
+            <span class="text-[10px] text-emerald-700 dark:text-emerald-300 font-mono font-bold bg-emerald-50 dark:bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">WhatsApp</span>
           </div>
-          <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-800 leading-relaxed font-sans shadow-2xs relative">
-            <p id="quote-preview-text" class="text-slate-800 select-all"></p>
+          <div class="bg-white dark:bg-slate-900 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-200 leading-relaxed font-sans shadow-2xs relative">
+            <p id="quote-preview-text" class="text-slate-800 dark:text-slate-200 select-all"></p>
           </div>
         </div>
 
         <!-- Aviso de Red Celular si está Offline en el Cotizador -->
-        <div id="quote-offline-warning" class="hidden bg-slate-100 border border-slate-300 rounded-xl p-3 text-xs text-slate-900 space-y-1.5">
-          <div class="font-bold flex items-center gap-1.5 text-slate-900">
+        <div id="quote-offline-warning" class="hidden bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl p-3 text-xs text-slate-900 dark:text-white space-y-1.5">
+          <div class="font-bold flex items-center gap-1.5 text-slate-900 dark:text-white">
             <span>⚠️</span> Sin conexión a internet activa
           </div>
-          <p class="leading-relaxed text-[11.5px] text-slate-700">
+          <p class="leading-relaxed text-[11.5px] text-slate-700 dark:text-slate-300">
             WhatsApp requiere datos móviles. Si te quedaste sin megas en la calle, <strong>llama directamente por red celular convencional</strong>:
           </p>
           <a 
             id="quote-direct-call-btn" 
             href="#" 
-            class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs shadow-xs transition btn-glow"
+            class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-3 btn-gradient-primary text-white rounded-xl font-bold text-xs shadow-btn transition"
           >
-            <svg class="w-4 h-4 text-slate-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <svg class="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             <span id="quote-direct-call-text">Llamar ahora por red celular</span>
           </a>
         </div>
@@ -1175,7 +1295,7 @@
           <button 
             type="submit" 
             id="btn-send-whatsapp-quote" 
-            class="w-full py-3.5 px-4 bg-[#164e37] hover:bg-[#113d2b] active:bg-[#0c2e1f] text-white font-extrabold text-sm rounded-xl shadow-xs transition flex items-center justify-center gap-2 btn-glow cursor-pointer"
+            class="w-full py-3.5 px-4 btn-gradient-emerald text-white font-extrabold text-sm rounded-xl shadow-btn transition flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
           >
             <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
             <span>Abrir WhatsApp con este mensaje</span>
@@ -1184,7 +1304,7 @@
           <button 
             type="button" 
             id="btn-skip-quote" 
-            class="w-full py-2 text-center text-xs font-semibold text-slate-500 hover:text-slate-800 transition cursor-pointer"
+            class="w-full py-2 text-center text-xs font-semibold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition cursor-pointer"
           >
             Omitir y abrir WhatsApp con mensaje básico
           </button>
@@ -1688,7 +1808,7 @@
           <button 
             type="submit" 
             id="btn-submit-register" 
-            class="w-full py-3.5 px-4 bg-slate-900 hover:bg-slate-800 active:bg-black text-white font-bold text-sm rounded-xl shadow-xs transition flex items-center justify-center gap-2 btn-glow cursor-pointer"
+            class="w-full py-3.5 px-4 btn-gradient-primary text-white font-extrabold text-sm rounded-xl shadow-btn transition flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
           >
             <span id="submit-spinner" class="hidden w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
             <span id="submit-text">Publicar mi oficio gratis</span>

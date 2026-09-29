@@ -678,16 +678,16 @@ function toggleMapVisibility() {
 function createCustomClusterIcon(cluster) {
   const count = cluster.getChildCount();
   let size = 42;
-  let bgGradient = 'background: #090a0f; border: 2.5px solid #164e37; color: #ffffff;';
+  let bgGradient = 'background: #09090b; border: 2.5px solid #164e37; color: #ffffff;';
   let pulseGlow = 'box-shadow: 0 4px 12px rgba(0,0,0,0.35), 0 0 0 2px rgba(22,78,55,0.3);';
 
   if (count >= 50) {
     size = 48;
-    bgGradient = 'background: #090a0f; border: 2.5px solid #10b981; color: #ffffff;';
+    bgGradient = 'background: #09090b; border: 2.5px solid #10b981; color: #ffffff;';
     pulseGlow = 'box-shadow: 0 4px 14px rgba(0,0,0,0.4), 0 0 0 3px rgba(16,185,129,0.3);';
   } else if (count >= 10) {
     size = 44;
-    bgGradient = 'background: #090a0f; border: 2.5px solid #164e37; color: #ffffff;';
+    bgGradient = 'background: #09090b; border: 2.5px solid #164e37; color: #ffffff;';
     pulseGlow = 'box-shadow: 0 4px 12px rgba(0,0,0,0.35), 0 0 0 2px rgba(22,78,55,0.25);';
   }
 
@@ -770,17 +770,17 @@ function updateMapMarkers(oficiosList) {
     const popupHtml = `
       <div class="p-3 text-center space-y-2 min-w-[200px] max-w-[240px]">
         <div class="flex items-center justify-center gap-1.5">
-          <span class="inline-flex items-center gap-1 text-[11px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200">
+          <span class="inline-flex items-center gap-1 text-[11px] font-mono font-bold px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-800 border border-zinc-200">
             <span>${iconText}</span> ${escapeHtml(item.oficio)}
           </span>
           ${isEmergency ? '<span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-[#fbf6f0] text-[#7c3a1e] border border-[#e8d5c4]">🚨 24h</span>' : ''}
         </div>
 
         <div>
-          <h4 class="text-sm font-bold text-slate-900 leading-snug">${escapeHtml(item.nombre)}</h4>
-          <p class="text-[11px] text-slate-500 font-medium flex items-center justify-center gap-1 mt-0.5 font-mono">
+          <h4 class="text-sm font-bold text-zinc-900 leading-snug">${escapeHtml(item.nombre)}</h4>
+          <p class="text-[11px] text-zinc-500 font-medium flex items-center justify-center gap-1 mt-0.5 font-mono">
             <span>📍</span> ${escapeHtml(item.zona || 'Ahome')}
-            ${item.sindicatura ? `<span class="text-slate-400">(${escapeHtml(item.sindicatura)})</span>` : ''}
+            ${item.sindicatura ? `<span class="text-zinc-400">(${escapeHtml(item.sindicatura)})</span>` : ''}
           </p>
         </div>
 
@@ -789,7 +789,7 @@ function updateMapMarkers(oficiosList) {
           <button 
             type="button" 
             onclick="window.openFichaModal('${escapeHtml(item.id)}')" 
-            class="flex-1 py-2 px-2.5 bg-[#090a0f] hover:bg-slate-800 active:bg-black text-white rounded-lg text-xs font-bold text-center flex items-center justify-center gap-1 shadow-sm transition cursor-pointer btn-glow"
+            class="flex-1 py-2 px-2.5 bg-[#09090b] hover:bg-zinc-800 active:bg-black text-white rounded-lg text-xs font-bold text-center flex items-center justify-center gap-1 shadow-sm transition cursor-pointer btn-glow"
             title="Ver ficha completa de este oficio"
           >
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -799,7 +799,7 @@ function updateMapMarkers(oficiosList) {
             href="https://www.google.com/maps/dir/?api=1&destination=${renderLat},${renderLng}"
             target="_blank"
             rel="noopener noreferrer"
-            class="py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition"
+            class="py-2 px-2.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-800 border border-zinc-300 rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition"
             title="Abrir indicaciones de cómo llegar en Google Maps"
           >
             <span>🧭</span>
@@ -969,9 +969,9 @@ function getEnlaceTrabajosInfo(url) {
       icon: '📁',
       btnText: 'Ver en Google Drive',
       categoryTag: 'Portafolio Digital',
-      pillBadgeClass: 'bg-slate-100 text-slate-800 border-slate-200',
+      pillBadgeClass: 'bg-zinc-100 text-zinc-800 border-zinc-200',
       subtitle: 'Carpeta compartida con fotos y catálogo de trabajos.',
-      badgeClass: 'bg-slate-100 text-slate-800 border-slate-200 hover:bg-slate-200'
+      badgeClass: 'bg-zinc-100 text-zinc-800 border-zinc-200 hover:bg-zinc-200'
     };
   }
   if (lower.includes('imgur.com')) {
@@ -982,9 +982,9 @@ function getEnlaceTrabajosInfo(url) {
       icon: '🖼️',
       btnText: 'Ver en Imgur',
       categoryTag: 'Galería de Fotos',
-      pillBadgeClass: 'bg-slate-100 text-slate-800 border-slate-200',
+      pillBadgeClass: 'bg-zinc-100 text-zinc-800 border-zinc-200',
       subtitle: 'Álbum fotográfico con muestras de proyectos y acabados.',
-      badgeClass: 'bg-slate-100 text-slate-800 border-slate-200 hover:bg-slate-200'
+      badgeClass: 'bg-zinc-100 text-zinc-800 border-zinc-200 hover:bg-zinc-200'
     };
   }
   if (lower.includes('tiktok.com')) {
@@ -995,9 +995,9 @@ function getEnlaceTrabajosInfo(url) {
       icon: '🎵',
       btnText: 'Ver en TikTok',
       categoryTag: 'Red Social',
-      pillBadgeClass: 'bg-slate-900 text-white border-slate-700',
+      pillBadgeClass: 'bg-zinc-900 text-white border-zinc-700',
       subtitle: 'Videos de trabajos realizados, demostraciones y tips.',
-      badgeClass: 'bg-slate-900 text-white border-slate-700 hover:bg-black'
+      badgeClass: 'bg-zinc-900 text-white border-zinc-700 hover:bg-black'
     };
   }
   return {
@@ -1007,9 +1007,9 @@ function getEnlaceTrabajosInfo(url) {
     icon: '🌐',
     btnText: 'Visitar enlace',
     categoryTag: 'Presencia Digital',
-    pillBadgeClass: 'bg-slate-100 text-slate-800 border-slate-200',
+    pillBadgeClass: 'bg-zinc-100 text-zinc-800 border-zinc-200',
     subtitle: 'Portafolio digital, fotos y contacto en línea.',
-    badgeClass: 'bg-slate-100 text-slate-800 border-slate-300 hover:bg-slate-200'
+    badgeClass: 'bg-zinc-100 text-zinc-800 border-zinc-300 hover:bg-zinc-200'
   };
 }
 
@@ -1059,9 +1059,9 @@ function switchFichaModalPhoto(workerId, index) {
     const galThumb = document.getElementById(`ficha-gal-thumb-${i}`);
     if (galThumb) {
       if (i === newIndex) {
-        galThumb.className = 'h-28 rounded-xl overflow-hidden bg-slate-900 border-2 border-slate-900 dark:border-white ring-2 ring-slate-900/30 dark:ring-white/30 transition cursor-pointer relative group/gal shadow-md scale-[1.02]';
+        galThumb.className = 'h-28 rounded-xl overflow-hidden bg-zinc-900 border-2 border-zinc-900 dark:border-white ring-2 ring-zinc-900/30 dark:ring-white/30 transition cursor-pointer relative group/gal shadow-md scale-[1.02]';
       } else {
-        galThumb.className = 'h-28 rounded-xl overflow-hidden bg-slate-900 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-white transition cursor-pointer relative group/gal shadow-2xs opacity-80 hover:opacity-100';
+        galThumb.className = 'h-28 rounded-xl overflow-hidden bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-white transition cursor-pointer relative group/gal shadow-2xs opacity-80 hover:opacity-100';
       }
     }
   });
@@ -1121,9 +1121,9 @@ function openFichaModal(workerId) {
   let photoHtml = '';
   if (photos.length > 0) {
     photoHtml = `
-      <div class="relative bg-slate-950 select-none">
+      <div class="relative bg-zinc-950 select-none">
         <!-- Foto principal interactiva con visor incorporado dentro de la ficha -->
-        <div class="w-full h-64 sm:h-80 relative overflow-hidden group bg-slate-900 flex items-center justify-center">
+        <div class="w-full h-64 sm:h-80 relative overflow-hidden group bg-zinc-900 flex items-center justify-center">
           <img 
             id="ficha-modal-main-img" 
             src="${escapeHtml(photos[0])}" 
@@ -1132,14 +1132,14 @@ function openFichaModal(workerId) {
             onclick="window.nextFichaModalPhoto('${escapeHtml(item.id)}')"
             title="Toca para ver siguiente foto"
           >
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-black/30 pointer-events-none"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/15 to-black/30 pointer-events-none"></div>
 
           <!-- Flechas de navegación interactiva prev / next dentro del modal -->
           ${photos.length > 1 ? `
             <button 
               type="button" 
               onclick="event.stopPropagation(); window.prevFichaModalPhoto('${escapeHtml(item.id)}')" 
-              class="absolute left-2.5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/75 hover:bg-black/95 active:scale-90 text-white flex items-center justify-center backdrop-blur-md border border-white/40 transition cursor-pointer shadow-xl z-20 hover:scale-105"
+              class="absolute left-2.5 top-1/2 -tranzinc-y-1/2 w-11 h-11 rounded-full bg-black/75 hover:bg-black/95 active:scale-90 text-white flex items-center justify-center backdrop-blur-md border border-white/40 transition cursor-pointer shadow-xl z-20 hover:scale-105"
               title="Foto anterior"
               aria-label="Foto anterior"
             >
@@ -1148,7 +1148,7 @@ function openFichaModal(workerId) {
             <button 
               type="button" 
               onclick="event.stopPropagation(); window.nextFichaModalPhoto('${escapeHtml(item.id)}')" 
-              class="absolute right-2.5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/75 hover:bg-black/95 active:scale-90 text-white flex items-center justify-center backdrop-blur-md border border-white/40 transition cursor-pointer shadow-xl z-20 hover:scale-105"
+              class="absolute right-2.5 top-1/2 -tranzinc-y-1/2 w-11 h-11 rounded-full bg-black/75 hover:bg-black/95 active:scale-90 text-white flex items-center justify-center backdrop-blur-md border border-white/40 transition cursor-pointer shadow-xl z-20 hover:scale-105"
               title="Siguiente foto"
               aria-label="Siguiente foto"
             >
@@ -1167,7 +1167,7 @@ function openFichaModal(workerId) {
 
           <!-- Badge inferior con oficio y urgencias -->
           <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white pointer-events-none z-10">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#090a0f]/90 text-white text-xs font-mono font-bold backdrop-blur-md shadow-sm border border-white/20">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#09090b]/90 text-white text-xs font-mono font-bold backdrop-blur-md shadow-sm border border-white/20">
               <span>${icon}</span> ${escapeHtml(item.oficio)}
             </span>
             ${item.emergencias ? '<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-[#fbf6f0] text-[#7c3a1e] border border-[#e8d5c4] shadow-md">🚨 Urgencias 24h</span>' : ''}
@@ -1181,8 +1181,8 @@ function openFichaModal(workerId) {
 
         <!-- Tira interactiva de miniaturas para cambiar foto en el modal -->
         ${photos.length > 1 ? `
-          <div class="bg-slate-900/95 p-3 flex items-center gap-2 overflow-x-auto border-t border-white/10 scrollbar-thin">
-            <span class="text-[11px] font-bold text-slate-300 shrink-0 font-mono">Fotos:</span>
+          <div class="bg-zinc-900/95 p-3 flex items-center gap-2 overflow-x-auto border-t border-white/10 scrollbar-thin">
+            <span class="text-[11px] font-bold text-zinc-300 shrink-0 font-mono">Fotos:</span>
             ${photos.map((p, idx) => `
               <button 
                 type="button" 
@@ -1201,13 +1201,13 @@ function openFichaModal(workerId) {
     `;
   } else {
     photoHtml = `
-      <div class="w-full py-7 px-6 bg-[#090a0f] text-white relative border-b border-white/10">
+      <div class="w-full py-7 px-6 bg-[#09090b] text-white relative border-b border-white/10">
         <div class="flex items-center gap-3.5">
           <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-3xl shadow-inner shrink-0">
             ${icon}
           </div>
           <div>
-            <span class="inline-block text-[11px] font-mono font-bold text-slate-300 uppercase tracking-wider">
+            <span class="inline-block text-[11px] font-mono font-bold text-zinc-300 uppercase tracking-wider">
               ${escapeHtml(item.oficio)}
             </span>
             <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">${escapeHtml(item.nombre)}</h3>
@@ -1225,7 +1225,7 @@ function openFichaModal(workerId) {
       : item.palabrasClave.split(',').map(s => s.trim());
     
     tagsHtml = keywords.map(kw => `
-      <span class="inline-block px-2.5 py-1 rounded-lg text-xs font-mono font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+      <span class="inline-block px-2.5 py-1 rounded-lg text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
         #${escapeHtml(kw)}
       </span>
     `).join(' ');
@@ -1240,13 +1240,13 @@ function openFichaModal(workerId) {
         <div>
           <div class="flex items-start justify-between gap-3">
             <div>
-              <h3 class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white leading-tight">${escapeHtml(item.nombre)}</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 font-mono font-bold mt-0.5">${escapeHtml(item.oficio)}</p>
+              <h3 class="text-xl sm:text-2xl font-black text-zinc-950 dark:text-white leading-tight">${escapeHtml(item.nombre)}</h3>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono font-bold mt-0.5">${escapeHtml(item.oficio)}</p>
             </div>
             <button 
               type="button" 
               onclick="window.toggleFavorite('${escapeHtml(item.id)}', event)"
-              class="btn-fav-${escapeHtml(item.id)} p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition cursor-pointer shrink-0 ${isFav ? 'text-amber-500' : 'text-slate-400 hover:text-amber-500'}"
+              class="btn-fav-${escapeHtml(item.id)} p-2 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition cursor-pointer shrink-0 ${isFav ? 'text-amber-500' : 'text-zinc-400 hover:text-amber-500'}"
               title="${isFav ? 'Quitar de mis favoritos' : 'Guardar en mis oficios de confianza'}"
               aria-label="Guardar oficio en favoritos"
             >
@@ -1264,13 +1264,13 @@ function openFichaModal(workerId) {
         </div>
 
         <!-- Zona, Sindicatura, Cobertura y Botón Cómo Llegar (Opción 2) -->
-        <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 rounded-xl p-3.5 space-y-2">
+        <div class="bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-700 rounded-xl p-3.5 space-y-2">
           <div class="flex items-start justify-between gap-2.5 text-xs flex-wrap">
             <div class="flex items-start gap-2.5">
-              <span class="text-slate-700 dark:text-slate-300 text-base shrink-0">📍</span>
+              <span class="text-zinc-700 dark:text-zinc-300 text-base shrink-0">📍</span>
               <div>
-                <div class="font-bold text-slate-900 dark:text-slate-100 font-mono">${escapeHtml(item.zona || 'Ahome')} ${item.sindicatura ? `<span class="text-slate-500 dark:text-slate-400 font-normal">(${escapeHtml(item.sindicatura)})</span>` : ''}</div>
-                <div class="text-slate-500 dark:text-slate-400 text-[11px] mt-0.5"><strong>Cobertura:</strong> ${escapeHtml(item.cobertura || `${item.zona} y alrededores`)}</div>
+                <div class="font-bold text-zinc-900 dark:text-zinc-100 font-mono">${escapeHtml(item.zona || 'Ahome')} ${item.sindicatura ? `<span class="text-zinc-500 dark:text-zinc-400 font-normal">(${escapeHtml(item.sindicatura)})</span>` : ''}</div>
+                <div class="text-zinc-500 dark:text-zinc-400 text-[11px] mt-0.5"><strong>Cobertura:</strong> ${escapeHtml(item.cobertura || `${item.zona} y alrededores`)}</div>
               </div>
             </div>
 
@@ -1279,15 +1279,15 @@ function openFichaModal(workerId) {
               href="${dirUrl}"
               target="_blank"
               rel="noopener noreferrer"
-              class="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 transition shadow-2xs cursor-pointer"
+              class="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 border border-zinc-300 dark:border-zinc-700 transition shadow-2xs cursor-pointer"
               title="Abrir cómo llegar en Google Maps (Ruta paso a paso)"
             >
               <span>🧭</span> Cómo llegar
             </a>
           </div>
           ${item.horario ? `
-            <div class="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 pt-2 border-t border-slate-200/70 dark:border-slate-700 font-mono">
-              <span class="text-slate-500 dark:text-slate-400 shrink-0">⏰</span>
+            <div class="flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-300 pt-2 border-t border-zinc-200/70 dark:border-zinc-700 font-mono">
+              <span class="text-zinc-500 dark:text-zinc-400 shrink-0">⏰</span>
               <span><strong>Horario:</strong> ${escapeHtml(item.horario)}</span>
             </div>
           ` : ''}
@@ -1303,27 +1303,27 @@ function openFichaModal(workerId) {
 
         <!-- Descripción Completa -->
         <div class="space-y-1">
-          <h4 class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Descripción del Servicio</h4>
-          <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line bg-white dark:bg-slate-900 rounded-lg p-2 border border-slate-100 dark:border-slate-800">
+          <h4 class="text-xs font-mono font-bold text-zinc-400 uppercase tracking-wider">Descripción del Servicio</h4>
+          <p class="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed whitespace-pre-line bg-white dark:bg-zinc-900 rounded-lg p-2 border border-zinc-100 dark:border-zinc-800">
             ${escapeHtml(item.descripcion)}
           </p>
         </div>
 
         <!-- Galería de Fotos y Trabajos Realizados dentro de la Ficha -->
         ${photos.length > 1 ? `
-          <div class="p-4 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700 rounded-2xl space-y-2.5">
+          <div class="p-4 bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200/90 dark:border-zinc-700 rounded-2xl space-y-2.5">
             <div class="flex items-center justify-between">
-              <h4 class="text-xs font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5 font-mono">
+              <h4 class="text-xs font-black text-zinc-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5 font-mono">
                 <span>🖼️</span> Galería de trabajos (${photos.length} fotos)
               </h4>
-              <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">Toca cualquier foto para ampliarla</span>
+              <span class="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono">Toca cualquier foto para ampliarla</span>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
               ${photos.map((p, idx) => `
                 <div 
                   id="ficha-gal-thumb-${idx}"
                   onclick="window.switchFichaModalPhoto('${escapeHtml(item.id)}', ${idx})" 
-                  class="h-28 rounded-xl overflow-hidden bg-slate-900 border-2 ${idx === 0 ? 'border-slate-900 dark:border-white ring-2 ring-slate-900/30 dark:ring-white/30' : 'border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-white'} transition cursor-pointer relative group/gal shadow-2xs"
+                  class="h-28 rounded-xl overflow-hidden bg-zinc-900 border-2 ${idx === 0 ? 'border-zinc-900 dark:border-white ring-2 ring-zinc-900/30 dark:ring-white/30' : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-white'} transition cursor-pointer relative group/gal shadow-2xs"
                   title="Toca para ver foto ${idx + 1}"
                 >
                   <img src="${escapeHtml(p)}" alt="Trabajo ${idx + 1}" class="w-full h-full object-cover group-hover/gal:scale-108 transition duration-200">
@@ -1344,29 +1344,29 @@ function openFichaModal(workerId) {
         <!-- Especialidades / Palabras Clave -->
         ${tagsHtml ? `
           <div class="space-y-1">
-            <h4 class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Especialidades</h4>
+            <h4 class="text-xs font-mono font-bold text-zinc-400 uppercase tracking-wider">Especialidades</h4>
             <div class="flex flex-wrap gap-1.5">${tagsHtml}</div>
           </div>
         ` : ''}
 
         <!-- Redes Sociales / Presencia Digital si está disponible -->
         ${enlaceTrabajosInfo ? `
-          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+          <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
             <div class="flex items-center gap-2.5">
               <span class="text-2xl shrink-0">${enlaceTrabajosInfo.icon}</span>
               <div>
-                <div class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5 flex-wrap font-mono">
+                <div class="text-xs font-bold text-zinc-900 dark:text-white flex items-center gap-1.5 flex-wrap font-mono">
                   <span>${escapeHtml(enlaceTrabajosInfo.label)}</span>
-                  <span class="text-[10px] ${enlaceTrabajosInfo.pillBadgeClass || 'bg-slate-100 text-slate-800 border-slate-200'} font-bold px-2 py-0.5 rounded-full border">${escapeHtml(enlaceTrabajosInfo.categoryTag || 'Red Social')}</span>
+                  <span class="text-[10px] ${enlaceTrabajosInfo.pillBadgeClass || 'bg-zinc-100 text-zinc-800 border-zinc-200'} font-bold px-2 py-0.5 rounded-full border">${escapeHtml(enlaceTrabajosInfo.categoryTag || 'Red Social')}</span>
                 </div>
-                <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">${escapeHtml(enlaceTrabajosInfo.subtitle || 'Conoce más proyectos, fotos y novedades en su perfil.')}</div>
+                <div class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">${escapeHtml(enlaceTrabajosInfo.subtitle || 'Conoce más proyectos, fotos y novedades en su perfil.')}</div>
               </div>
             </div>
             <a 
               href="${escapeHtml(enlaceTrabajosInfo.url)}" 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="shrink-0 py-2 px-3.5 bg-[#090a0f] hover:bg-slate-800 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition shadow-xs cursor-pointer btn-glow"
+              class="shrink-0 py-2 px-3.5 bg-zinc-950 dark:bg-white hover:bg-zinc-800 dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition shadow-xs cursor-pointer"
             >
               <span>${escapeHtml(enlaceTrabajosInfo.btnText || 'Ver perfil')}</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -1382,7 +1382,7 @@ function openFichaModal(workerId) {
             <button 
               type="button" 
               onclick="window.openWhatsAppQuoteModal('${escapeHtml(item.id)}')" 
-              class="py-3 px-4 bg-[#164e37] hover:bg-[#113d2b] active:bg-[#0c2e20] text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition active:scale-[0.98] cursor-pointer btn-glow"
+              class="py-3 px-4 bg-zinc-950 dark:bg-white hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-950 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-btn transition active:scale-[0.98] cursor-pointer"
               title="Cotizar trabajo por WhatsApp con mensaje predeterminado"
             >
               <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
@@ -1392,10 +1392,10 @@ function openFichaModal(workerId) {
             <!-- Llamar -->
             <a 
               href="${telUrl}" 
-              class="py-3 px-4 bg-[#090a0f] hover:bg-slate-800 active:bg-black text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition active:scale-[0.98] btn-glow"
+              class="py-3 px-4 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-xl font-bold text-sm flex items-center justify-center gap-2 border border-zinc-200 dark:border-zinc-700 shadow-2xs transition active:scale-[0.98]"
               title="Hacer llamada telefónica"
             >
-              <svg class="w-5 h-5 text-slate-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <svg class="w-5 h-5 text-zinc-700 dark:text-zinc-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               <span>Llamar: ${displayPhone}</span>
             </a>
           </div>
@@ -1405,7 +1405,7 @@ function openFichaModal(workerId) {
             <button 
               type="button" 
               onclick="window.downloadVCard('${escapeHtml(item.id)}')" 
-              class="w-full py-2.5 px-3 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition cursor-pointer border border-slate-200 dark:border-slate-700 shadow-2xs font-mono"
+              class="w-full py-2.5 px-3 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition cursor-pointer border border-zinc-200 dark:border-zinc-700 shadow-2xs font-mono"
               title="Descargar contacto vCard (.vcf) para agregar a tu agenda celular"
             >
               <span class="text-sm">📇</span>
@@ -1418,7 +1418,7 @@ function openFichaModal(workerId) {
             <button 
               type="button" 
               onclick="window.shareOficioViaWhatsApp('${escapeHtml(item.id)}')" 
-              class="flex-1 py-2.5 px-3 bg-[#164e37]/10 hover:bg-[#164e37]/20 text-[#164e37] dark:text-emerald-300 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition cursor-pointer border border-[#164e37]/30 shadow-2xs"
+              class="flex-1 py-2.5 px-3 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition cursor-pointer border border-zinc-200 dark:border-zinc-700 shadow-2xs"
               title="Reenviar ficha a un vecino o grupo de WhatsApp con 1 toque"
             >
               <span class="text-sm">📲</span>
@@ -1427,7 +1427,7 @@ function openFichaModal(workerId) {
             <button 
               type="button" 
               onclick="window.focusWorkerOnMap('${escapeHtml(item.id)}')" 
-              class="flex-1 py-2.5 px-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer border border-slate-200 dark:border-slate-700"
+              class="flex-1 py-2.5 px-3 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer border border-zinc-200 dark:border-zinc-700"
             >
               <span>📍</span> Ubicar en el mapa
             </button>
@@ -1448,9 +1448,9 @@ function openFichaModal(workerId) {
           </div>
         </div>
 
-        <div class="text-[11px] text-center text-slate-400 dark:text-slate-500 pt-2 border-t border-slate-100 dark:border-slate-800 space-y-1">
+        <div class="text-[11px] text-center text-zinc-400 dark:text-zinc-500 pt-2 border-t border-zinc-100 dark:border-zinc-800 space-y-1">
           <div>🤝 Contacto directo y sin intermediarios entre vecinos de Ahome.</div>
-          <div class="text-[10px] text-slate-400 dark:text-slate-500">
+          <div class="text-[10px] text-zinc-400 dark:text-zinc-500">
             ¿Deseas reportar, actualizar o solicitar la baja temporal o definitiva de este oficio? Manda WhatsApp al <a href="https://wa.me/526683956301?text=Hola,%20quisiera%20solicitar%20la%20baja/actualización%20del%20oficio:%20${encodeURIComponent(item.nombre)}" target="_blank" class="text-emerald-700 dark:text-emerald-400 underline font-mono font-semibold">668 395 6301</a>
           </div>
         </div>
@@ -1637,11 +1637,11 @@ function renderQuoteChips(oficio) {
   if (!elements.quoteChips) return;
   const suggestions = OFICIO_SUGGESTIONS[oficio] || OFICIO_SUGGESTIONS['Otros'];
   elements.quoteChips.innerHTML = `
-    <span class="text-[10px] text-slate-400 font-semibold self-center shrink-0">Sugerencias:</span>
+    <span class="text-[10px] text-zinc-400 font-semibold self-center shrink-0">Sugerencias:</span>
     ${suggestions.map(sug => `
       <button 
         type="button" 
-        class="text-[11px] font-medium bg-slate-100 hover:bg-emerald-100 hover:text-emerald-900 text-slate-700 px-2.5 py-1 rounded-lg border border-slate-200 hover:border-emerald-300 transition cursor-pointer"
+        class="text-[11px] font-medium bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 px-2.5 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700 transition cursor-pointer"
         onclick="window.selectQuoteSuggestion('${escapeHtml(sug)}')"
       >
         ${escapeHtml(sug)}
@@ -1666,9 +1666,9 @@ function setQuoteUrgencia(urgencia) {
   buttons.forEach(btn => {
     const btnUrgencia = btn.getAttribute('data-urgencia');
     if (btnUrgencia === urgencia) {
-      btn.className = 'quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-emerald-500 bg-emerald-50 text-emerald-900 shadow-2xs';
+      btn.className = 'quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-zinc-950 bg-zinc-950 text-white dark:border-white dark:bg-white dark:text-zinc-950 shadow-2xs';
     } else {
-      btn.className = 'quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100';
+      btn.className = 'quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800';
     }
   });
   updateQuotePreview();
@@ -1867,7 +1867,7 @@ function toggleCardExpansion(workerId) {
     if (expandBtnText) expandBtnText.textContent = 'Reducir ficha';
     if (expandBtnIcon) expandBtnIcon.textContent = '⬆';
     if (expandBtn) {
-      expandBtn.className = 'flex-1 py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs border border-slate-300 flex items-center justify-center gap-1.5 transition cursor-pointer';
+      expandBtn.className = 'flex-1 py-2 px-3 bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-bold rounded-xl text-xs border border-zinc-300 flex items-center justify-center gap-1.5 transition cursor-pointer';
     }
   }
 }
@@ -2092,7 +2092,7 @@ function updateFavoriteButtonsInDOM(workerId) {
   const buttons = document.querySelectorAll(`.btn-fav-${workerId}`);
   buttons.forEach(btn => {
     if (isFav) {
-      btn.classList.remove('text-slate-400', 'hover:text-amber-500');
+      btn.classList.remove('text-zinc-400', 'hover:text-amber-500');
       btn.classList.add('text-amber-500', 'hover:text-amber-600');
       btn.setAttribute('title', 'Quitar de mis oficios de confianza');
       btn.innerHTML = `
@@ -2102,7 +2102,7 @@ function updateFavoriteButtonsInDOM(workerId) {
       `;
     } else {
       btn.classList.remove('text-amber-500', 'hover:text-amber-600');
-      btn.classList.add('text-slate-400', 'hover:text-amber-500');
+      btn.classList.add('text-zinc-400', 'hover:text-amber-500');
       btn.setAttribute('title', 'Guardar en mis oficios de confianza');
       btn.innerHTML = `
         <svg class="w-5 h-5 fill-none stroke-current transition-transform" viewBox="0 0 24 24" stroke-width="2">
@@ -2517,7 +2517,7 @@ function renderUploadedPhotosPreview() {
     if (labelBtn) labelBtn.textContent = 'Seleccionar fotos (hasta 5 fotos)';
     if (limitBadge) {
       limitBadge.textContent = 'Máx. 5 fotos';
-      limitBadge.className = 'text-[11px] text-slate-500 font-medium';
+      limitBadge.className = 'text-[11px] text-zinc-500 font-medium';
     }
     return;
   }
@@ -2527,7 +2527,7 @@ function renderUploadedPhotosPreview() {
     if (count >= MAX_OFICIO_PHOTOS) {
       elements.fotoPreviewCount.innerHTML = `<span class="text-emerald-700 font-bold">${count} de ${MAX_OFICIO_PHOTOS} fotos</span> (Límite máximo alcanzado):`;
     } else {
-      elements.fotoPreviewCount.innerHTML = `<span class="text-slate-900 font-bold">${count} de ${MAX_OFICIO_PHOTOS} fotos</span> listas para publicar:`;
+      elements.fotoPreviewCount.innerHTML = `<span class="text-zinc-900 font-bold">${count} de ${MAX_OFICIO_PHOTOS} fotos</span> listas para publicar:`;
     }
   }
 
@@ -2546,12 +2546,12 @@ function renderUploadedPhotosPreview() {
       limitBadge.className = 'text-[11px] text-emerald-700 font-bold';
     } else {
       limitBadge.textContent = `${count}/5 fotos`;
-      limitBadge.className = 'text-[11px] text-slate-500 font-medium';
+      limitBadge.className = 'text-[11px] text-zinc-500 font-medium';
     }
   }
 
   elements.fotoPreviewGrid.innerHTML = state.currentUploadedPhotos.map((photo, idx) => `
-    <div class="relative group/thumb rounded-xl overflow-hidden border border-slate-200 bg-slate-900 h-24 shadow-2xs">
+    <div class="relative group/thumb rounded-xl overflow-hidden border border-zinc-200 bg-zinc-900 h-24 shadow-2xs">
       <img src="${escapeHtml(photo)}" alt="Foto subida ${idx + 1}" class="w-full h-full object-cover">
       <span class="absolute bottom-1 left-1 bg-black/70 text-white text-[9px] font-mono px-1.5 py-0.5 rounded">
         ${idx + 1}/5
@@ -3087,12 +3087,12 @@ function renderActiveFilterChips() {
   } else {
     elements.activeFiltersBar.classList.remove('hidden');
     elements.activeFilterChips.innerHTML = chips.map(chip => `
-      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-950 border border-emerald-200 text-xs font-semibold shadow-2xs">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700 text-xs font-semibold shadow-2xs">
         <span>${escapeHtml(chip.label)}</span>
         <button 
           type="button" 
           onclick="window.clearSingleFilter('${chip.type}')" 
-          class="w-4 h-4 rounded-full bg-emerald-200/80 hover:bg-emerald-300 text-emerald-900 flex items-center justify-center font-bold text-[10px] transition cursor-pointer"
+          class="w-4 h-4 rounded-full bg-zinc-200 dark:bg-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-600 text-zinc-900 dark:text-zinc-100 flex items-center justify-center font-bold text-[10px] transition cursor-pointer"
           title="${escapeHtml(chip.tooltip)}"
           aria-label="${escapeHtml(chip.tooltip)}"
         >✕</button>
@@ -3149,11 +3149,11 @@ function updateResultsCount() {
   if (count === 0) {
     elements.resultsCount.textContent = '0 oficios encontrados';
   } else if (count === 1) {
-    elements.resultsCount.innerHTML = `Mostrando <strong class="text-slate-900 dark:text-white font-bold">1</strong> oficio disponible`;
+    elements.resultsCount.innerHTML = `Mostrando <strong class="text-zinc-900 dark:text-white font-bold">1</strong> oficio disponible`;
   } else if (count === total && !state.searchQuery && state.selectedOficio === 'todos' && state.selectedZona === 'todas' && !state.onlyEmergencias && !state.onlyFavorites && !state.auxilioNocturno) {
-    elements.resultsCount.innerHTML = `Directorio con <strong class="text-slate-900 dark:text-white font-bold">${total}</strong> oficios activos en Ahome`;
+    elements.resultsCount.innerHTML = `Directorio con <strong class="text-zinc-900 dark:text-white font-bold">${total}</strong> oficios activos en Ahome`;
   } else {
-    elements.resultsCount.innerHTML = `Mostrando <strong class="text-slate-900 dark:text-white font-bold">${count}</strong> de ${total} oficios`;
+    elements.resultsCount.innerHTML = `Mostrando <strong class="text-zinc-900 dark:text-white font-bold">${count}</strong> de ${total} oficios`;
   }
 }
 
@@ -3230,13 +3230,13 @@ function renderCards(list) {
       <button 
         type="button" 
         onclick="window.loadMoreCards()" 
-        class="px-6 py-3 bg-[#090a0f] dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 font-mono font-bold text-xs rounded-xl shadow-md transition cursor-pointer flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+        class="px-6 py-3 bg-[#09090b] dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-100 font-mono font-bold text-xs rounded-xl shadow-md transition cursor-pointer flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
         title="Cargar más oficios en la lista"
       >
         <span>Mostrar más prestadores (${remaining} restantes)</span>
         <span>▾</span>
       </button>
-      <span class="text-[11px] text-slate-400 font-mono">Mostrando ${visibleCount} de ${list.length} disponibles</span>
+      <span class="text-[11px] text-zinc-400 font-mono">Mostrando ${visibleCount} de ${list.length} disponibles</span>
     `;
     fragment.appendChild(loadMoreContainer);
   }
@@ -3253,7 +3253,7 @@ window.loadMoreCards = loadMoreCards;
 
 function createCardElement(item) {
   const article = document.createElement('article');
-  article.className = 'bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 card-transition hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md flex flex-col space-y-3.5 relative group transition-colors duration-200 w-full';
+  article.className = 'bg-white dark:bg-zinc-900 rounded-2xl p-5 border border-zinc-200 dark:border-zinc-800 card-transition hover:border-zinc-400 dark:hover:border-zinc-600 hover:shadow-hover flex flex-col space-y-3.5 relative group transition-all duration-200 w-full';
 
   const icon = OFICIO_ICONS[item.oficio] || '🛠️';
   const rawPhone = String(item.telefono || '').replace(/\D/g, '');
@@ -3281,14 +3281,14 @@ function createCardElement(item) {
       : item.palabrasClave.split(',').map(s => s.trim());
     
     tagsHtml = keywords.slice(0, 3).map(kw => `
-      <span class="inline-block px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer transition" data-tag="${escapeHtml(kw)}">
+      <span class="inline-block px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-700 cursor-pointer transition" data-tag="${escapeHtml(kw)}">
         #${escapeHtml(kw)}
       </span>
     `).join(' ');
   }
 
   const emergencyBadge = item.emergencias
-    ? `<span class="inline-flex items-center gap-1 text-[11px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#fbf6f0] dark:bg-[#201510] text-[#7c3a1e] dark:text-[#d48b6a] border border-[#e8d5c4] dark:border-[#522918]" title="Atiende urgencias fuera de horario">
+    ? `<span class="inline-flex items-center gap-1 text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 border border-zinc-700 dark:border-zinc-300 shadow-2xs" title="Atiende urgencias fuera de horario">
          <span>🚨</span> Urgencias 24h
        </span>`
     : '';
@@ -3303,7 +3303,7 @@ function createCardElement(item) {
       <div class="relative -mt-1 mb-1">
         <!-- Foto Principal con Clic a Visor Completo -->
         <div 
-          class="w-full h-44 sm:h-48 max-h-48 rounded-xl overflow-hidden bg-slate-900 border border-slate-200 dark:border-slate-800 relative group/img cursor-pointer"
+          class="w-full h-44 sm:h-48 max-h-48 rounded-xl overflow-hidden bg-zinc-950 border border-zinc-200 dark:border-zinc-800 relative group/img cursor-pointer shadow-soft"
           onclick="window.openLightbox('${escapeHtml(item.id)}', 0)"
           title="Toca para ver ${hasMultiplePhotos ? `las ${photos.length} fotos` : 'la foto'} en tamaño completo"
         >
@@ -3314,31 +3314,31 @@ function createCardElement(item) {
             loading="lazy"
             decoding="async"
           >
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-75 group-hover/img:opacity-90 transition"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover/img:opacity-95 transition"></div>
 
           <!-- Badge de cantidad de fotos disponibles -->
-          <span class="absolute top-2.5 left-2.5 text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-950/80 text-white backdrop-blur-xs flex items-center gap-1.5 shadow-md">
+          <span class="absolute top-2.5 left-2.5 text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-black/85 text-white backdrop-blur-xs flex items-center gap-1.5 shadow-md border border-white/20">
             <span>📷</span> ${photos.length} ${photos.length === 1 ? 'foto disponible' : 'fotos disponibles'}
           </span>
 
           <!-- Badge de urgencias si aplica -->
-          ${emergencyBadge ? `<span class="absolute top-2.5 right-2.5 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#fbf6f0] text-[#7c3a1e] border border-[#e8d5c4] shadow-md">🚨 Urgencias 24h</span>` : ''}
+          ${emergencyBadge ? `<span class="absolute top-2.5 right-2.5 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-black text-white border border-zinc-700 shadow-md">🚨 Urgencias 24h</span>` : ''}
 
           <!-- Botón flotante para ver en visor -->
-          <div class="absolute bottom-2.5 right-2.5 bg-black/75 hover:bg-black text-white text-[11px] font-semibold px-2.5 py-1 rounded-md backdrop-blur-xs transition flex items-center gap-1 shadow-sm font-mono">
-            <span>🔍</span> Ampliar visor
+          <div class="absolute bottom-2.5 right-2.5 bg-black/80 hover:bg-zinc-800 text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg backdrop-blur-xs transition flex items-center gap-1 shadow-sm font-mono border border-white/10">
+            <span>🔍</span> Ampliar
           </div>
         </div>
 
         <!-- Tira rápida de todas las miniaturas si tiene más de 1 foto -->
         ${hasMultiplePhotos ? `
           <div class="flex items-center gap-1.5 mt-2 overflow-x-auto pb-1 scrollbar-thin max-h-12">
-            <span class="text-[10px] font-mono font-bold text-slate-400 shrink-0 uppercase tracking-wider">Muestras:</span>
+            <span class="text-[10px] font-mono font-bold text-zinc-400 shrink-0 uppercase tracking-wider">Muestras:</span>
             ${photos.map((p, idx) => `
               <button 
                 type="button" 
                 onclick="window.openLightbox('${escapeHtml(item.id)}', ${idx})" 
-                class="w-12 h-9 rounded-md overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-white transition cursor-pointer relative group/thumb shadow-2xs"
+                class="w-12 h-9 rounded-lg overflow-hidden shrink-0 border border-zinc-200 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-white transition cursor-pointer relative group/thumb shadow-2xs"
                 title="Ver foto ${idx + 1} de ${photos.length}"
               >
                 <img src="${escapeHtml(p)}" alt="Muestra ${idx + 1}" class="w-full h-full object-cover group-hover/thumb:scale-110 transition" loading="lazy" decoding="async">
@@ -3356,29 +3356,29 @@ function createCardElement(item) {
     const distText = item.distanceKm < 1.0 
       ? `🚶 A ${Math.round(item.distanceKm * 1000)} m`
       : `🚗 A ${item.distanceKm.toFixed(1)} km`;
-    distanceBadge = `<span class="inline-flex items-center gap-1 text-[10.5px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shrink-0 shadow-2xs" title="Distancia aproximada en línea recta">${distText}</span>`;
+    distanceBadge = `<span class="inline-flex items-center gap-1 text-[10.5px] font-mono font-bold px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 shrink-0 shadow-2xs" title="Distancia aproximada en línea recta">${distText}</span>`;
   }
 
   article.innerHTML = `
     <!-- Contenido Superior -->
-    <div class="space-y-2">
+    <div class="space-y-2.5">
       ${photoSection}
 
-      <!-- Cabecera de Tarjeta: Oficio, Urgencias y Botón Favoritos (Opción 1) -->
+      <!-- Cabecera de Tarjeta: Oficio, Urgencias y Botón Favoritos -->
       <div class="flex items-center justify-between gap-2">
         <div class="flex items-center gap-1.5 flex-wrap">
-          <span class="inline-flex items-center gap-1 text-xs font-mono font-semibold px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
+          <span class="inline-flex items-center gap-1 text-xs font-mono font-bold px-3 py-1 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 shadow-2xs">
             <span>${icon}</span>
             <span>${escapeHtml(item.oficio)}</span>
           </span>
           ${photos.length === 0 ? emergencyBadge : ''}
         </div>
 
-        <!-- Botón Guardar en Favoritos (Opción 1) -->
+        <!-- Botón Guardar en Favoritos -->
         <button 
           type="button" 
           onclick="window.toggleFavorite('${escapeHtml(item.id)}', event)"
-          class="btn-fav-${escapeHtml(item.id)} p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition cursor-pointer shrink-0 ${isFav ? 'text-amber-500' : 'text-slate-400 hover:text-amber-500'}"
+          class="btn-fav-${escapeHtml(item.id)} p-2 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition cursor-pointer shrink-0 shadow-2xs ${isFav ? 'text-amber-500' : 'text-zinc-400 hover:text-amber-500'}"
           title="${isFav ? 'Quitar de mis oficios de confianza' : 'Guardar en mis oficios de confianza'}"
           aria-label="Guardar oficio en favoritos"
         >
@@ -3395,35 +3395,34 @@ function createCardElement(item) {
       </div>
 
       <!-- Nombre del Prestador / Taller -->
-      <h3 class="text-base sm:text-lg font-bold text-slate-950 dark:text-white hover:text-slate-700 dark:hover:text-slate-300 cursor-pointer transition leading-snug line-clamp-2" onclick="window.openFichaModal('${escapeHtml(item.id)}')">
+      <h3 class="text-base sm:text-lg font-extrabold text-zinc-950 dark:text-white hover:text-zinc-600 dark:hover:text-zinc-300 cursor-pointer transition leading-snug line-clamp-2 font-heading" onclick="window.openFichaModal('${escapeHtml(item.id)}')">
         ${escapeHtml(item.nombre)}
       </h3>
 
-      <!-- Ubicación, Ver en Mapa y Cómo Llegar (Opción 2) -->
-      <div class="flex items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
+      <!-- Ubicación, Ver en Mapa y Cómo Llegar -->
+      <div class="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400 font-medium">
         <div class="flex items-center gap-1.5 truncate">
-          <svg class="w-4 h-4 text-slate-700 dark:text-slate-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <span class="text-slate-800 dark:text-slate-200 font-semibold font-mono truncate">${escapeHtml(item.zona || 'Ahome')}</span>
-          ${item.sindicatura ? `<span class="text-slate-400 hidden sm:inline font-mono">• ${escapeHtml(item.sindicatura)}</span>` : ''}
+          <svg class="w-4 h-4 text-zinc-700 dark:text-zinc-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span class="text-zinc-800 dark:text-zinc-200 font-semibold font-mono truncate">${escapeHtml(item.zona || 'Ahome')}</span>
+          ${item.sindicatura ? `<span class="text-zinc-400 hidden sm:inline font-mono">• ${escapeHtml(item.sindicatura)}</span>` : ''}
           ${distanceBadge}
         </div>
 
-        <div class="flex items-center gap-1 shrink-0">
+        <div class="flex items-center gap-1.5 shrink-0">
           <button 
             type="button" 
-            class="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 px-2 py-1 rounded-md transition border border-slate-200 dark:border-slate-700 cursor-pointer"
+            class="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 px-2.5 py-1 rounded-lg transition border border-zinc-200 dark:border-zinc-700 cursor-pointer shadow-2xs"
             onclick="focusWorkerOnMap('${escapeHtml(item.id)}')"
             title="Ver ubicación en el mapa de Ahome"
           >
             <span>📍</span> Mapa
           </button>
           
-          <!-- Botón Cómo Llegar con Google Maps (Opción 2) -->
           <a 
             href="${dirUrl}"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 px-2 py-1 rounded-md transition border border-slate-200 dark:border-slate-700 cursor-pointer"
+            class="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 px-2.5 py-1 rounded-lg transition border border-zinc-200 dark:border-zinc-700 cursor-pointer shadow-2xs"
             title="Cómo llegar con Google Maps (Ruta paso a paso)"
             onclick="event.stopPropagation()"
           >
@@ -3433,7 +3432,7 @@ function createCardElement(item) {
       </div>
 
       <!-- Breve Descripción con tamaño bloqueado a 3 líneas -->
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed pt-0.5 line-clamp-3" title="${escapeHtml(item.descripcion)}">
+      <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed pt-0.5 line-clamp-3" title="${escapeHtml(item.descripcion)}">
         ${escapeHtml(item.descripcion)}
       </p>
 
@@ -3444,7 +3443,7 @@ function createCardElement(item) {
             href="${escapeHtml(enlaceTrabajosInfo.url)}" 
             target="_blank" 
             rel="noopener noreferrer" 
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-bold ${enlaceTrabajosInfo.badgeClass} border transition shadow-2xs hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-bold bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 transition shadow-2xs hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
             title="Visitar ${escapeHtml(enlaceTrabajosInfo.label)} de ${escapeHtml(item.nombre)}"
             onclick="event.stopPropagation()"
           >
@@ -3457,24 +3456,24 @@ function createCardElement(item) {
     </div>
 
     <!-- Sección Inferior: Palabras Clave y Botones de Acción Directa -->
-    <div class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+    <div class="space-y-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800">
       
       <!-- Chips de Palabras Clave -->
       ${tagsHtml ? `<div class="flex flex-wrap gap-1.5 max-h-12 overflow-hidden font-mono">${tagsHtml}</div>` : ''}
 
       <!-- Horario de atención -->
       ${item.horario ? `
-        <div class="text-[11px] text-slate-400 flex items-center gap-1 font-mono">
-          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="text-[11px] text-zinc-400 dark:text-zinc-500 flex items-center gap-1 font-mono">
+          <svg class="w-3.5 h-3.5 text-zinc-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span class="truncate">${escapeHtml(item.horario)}</span>
         </div>
       ` : ''}
 
-      <!-- Llamada de Urgencia Destacada en Modo Auxilio Nocturno (Opción 6) -->
+      <!-- Llamada de Urgencia Destacada en Modo Auxilio Nocturno -->
       ${state.auxilioNocturno && item.emergencias ? `
         <a 
           href="${telUrl}" 
-          class="w-full py-2.5 px-3 bg-rose-600 hover:bg-rose-700 active:bg-rose-800 text-white rounded-xl text-xs font-black shadow-md flex items-center justify-center gap-2 animate-pulse transition font-mono"
+          class="w-full py-2.5 px-3 bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 rounded-xl text-xs font-black shadow-md flex items-center justify-center gap-2 transition font-mono"
           title="Llamar urgentemente a ${escapeHtml(item.nombre)}"
         >
           <span class="text-base">🚨</span>
@@ -3486,22 +3485,22 @@ function createCardElement(item) {
       <button 
         type="button" 
         onclick="window.openFichaModal('${escapeHtml(item.id)}')" 
-        class="w-full py-2.5 px-3 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 active:bg-slate-300 text-slate-900 dark:text-white font-mono font-bold rounded-xl text-xs border border-slate-200 dark:border-slate-700 flex items-center justify-center gap-1.5 transition cursor-pointer shadow-2xs"
+        class="w-full py-2.5 px-3 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-950 dark:hover:text-white text-zinc-800 dark:text-zinc-200 font-mono font-bold rounded-xl text-xs border border-zinc-200 dark:border-zinc-700 flex items-center justify-center gap-1.5 transition cursor-pointer shadow-2xs"
         title="Ver más detalles de este oficio"
       >
-        <svg class="w-4 h-4 text-slate-600 dark:text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <span>Ver más detalles</span>
-        ${photos.length > 0 ? `<span class="text-[10px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold px-1.5 py-0.5 rounded-full ml-1">📸 ${photos.length} fotos</span>` : ''}
+        <svg class="w-4 h-4 text-zinc-700 dark:text-zinc-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>Ver ficha y fotos</span>
+        ${photos.length > 0 ? `<span class="text-[10px] bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-bold px-2 py-0.5 rounded-full ml-1">📸 ${photos.length} fotos</span>` : ''}
       </button>
 
       <!-- Acciones Directas: WhatsApp y Llamar -->
-      <div class="grid grid-cols-2 gap-2 pt-1">
+      <div class="grid grid-cols-2 gap-2 pt-0.5">
         
-        <!-- Botón Primario: WhatsApp con Generador de Cotización -->
+        <!-- Botón Primario: WhatsApp en Alto Contraste Negro/Blanco -->
         <button 
           type="button" 
           onclick="window.openWhatsAppQuoteModal('${escapeHtml(item.id)}')" 
-          class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-[#164e37] hover:bg-[#113d2b] active:bg-[#0c2e20] text-white rounded-xl text-xs font-bold shadow-xs transition transform active:scale-98 cursor-pointer btn-glow"
+          class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-100 rounded-xl text-xs font-black shadow-btn transition cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
           title="Cotizar trabajo por WhatsApp con mensaje predeterminado"
         >
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
@@ -3513,22 +3512,22 @@ function createCardElement(item) {
         <!-- Botón Secundario: Llamar -->
         <a 
           href="${telUrl}" 
-          class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 active:bg-slate-300 text-slate-800 dark:text-slate-200 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 transition"
+          class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-xl text-xs font-bold border border-zinc-200 dark:border-zinc-700 shadow-2xs transition hover:scale-[1.02] active:scale-[0.98]"
           title="Llamar al teléfono directo"
         >
-          <svg class="w-4 h-4 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <svg class="w-4 h-4 text-zinc-800 dark:text-zinc-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           <span>Llamar</span>
         </a>
 
       </div>
 
-      <!-- Barra de acciones secundarias: Teléfono, Copiar, Guardar Contacto (Opción 3), Cartel (Opción 5) y Compartir -->
-      <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100 dark:border-slate-800 flex-wrap">
-        <div class="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
+      <!-- Barra de acciones secundarias -->
+      <div class="flex items-center justify-between gap-2 pt-2 border-t border-zinc-100 dark:border-zinc-800 flex-wrap">
+        <div class="flex items-center gap-2 text-[11px] text-zinc-500 dark:text-zinc-400">
           <span class="font-mono font-medium">📞 ${displayPhone}</span>
           <button 
             type="button" 
-            class="text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 font-semibold transition py-0.5 px-1 flex items-center gap-1 cursor-pointer"
+            class="text-zinc-400 hover:text-zinc-950 dark:hover:text-white font-semibold transition py-0.5 px-1 flex items-center gap-1 cursor-pointer"
             onclick="copyToClipboard('${rawPhone}', '${escapeHtml(item.nombre)}')"
             title="Copiar número"
           >
@@ -3542,20 +3541,18 @@ function createCardElement(item) {
           <button 
             type="button" 
             onclick="window.downloadVCard('${escapeHtml(item.id)}')" 
-            class="inline-flex items-center gap-1 py-1 px-2 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-[11px] font-bold rounded-lg border border-slate-200 dark:border-slate-700 transition cursor-pointer shadow-2xs"
+            class="inline-flex items-center gap-1 py-1 px-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 text-[11px] font-bold rounded-lg border border-zinc-200 dark:border-zinc-700 transition cursor-pointer shadow-2xs font-mono"
             title="Descargar contacto telefónico en tu celular (.vcf)"
           >
             <span>📇</span>
             <span>Guardar</span>
           </button>
 
-
-
           <!-- Botón Compartir por WhatsApp con 1 toque -->
           <button 
             type="button" 
             onclick="window.shareOficioViaWhatsApp('${escapeHtml(item.id)}')" 
-            class="inline-flex items-center gap-1 py-1 px-2.5 bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold rounded-lg border border-emerald-200 dark:border-emerald-800 transition cursor-pointer shadow-2xs shrink-0"
+            class="inline-flex items-center gap-1 py-1 px-2.5 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 text-[11px] font-bold rounded-lg border border-zinc-200 dark:border-zinc-700 transition cursor-pointer shadow-2xs shrink-0"
             title="Compartir por WhatsApp con un vecino o grupo"
           >
             <span>📲</span>
@@ -3649,7 +3646,7 @@ function initEventListeners() {
     if (len > 140) {
       elements.charCounter.className = 'text-[11px] font-mono font-bold text-amber-600';
     } else {
-      elements.charCounter.className = 'text-[11px] font-mono text-slate-400';
+      elements.charCounter.className = 'text-[11px] font-mono text-zinc-400';
     }
   });
 
@@ -3672,7 +3669,7 @@ function initEventListeners() {
       if (!selected) {
         if (elements.regZonaHint) {
           elements.regZonaHint.textContent = 'El pin del mapa se ubicará de forma segura en esta zona.';
-          elements.regZonaHint.className = 'text-[11px] text-slate-400 mt-1';
+          elements.regZonaHint.className = 'text-[11px] text-zinc-400 mt-1';
         }
       } else {
         const base = getBaseCoordsForZona(selected);
@@ -3931,10 +3928,10 @@ function initOrUpdateRegisterPickerMap() {
       html: `
         <div style="width:36px;height:48px;position:relative;cursor:grab;display:block;">
           <svg width="36" height="48" viewBox="0 0 36 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); display:block;">
-            <path d="M18 0C8.059 0 0 8.059 0 18C0 31.5 18 48 18 48C18 48 36 31.5 36 18C36 8.059 27.941 0 18 0Z" fill="#059669"/>
-            <path d="M18 2C9.163 2 2 9.163 2 18C2 30.2 18 45.2 18 45.2C18 45.2 34 30.2 34 18C34 9.163 26.837 2 18 2Z" fill="#10b981"/>
+            <path d="M18 0C8.059 0 0 8.059 0 18C0 31.5 18 48 18 48C18 48 36 31.5 36 18C36 8.059 27.941 0 18 0Z" fill="#09090b"/>
+            <path d="M18 2C9.163 2 2 9.163 2 18C2 30.2 18 45.2 18 45.2C18 45.2 34 30.2 34 18C34 9.163 26.837 2 18 2Z" fill="#27272a"/>
             <circle cx="18" cy="18" r="7" fill="#ffffff"/>
-            <circle cx="18" cy="18" r="3.5" fill="#065f46"/>
+            <circle cx="18" cy="18" r="3.5" fill="#09090b"/>
           </svg>
         </div>
       `,
@@ -4204,9 +4201,9 @@ function switchLegalTab(targetTabId) {
   tabButtons.forEach(btn => {
     const target = btn.getAttribute('data-target');
     if (target === targetTabId) {
-      btn.className = 'legal-tab-btn px-3 py-2 rounded-lg transition bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-2xs shrink-0 cursor-pointer font-bold';
+      btn.className = 'legal-tab-btn px-3 py-2 rounded-lg transition bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-2xs shrink-0 cursor-pointer font-bold';
     } else {
-      btn.className = 'legal-tab-btn px-3 py-2 rounded-lg transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white shrink-0 cursor-pointer font-bold';
+      btn.className = 'legal-tab-btn px-3 py-2 rounded-lg transition text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white shrink-0 cursor-pointer font-bold';
     }
   });
 
@@ -4262,12 +4259,51 @@ function showToast(message, icon = '✓') {
   }, 3500);
 }
 
-function escapeHtml(string) {
-  if (!string) return '';
-  return String(string)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+function filterByQuickCategory(categoryName) {
+  if (!categoryName) return;
+  
+  if (elements.selectOficio) {
+    let matched = false;
+    for (let opt of elements.selectOficio.options) {
+      if (opt.value.toLowerCase() === categoryName.toLowerCase()) {
+        elements.selectOficio.value = opt.value;
+        state.selectedOficio = opt.value;
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) {
+      state.selectedOficio = categoryName;
+    }
+  }
+
+  // Limpiar búsqueda por texto libre si se elige categoría fija
+  if (elements.searchInput) {
+    elements.searchInput.value = '';
+    state.searchQuery = '';
+    if (elements.btnClearSearch) elements.btnClearSearch.classList.add('hidden');
+  }
+
+  applyFilters();
+
+  const dirSection = document.getElementById('directorio');
+  if (dirSection) {
+    dirSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  showToast(`Filtrando por: ${categoryName}`, '⚡');
 }
+
+window.filterByQuickCategory = filterByQuickCategory;
+
+// Atajo universal de teclado [/] para activar el buscador inteligente
+document.addEventListener('keydown', (e) => {
+  if (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+    e.preventDefault();
+    if (elements.searchInput) {
+      elements.searchInput.focus();
+      elements.searchInput.select();
+    }
+  }
+});
+
