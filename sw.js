@@ -1,4 +1,4 @@
-const CACHE_NAME = 'oficios-ahome-v3.1';
+const CACHE_NAME = 'oficios-ahome-v3.5';
 const STATIC_ASSETS = [
   './',
   './index.html',

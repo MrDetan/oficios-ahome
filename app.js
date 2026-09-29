@@ -16,7 +16,7 @@ const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJy_tOBdCL3
 const STORAGE_KEY_DATA = 'oficios_ahome_data_v4'; // v4 para base de datos completa de 288 oficios
 const STORAGE_KEY_URL = 'oficios_ahome_script_url';
 const STORAGE_KEY_USER_COLONIA = 'oficios_ahome_user_colonia';
-const SW_CACHE_NAME = 'oficios-ahome-v3.1';
+const SW_CACHE_NAME = 'oficios-ahome-v3.5';
 const MAX_OFICIO_PHOTOS = 5; // Límite máximo de fotos por oficio al registrarse
 
 // Diccionario de coordenadas para todas las sindicaturas, colonias y ejidos de Ahome
@@ -580,21 +580,142 @@ const elements = {
 };
 
 // ============================================================================
-// INICIALIZACIÓN
+// INICIALIZACIÓN ROBUSTA Y REFRESH DE ELEMENTOS
 // ============================================================================
-document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
-  initFavorites();
-  initAuxilioNocturnoListeners();
-  initPosterListeners();
-  initNetworkListeners();
-  initServiceWorker();
-  initPwaInstall();
-  initMap();
-  initPhotoUploadListeners();
-  initEventListeners();
-  loadOficiosData();
-});
+function refreshElements() {
+  elements.searchInput = document.getElementById('search-input');
+  elements.btnClearSearch = document.getElementById('btn-clear-search');
+  elements.selectOficio = document.getElementById('select-oficio');
+  elements.selectZona = document.getElementById('select-zona');
+  elements.checkEmergencias = document.getElementById('check-emergencias');
+  elements.resultsCount = document.getElementById('results-count');
+  elements.btnResetFilters = document.getElementById('btn-reset-filters');
+  elements.cardsContainer = document.getElementById('cards-container');
+  elements.emptyState = document.getElementById('empty-state');
+  elements.btnEmptyReset = document.getElementById('btn-empty-reset');
+  elements.btnEmptyRegister = document.getElementById('btn-empty-register');
+  elements.mapContainer = document.getElementById('map');
+  elements.mapWrapper = document.getElementById('map-wrapper');
+  elements.mapEmptyOverlay = document.getElementById('map-empty-overlay');
+  elements.mapWorkersBadge = document.getElementById('map-workers-badge');
+  elements.btnRecenterMap = document.getElementById('btn-recenter-map');
+  elements.btnToggleMap = document.getElementById('btn-toggle-map');
+  elements.toggleMapText = document.getElementById('toggle-map-text');
+  elements.modalFicha = document.getElementById('modal-ficha');
+  elements.btnCloseFicha = document.getElementById('btn-close-ficha');
+  elements.fichaContent = document.getElementById('ficha-content');
+  elements.modalQuote = document.getElementById('modal-quote');
+  elements.btnCloseQuote = document.getElementById('btn-close-quote');
+  elements.quoteWorkerName = document.getElementById('quote-worker-name');
+  elements.quoteWorkerBadge = document.getElementById('quote-worker-badge');
+  elements.formQuote = document.getElementById('form-quote');
+  elements.quoteTrabajo = document.getElementById('quote-trabajo');
+  elements.quoteChips = document.getElementById('quote-chips');
+  elements.quoteColonia = document.getElementById('quote-colonia');
+  elements.quoteZonasList = document.getElementById('quote-zonas-list');
+  elements.quotePreviewText = document.getElementById('quote-preview-text');
+  elements.btnSendWhatsappQuote = document.getElementById('btn-send-whatsapp-quote');
+  elements.btnSkipQuote = document.getElementById('btn-skip-quote');
+  elements.quoteOfflineWarning = document.getElementById('quote-offline-warning');
+  elements.quoteDirectCallBtn = document.getElementById('quote-direct-call-btn');
+  elements.quoteDirectCallText = document.getElementById('quote-direct-call-text');
+  elements.modalLightbox = document.getElementById('modal-lightbox');
+  elements.btnCloseLightbox = document.getElementById('btn-close-lightbox');
+  elements.btnPrevLightbox = document.getElementById('btn-prev-lightbox');
+  elements.btnNextLightbox = document.getElementById('btn-next-lightbox');
+  elements.lightboxImg = document.getElementById('lightbox-img');
+  elements.lightboxCounter = document.getElementById('lightbox-counter');
+  elements.lightboxTitle = document.getElementById('lightbox-title');
+  elements.lightboxThumbs = document.getElementById('lightbox-thumbs');
+  elements.modalRegister = document.getElementById('modal-register');
+  elements.btnOpenRegister = document.getElementById('btn-open-register');
+  elements.btnQuickAddMobile = document.getElementById('btn-quick-add-mobile');
+  elements.btnFloatAdd = document.getElementById('btn-float-add');
+  elements.btnCloseModal = document.getElementById('btn-close-modal');
+  elements.formRegister = document.getElementById('form-register');
+  elements.regZona = document.getElementById('reg-zona');
+  elements.regZonaHint = document.getElementById('reg-zona-hint');
+  elements.regFotoFile = document.getElementById('reg-foto-file');
+  elements.regFotoUrl = document.getElementById('reg-foto-url');
+  elements.regEnlaceTrabajos = document.getElementById('reg-enlace-trabajos');
+  elements.fotoPreviewContainer = document.getElementById('foto-preview-container');
+  elements.fotoPreviewCount = document.getElementById('foto-preview-count');
+  elements.fotoPreviewGrid = document.getElementById('foto-preview-grid');
+  elements.btnRemoveAllFotos = document.getElementById('btn-remove-all-fotos');
+  elements.regDescripcion = document.getElementById('reg-descripcion');
+  elements.charCounter = document.getElementById('char-counter');
+  elements.btnSubmitRegister = document.getElementById('btn-submit-register');
+  elements.submitSpinner = document.getElementById('submit-spinner');
+  elements.submitText = document.getElementById('submit-text');
+  elements.regMapPicker = document.getElementById('reg-map-picker');
+  elements.btnRegUseGps = document.getElementById('btn-reg-use-gps');
+  elements.regCoordsDisplay = document.getElementById('reg-coords-display');
+  elements.regLat = document.getElementById('reg-lat');
+  elements.regLng = document.getElementById('reg-lng');
+  elements.modalSettings = document.getElementById('modal-settings');
+  elements.btnOpenSettings = document.getElementById('btn-open-settings');
+  elements.btnFooterSettings = document.getElementById('btn-footer-settings');
+  elements.btnCloseSettings = document.getElementById('btn-close-settings');
+  elements.inputWebhookUrl = document.getElementById('input-webhook-url');
+  elements.btnSaveSettings = document.getElementById('btn-save-settings');
+  elements.btnResetCache = document.getElementById('btn-reset-cache');
+  elements.btnFooterManifest = document.getElementById('btn-footer-manifest');
+  elements.btnInstallPwa = document.getElementById('btn-install-pwa');
+  elements.networkStatus = document.getElementById('network-status');
+  elements.offlineBanner = document.getElementById('offline-banner');
+  elements.toast = document.getElementById('toast');
+  elements.toastMessage = document.getElementById('toast-message');
+  elements.toastIcon = document.getElementById('toast-icon');
+  elements.activeFiltersBar = document.getElementById('active-filters-bar');
+  elements.activeFilterChips = document.getElementById('active-filter-chips');
+  elements.regTelefono = document.getElementById('reg-telefono');
+  elements.btnToggleTheme = document.getElementById('btn-toggle-theme');
+  elements.btnToggleThemeMobile = document.getElementById('btn-toggle-theme-mobile');
+  elements.btnToggleFavorites = document.getElementById('btn-toggle-favorites');
+  elements.btnToggleFavoritesMobile = document.getElementById('btn-toggle-favorites-mobile');
+  elements.btnFilterFavorites = document.getElementById('btn-filter-favorites');
+  elements.favoritesCountBadge = document.getElementById('favorites-count-badge');
+  elements.favoritesCountBadgeMobile = document.getElementById('favorites-count-badge-mobile');
+  elements.favoritesCountBadgeQuick = document.getElementById('favorites-count-badge-quick');
+  elements.btnAuxilioNocturno = document.getElementById('btn-auxilio-nocturno');
+  elements.auxilioNocturnoBanner = document.getElementById('auxilio-nocturno-banner');
+  elements.modalPoster = document.getElementById('modal-poster');
+  elements.posterQrContainer = document.getElementById('poster-qr-container');
+  elements.modalPrivacyTerms = document.getElementById('modal-privacy-terms');
+  elements.btnClosePrivacyTerms = document.getElementById('btn-close-privacy-terms');
+  elements.btnAcceptPrivacyTerms = document.getElementById('btn-accept-privacy-terms');
+  elements.btnFooterLegalModal = document.getElementById('btn-footer-legal-modal');
+  elements.btnFooterPrivacy = document.getElementById('btn-footer-privacy');
+  elements.btnFooterTerms = document.getElementById('btn-footer-terms');
+  elements.btnFooterArco = document.getElementById('btn-footer-arco');
+  elements.btnOpenTermsInline = document.getElementById('btn-open-terms-inline');
+  elements.modalAbout = document.getElementById('modal-about');
+  elements.btnOpenAbout = document.getElementById('btn-open-about');
+  elements.btnOpenAboutMobile = document.getElementById('btn-open-about-mobile');
+  elements.btnCloseAbout = document.getElementById('btn-close-about');
+  elements.btnAboutCloseAction = document.getElementById('btn-about-close-action');
+}
+
+function bootApp() {
+  try { refreshElements(); } catch (e) { console.warn('refreshElements:', e); }
+  try { initTheme(); } catch (e) { console.warn('initTheme:', e); }
+  try { initFavorites(); } catch (e) { console.warn('initFavorites:', e); }
+  try { loadOficiosData(); } catch (e) { console.warn('loadOficiosData:', e); }
+  try { initMap(); } catch (e) { console.warn('initMap:', e); }
+  try { initEventListeners(); } catch (e) { console.warn('initEventListeners:', e); }
+  try { initAuxilioNocturnoListeners(); } catch (e) { console.warn('initAuxilioNocturnoListeners:', e); }
+  try { initPosterListeners(); } catch (e) { console.warn('initPosterListeners:', e); }
+  try { initNetworkListeners(); } catch (e) { console.warn('initNetworkListeners:', e); }
+  try { initPhotoUploadListeners(); } catch (e) { console.warn('initPhotoUploadListeners:', e); }
+  try { initServiceWorker(); } catch (e) { console.warn('initServiceWorker:', e); }
+  try { initPwaInstall(); } catch (e) { console.warn('initPwaInstall:', e); }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootApp);
+} else {
+  bootApp();
+}
 
 // ============================================================================
 // GESTIÓN DEL MAPA COMUNITARIO CENTRAL (LEAFLET / OPENSTREETMAP)
@@ -2836,18 +2957,30 @@ async function loadOficiosData() {
 
   // 2. Siempre obtener la versión completa y actualizada de oficios.json
   try {
-    const res = await fetch('./oficios.json');
+    const fetchUrl = `./oficios.json?t=${Date.now()}`;
+    const res = await fetch(fetchUrl);
     if (res.ok) {
       const defaultData = await res.json();
       if (Array.isArray(defaultData) && defaultData.length > 0) {
-        // Fusionar base oficial de oficios.json con oficios agregados localmente por el usuario
         state.oficios = mergeOficios(defaultData, state.oficios || []);
         syncDatabaseToOfflineCache(state.oficios);
         applyFilters();
+        console.log(`[Oficios Ahome] Base de datos cargada con éxito (${state.oficios.length} oficios activos).`);
       }
     }
   } catch (err) {
-    console.warn('Error al cargar oficios.json base, usando caché:', err);
+    console.warn('Error al cargar oficios.json base, intentando fallback:', err);
+    try {
+      const resFallback = await fetch('oficios.json');
+      if (resFallback.ok) {
+        const defaultData = await resFallback.json();
+        if (Array.isArray(defaultData) && defaultData.length > 0) {
+          state.oficios = mergeOficios(defaultData, state.oficios || []);
+          syncDatabaseToOfflineCache(state.oficios);
+          applyFilters();
+        }
+      }
+    } catch (e2) {}
   }
 
   // 3. Si hay webhook configurado y conexión a internet, consultar Google Sheets
@@ -3586,72 +3719,88 @@ function createCardElement(item) {
 function initEventListeners() {
   
   // Búsqueda en tiempo real
-  elements.searchInput.addEventListener('input', (e) => {
-    state.searchQuery = e.target.value;
-    if (state.searchQuery) {
-      elements.btnClearSearch.classList.remove('hidden');
-    } else {
-      elements.btnClearSearch.classList.add('hidden');
-    }
-    applyFilters();
-  });
+  if (elements.searchInput) {
+    elements.searchInput.addEventListener('input', (e) => {
+      state.searchQuery = e.target.value;
+      if (state.searchQuery) {
+        if (elements.btnClearSearch) elements.btnClearSearch.classList.remove('hidden');
+      } else {
+        if (elements.btnClearSearch) elements.btnClearSearch.classList.add('hidden');
+      }
+      applyFilters();
+    });
+  }
 
   // Limpiar búsqueda
-  elements.btnClearSearch.addEventListener('click', () => {
-    elements.searchInput.value = '';
-    state.searchQuery = '';
-    elements.btnClearSearch.classList.add('hidden');
-    applyFilters();
-    elements.searchInput.focus();
-  });
+  if (elements.btnClearSearch) {
+    elements.btnClearSearch.addEventListener('click', () => {
+      if (elements.searchInput) elements.searchInput.value = '';
+      state.searchQuery = '';
+      elements.btnClearSearch.classList.add('hidden');
+      applyFilters();
+      if (elements.searchInput) elements.searchInput.focus();
+    });
+  }
 
   // Select de Oficio
-  elements.selectOficio.addEventListener('change', (e) => {
-    state.selectedOficio = e.target.value;
-    applyFilters();
-  });
+  if (elements.selectOficio) {
+    elements.selectOficio.addEventListener('change', (e) => {
+      state.selectedOficio = e.target.value;
+      applyFilters();
+    });
+  }
 
   // Select de Zona
-  elements.selectZona.addEventListener('change', (e) => {
-    state.selectedZona = e.target.value;
-    applyFilters();
-  });
+  if (elements.selectZona) {
+    elements.selectZona.addEventListener('change', (e) => {
+      state.selectedZona = e.target.value;
+      applyFilters();
+    });
+  }
 
   // Checkbox de Emergencias
-  elements.checkEmergencias.addEventListener('change', (e) => {
-    state.onlyEmergencias = e.target.checked;
-    applyFilters();
-  });
+  if (elements.checkEmergencias) {
+    elements.checkEmergencias.addEventListener('change', (e) => {
+      state.onlyEmergencias = e.target.checked;
+      applyFilters();
+    });
+  }
 
   // Botones reset
-  elements.btnResetFilters.addEventListener('click', resetAllFilters);
-  elements.btnEmptyReset.addEventListener('click', resetAllFilters);
-  elements.btnEmptyRegister.addEventListener('click', openRegisterModal);
+  if (elements.btnResetFilters) elements.btnResetFilters.addEventListener('click', resetAllFilters);
+  if (elements.btnEmptyReset) elements.btnEmptyReset.addEventListener('click', resetAllFilters);
+  if (elements.btnEmptyRegister) elements.btnEmptyRegister.addEventListener('click', openRegisterModal);
 
   // Apertura de modal de registro
-  elements.btnOpenRegister.addEventListener('click', openRegisterModal);
+  if (elements.btnOpenRegister) elements.btnOpenRegister.addEventListener('click', openRegisterModal);
   if (elements.btnQuickAddMobile) elements.btnQuickAddMobile.addEventListener('click', openRegisterModal);
   if (elements.btnFloatAdd) elements.btnFloatAdd.addEventListener('click', openRegisterModal);
 
   // Cierre de modal de registro
-  elements.btnCloseModal.addEventListener('click', closeRegisterModal);
-  elements.modalRegister.addEventListener('click', (e) => {
-    if (e.target === elements.modalRegister) closeRegisterModal();
-  });
+  if (elements.btnCloseModal) elements.btnCloseModal.addEventListener('click', closeRegisterModal);
+  if (elements.modalRegister) {
+    elements.modalRegister.addEventListener('click', (e) => {
+      if (e.target === elements.modalRegister) closeRegisterModal();
+    });
+  }
 
   // Contador de caracteres en descripción
-  elements.regDescripcion.addEventListener('input', (e) => {
-    const len = e.target.value.length;
-    elements.charCounter.textContent = `${len}/150`;
-    if (len > 140) {
-      elements.charCounter.className = 'text-[11px] font-mono font-bold text-amber-600';
-    } else {
-      elements.charCounter.className = 'text-[11px] font-mono text-zinc-400';
-    }
-  });
+  if (elements.regDescripcion && elements.charCounter) {
+    elements.regDescripcion.addEventListener('input', (e) => {
+      const len = e.target.value.length;
+      elements.charCounter.textContent = `${len}/150`;
+      if (len > 140) {
+        elements.charCounter.className = 'text-[11px] font-mono font-bold text-amber-600';
+      } else {
+        elements.charCounter.className = 'text-[11px] font-mono text-zinc-400';
+      }
+    });
+  }
 
   // Envío del formulario "Suma tu oficio"
-  elements.formRegister.addEventListener('submit', handleRegisterSubmit);
+  if (elements.formRegister) {
+    elements.formRegister.addEventListener('submit', handleRegisterSubmit);
+  }
 
   // Formateo dinámico en vivo del teléfono (668 123 4567)
   if (elements.regTelefono) {
