@@ -700,7 +700,6 @@ function bootApp() {
   try { refreshElements(); } catch (e) { console.warn('refreshElements:', e); }
   try { initTheme(); } catch (e) { console.warn('initTheme:', e); }
   try { initFavorites(); } catch (e) { console.warn('initFavorites:', e); }
-  try { loadOficiosData(); } catch (e) { console.warn('loadOficiosData:', e); }
   try { initMap(); } catch (e) { console.warn('initMap:', e); }
   try { initEventListeners(); } catch (e) { console.warn('initEventListeners:', e); }
   try { initAuxilioNocturnoListeners(); } catch (e) { console.warn('initAuxilioNocturnoListeners:', e); }
@@ -709,6 +708,7 @@ function bootApp() {
   try { initPhotoUploadListeners(); } catch (e) { console.warn('initPhotoUploadListeners:', e); }
   try { initServiceWorker(); } catch (e) { console.warn('initServiceWorker:', e); }
   try { initPwaInstall(); } catch (e) { console.warn('initPwaInstall:', e); }
+  try { loadOficiosData(); } catch (e) { console.warn('loadOficiosData:', e); }
 }
 
 if (document.readyState === 'loading') {
@@ -775,6 +775,13 @@ function initMap() {
 
     if (elements.btnToggleMap) {
       elements.btnToggleMap.addEventListener('click', toggleMapVisibility);
+    }
+
+    // Si ya existen oficios cargados en memoria, colocar los pines de inmediato
+    if (state.filteredOficios && state.filteredOficios.length > 0) {
+      updateMapMarkers(state.filteredOficios);
+    } else if (state.oficios && state.oficios.length > 0) {
+      updateMapMarkers(state.oficios);
     }
 
   } catch (err) {
