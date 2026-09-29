@@ -218,41 +218,66 @@
       z-index: 0;
     }
 
-    /* Imagen Hero Difuminada para evitar cortes secos */
+    /* Imagen Hero Difuminada para extenderse a los extremos sin cortes secos */
     .hero-diffused-wrapper {
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       width: 100%;
+      height: 100%;
     }
     .hero-diffused-img-container {
       position: relative;
       width: 100%;
-      max-width: 440px;
-      height: 400px;
+      height: 380px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
     }
+    @media (min-width: 640px) {
+      .hero-diffused-img-container {
+        height: 440px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-diffused-img-container {
+        height: 500px;
+      }
+    }
+    @media (min-width: 1280px) {
+      .hero-diffused-img-container {
+        height: 560px;
+      }
+    }
+    @media (min-width: 1536px) {
+      .hero-diffused-img-container {
+        height: 600px;
+      }
+    }
     .hero-diffused-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-      border-radius: 2rem;
-      /* Mascara radial suave y multicapa para fundir los bordes con el fondo sin cortes secos */
-      mask-image: radial-gradient(ellipse 75% 82% at 50% 50%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0) 96%);
-      -webkit-mask-image: radial-gradient(ellipse 75% 82% at 50% 50%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0) 96%);
-      filter: contrast(1.05) brightness(0.96);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-in-out;
+      object-position: center right;
+      /* Mascara elíptica y lineal combinada para extenderse al borde derecho y difuminarse hacia el centro/izquierda */
+      mask-image: 
+        radial-gradient(ellipse 95% 90% at 70% 50%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 10%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+      -webkit-mask-image: 
+        radial-gradient(ellipse 95% 90% at 70% 50%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 10%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+      mask-composite: intersect;
+      -webkit-mask-composite: source-in;
+      filter: contrast(1.06) brightness(0.96);
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-in-out;
     }
     .dark .hero-diffused-img {
       filter: contrast(1.1) brightness(0.92);
     }
     .hero-diffused-img-container:hover .hero-diffused-img {
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
 
     /* Estilos de pines personalizados en Leaflet Blanco y Negro */
@@ -525,18 +550,18 @@
   <!-- ========================================================================= -->
   <!-- HERO SECTION: FULL-WIDTH COMMAND HUB (MONOCHROME)                           -->
   <!-- ========================================================================= -->
-  <section class="w-full relative overflow-hidden bg-gradient-to-b from-zinc-100/60 via-white to-zinc-50 dark:from-[#09090B] dark:via-[#121215] dark:to-[#09090B] border-b border-zinc-200 dark:border-zinc-800 flex flex-col justify-between pt-8 pb-8 sm:pt-12 sm:pb-10 lg:pt-12 lg:pb-12">
+  <section class="w-full relative overflow-hidden bg-gradient-to-b from-zinc-100/60 via-white to-zinc-50 dark:from-[#09090B] dark:via-[#121215] dark:to-[#09090B] border-b border-zinc-200 dark:border-zinc-800 flex flex-col justify-between pt-8 pb-8 sm:pt-10 sm:pb-10 lg:pt-10 lg:pb-12">
     
     <!-- Orbe de iluminación atmosférica extendido en escala de grises -->
     <div class="absolute -top-32 left-1/3 w-[900px] h-[600px] bg-gradient-to-tr from-zinc-300/30 via-zinc-200/20 to-transparent dark:from-zinc-700/20 dark:via-zinc-800/15 dark:to-transparent rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col justify-center space-y-6 sm:space-y-8">
+    <div class="w-full px-4 sm:px-8 md:px-12 lg:px-14 xl:px-16 2xl:px-24 relative z-10 flex flex-col justify-center space-y-6 sm:space-y-8">
       
-      <!-- Grid Asimétrico: Componentes a la Izquierda y Foto Difuminada a la Derecha -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <!-- Grid Asimétrico Full-Width: Componentes a la Izquierda y Foto Difuminada a la Derecha -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center w-full">
         
         <!-- Columna Izquierda: Textos, Buscador y Categorías Rápidas -->
-        <div class="lg:col-span-7 text-left space-y-5 sm:space-y-6">
+        <div class="lg:col-span-7 xl:col-span-6 2xl:col-span-6 text-left space-y-5 sm:space-y-6">
           
           <!-- Badge de Contexto Cívico -->
           <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-zinc-100/90 dark:bg-zinc-800/90 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 shadow-xs backdrop-blur-md">
@@ -545,13 +570,13 @@
           </div>
 
           <!-- Titular Display Expansivo Blanco y Negro -->
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-[1.12] font-heading">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-[1.08] font-heading">
             Encuentra al oficio de confianza en <br class="hidden sm:inline"/>
             <span class="bg-gradient-to-r from-zinc-950 via-zinc-700 to-zinc-900 dark:from-white dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">tu colonia, sindicatura o ejido</span>
           </h1>
 
           <!-- Subtítulo -->
-          <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed max-w-xl">
+          <p class="text-sm sm:text-base lg:text-lg text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed max-w-2xl">
             Plomeros, electricistas, técnicos en refrigeración, herreros y cerrajeros calificados. Con fotos reales y contacto directo a WhatsApp sin intermediarios.
           </p>
 
@@ -559,7 +584,7 @@
           <!-- UNIVERSAL COMMAND SEARCH BAR (BUSCADOR INTELIGENTE)                 -->
           <!-- =================================================================== -->
           <div class="pt-1">
-            <div class="relative bg-white dark:bg-zinc-900 backdrop-blur-md rounded-2xl shadow-hover border-2 border-zinc-300 dark:border-zinc-700 focus-within:border-black dark:focus-within:border-white transition-all duration-200 p-2 sm:p-2.5 flex items-center gap-3 w-full">
+            <div class="relative bg-white dark:bg-zinc-900 backdrop-blur-md rounded-2xl shadow-hover border-2 border-zinc-300 dark:border-zinc-700 focus-within:border-black dark:focus-within:border-white transition-all duration-200 p-2 sm:p-2.5 flex items-center gap-3 w-full max-w-2xl">
               
               <div class="pl-2 sm:pl-3 text-zinc-800 dark:text-zinc-200 shrink-0">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -596,7 +621,7 @@
           <!-- =================================================================== -->
           <div class="pt-1">
             <div class="text-[11px] font-mono font-bold text-zinc-400 uppercase tracking-wider mb-2">Especialidades populares:</div>
-            <div class="flex flex-wrap items-center justify-start gap-2">
+            <div class="flex flex-wrap items-center justify-start gap-2 max-w-2xl">
               
               <button type="button" onclick="window.filterByQuickCategory('Electricidad')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 text-xs font-bold border border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white shadow-2xs hover:shadow-soft transition cursor-pointer">
                 <span>⚡</span> Electricista
@@ -636,12 +661,12 @@
 
         </div>
 
-        <!-- Columna Derecha: Imagen Hero Difuminada Aleatoria de Oficios -->
-        <div class="lg:col-span-5 flex flex-col items-center justify-center relative select-none">
+        <!-- Columna Derecha: Imagen Hero Difuminada Aleatoria de Oficios (Extremo Derecho) -->
+        <div class="lg:col-span-5 xl:col-span-6 2xl:col-span-6 flex flex-col items-center lg:items-end justify-center relative select-none w-full">
           
           <div class="hero-diffused-wrapper">
             <!-- Glow detrás de la imagen -->
-            <div class="absolute w-72 h-72 bg-zinc-400/20 dark:bg-zinc-600/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+            <div class="absolute w-96 h-96 bg-zinc-400/20 dark:bg-zinc-600/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
             
             <div class="hero-diffused-img-container group">
               <img 
@@ -653,7 +678,7 @@
               />
               
               <!-- Etiqueta Flotante Difusa de Oficio -->
-              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 px-3.5 py-1.5 rounded-full bg-black/75 dark:bg-zinc-900/85 backdrop-blur-md border border-white/20 dark:border-zinc-700 text-[11px] font-mono font-bold text-white shadow-lg flex items-center gap-2 pointer-events-none transition group-hover:bg-black/90">
+              <div class="absolute bottom-6 right-6 px-4 py-2 rounded-full bg-black/80 dark:bg-zinc-900/90 backdrop-blur-md border border-white/20 dark:border-zinc-700 text-[11px] font-mono font-bold text-white shadow-lg flex items-center gap-2 pointer-events-none transition group-hover:bg-black/95">
                 <span class="w-2 h-2 rounded-full bg-white dark:bg-zinc-200 animate-pulse"></span>
                 <span id="hero-image-label">Mantenimiento & Mecánica</span>
               </div>
@@ -667,7 +692,7 @@
       <!-- =================================================================== -->
       <!-- 4 BENTO PILLARS DE CONFIANZA CÍVICA (BLANCO Y NEGRO)                -->
       <!-- =================================================================== -->
-      <div class="pt-4 sm:pt-6 border-t border-zinc-200 dark:border-zinc-800 max-w-6xl mx-auto w-full">
+      <div class="pt-4 sm:pt-6 border-t border-zinc-200 dark:border-zinc-800 w-full">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           
           <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-soft hover:shadow-hover transition duration-200">
