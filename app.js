@@ -3736,9 +3736,11 @@ function initEventListeners() {
   if (elements.btnOpenSettings) elements.btnOpenSettings.addEventListener('click', openSettingsModal);
   if (elements.btnFooterSettings) elements.btnFooterSettings.addEventListener('click', openSettingsModal);
   if (elements.btnCloseSettings) elements.btnCloseSettings.addEventListener('click', closeSettingsModal);
-  elements.modalSettings.addEventListener('click', (e) => {
-    if (e.target === elements.modalSettings) closeSettingsModal();
-  });
+  if (elements.modalSettings) {
+    elements.modalSettings.addEventListener('click', (e) => {
+      if (e.target === elements.modalSettings) closeSettingsModal();
+    });
+  }
   if (elements.btnSaveSettings) elements.btnSaveSettings.addEventListener('click', saveSettings);
   if (elements.btnResetCache) elements.btnResetCache.addEventListener('click', resetLocalCache);
 
