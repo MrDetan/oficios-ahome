@@ -721,7 +721,37 @@ function escapeHtml(string) {
 }
 window.escapeHtml = escapeHtml;
 
+const HERO_RANDOM_IMAGES = [
+  { src: './images/hero_oficio_1.jpg', alt: 'Técnico mecánico y mantenimiento en Ahome', label: 'Mantenimiento & Mecánica' },
+  { src: './images/hero_oficio_2.jpg', alt: 'Artesano de oficios tradicionales en Sinaloa', label: 'Artesanía & Oficios' },
+  { src: './images/hero_oficio_3.jpg', alt: 'Albañiles y construcción en Los Mochis', label: 'Albañilería & Obra' },
+  { src: './images/hero_oficio_4.jpg', alt: 'Carpintería y ebanistería fina en Ahome', label: 'Carpintería & Madera' }
+];
+
+function initRandomHeroImage() {
+  const heroImg = document.getElementById('hero-random-image');
+  const heroLabel = document.getElementById('hero-image-label');
+  if (!heroImg) return;
+  
+  const randomIndex = Math.floor(Math.random() * HERO_RANDOM_IMAGES.length);
+  const selected = HERO_RANDOM_IMAGES[randomIndex];
+  
+  heroImg.style.opacity = '0';
+  heroImg.src = selected.src;
+  heroImg.alt = selected.alt;
+  if (heroLabel) heroLabel.textContent = selected.label;
+  
+  heroImg.onload = () => {
+    heroImg.style.opacity = '1';
+  };
+  if (heroImg.complete) {
+    heroImg.style.opacity = '1';
+  }
+}
+window.initRandomHeroImage = initRandomHeroImage;
+
 function bootApp() {
+  try { initRandomHeroImage(); } catch (e) { console.warn('initRandomHeroImage:', e); }
   try { refreshElements(); } catch (e) { console.warn('refreshElements:', e); }
   try { initTheme(); } catch (e) { console.warn('initTheme:', e); }
   try { initFavorites(); } catch (e) { console.warn('initFavorites:', e); }
