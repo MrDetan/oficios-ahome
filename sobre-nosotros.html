@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es-MX" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>PolyLab | Sobre Nosotros & Oficios Ahome</title>
+  <meta name="description" content="Estudio de diseño contemporáneo, fabricación aditiva y software cívico en Los Mochis, Sinaloa. Conoce la historia de PolyLab y Oficios Ahome por su fundador, Ramsses García.">
+  <meta name="theme-color" content="#090a0f">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+
+  <!-- Google Fonts: PolyLab Studio Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN con configuración personalizada PolyLab Studio -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            display: ['"Space Grotesk"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            poly: {
+              black: '#090a0f',
+              white: '#ffffff',
+              bgPrimary: '#fcfbf9',
+              bgSecondary: '#f4f2ef',
+              bgSurface: '#ffffff',
+              bgCard: '#ffffff',
+              border: '#e2ded8',
+              borderSubtle: '#eeece8',
+              studioBg: '#f4f2ee',
+              accent: '#164e37',
+              emerald: '#10b981',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-black: #090a0f;
+      --color-white: #ffffff;
+      --color-surface: #ffffff;
+      --color-bg-primary: #fcfbf9;
+      --color-bg-secondary: #f4f2ef;
+      --color-bg-card: #ffffff;
+      --border-color: #e2ded8;
+      --border-subtle: #eeece8;
+      --studio-bg: #f4f2ee;
+      --font-display: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+      --btn-glow: 0 4px 14px rgba(9, 10, 15, 0.18), 0 0 12px rgba(9, 10, 15, 0.12);
+    }
+
+    html.dark, [data-theme="dark"] {
+      --color-black: #ffffff;
+      --color-white: #000000;
+      --color-surface: #0a0a0a;
+      --color-bg-primary: #000000;
+      --color-bg-secondary: #050505;
+      --color-bg-card: #080808;
+      --border-color: #1c1c1c;
+      --border-subtle: #121212;
+      --studio-bg: #0d0d0d;
+      --btn-glow: 0 4px 18px rgba(255, 255, 255, 0.18), 0 0 16px rgba(255, 255, 255, 0.22);
+    }
+
+    body {
+      background-color: var(--color-bg-primary);
+      color: var(--color-black);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background-color: var(--color-black);
+      color: var(--color-white);
+    }
+
+    .font-display {
+      font-family: var(--font-display);
+    }
+
+    .font-mono {
+      font-family: var(--font-mono);
+    }
+
+    .swiss-modular-grid {
+      background-color: var(--border-color);
+      border: 1px solid var(--border-color);
+      display: grid;
+      gap: 1px;
+    }
+
+    .swiss-modular-grid > * {
+      background-color: var(--color-bg-card);
+    }
+
+    .btn-interactive-glow {
+      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s ease, background-color 0.15s ease;
+    }
+    .btn-interactive-glow:hover {
+      box-shadow: var(--btn-glow);
+      transform: translateY(-2px);
+    }
+    .btn-interactive-glow:active {
+      transform: translateY(0);
+    }
+
+    .polylab-watermark {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 14vw, 190px);
+      font-weight: 900;
+      line-height: 0.8;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+      user-select: none;
+      pointer-events: none;
+      color: var(--border-color);
+      opacity: 0.35;
+    }
+
+    .dark .polylab-watermark {
+      opacity: 0.15;
+    }
+
+    .tag-bracket {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+
+  <!-- Barra Superior de Aviso Cívico y Estado de Conexión -->
+  <aside aria-label="Aviso cívico" class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2 truncate">
+        <span class="inline-block w-2 h-2 rounded-full bg-slate-400 animate-pulse"></span>
+        <span class="font-medium text-slate-200">Iniciativa Cívica Libre</span>
+        <span class="hidden sm:inline text-slate-500">•</span>
+        <span class="hidden sm:inline text-slate-400">Sin comisiones, sin registros y sin intermediarios en Ahome</span>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <span id="network-status" class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-slate-800 text-slate-200 border border-slate-700">
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Conectado
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Encabezado Principal y Barra de Navegación (Original de la Plataforma) -->
+  <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-2xs transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      
+      <!-- Identidad de Marca Cívica -->
+      <div class="flex items-center justify-between">
+        <a href="./index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-slate-900 rounded-lg p-1 -m-1">
+          <!-- Logos lado a lado: Oficios Ahome + Polylab -->
+          <div class="flex items-center gap-1.5 shrink-0">
+            <!-- Logo Oficios Ahome -->
+            <div class="w-10 h-10 sm:w-11 sm:h-11 bg-slate-900 text-white rounded-xl flex items-center justify-center shadow-xs group-hover:bg-slate-800 transition" title="Oficios Ahome">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <path d="M14.7 9.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <!-- Logo Polylab -->
+            <div class="w-10 h-10 sm:w-11 sm:h-11 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 rounded-xl flex items-center justify-center shadow-xs p-2 group-hover:border-slate-300 dark:group-hover:border-slate-600 transition" title="Polylab">
+              <img src="./images/polylab-logo.png" alt="Logo de Polylab" class="w-full h-full object-contain dark:invert transition" width="28" height="28" />
+            </div>
+          </div>
+
+          <!-- Título y leyenda de autoría -->
+          <div>
+            <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-950 dark:text-white leading-none">
+              Oficios Ahome
+            </h1>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
+              Desarrollado por <strong class="font-bold text-slate-800 dark:text-slate-200">Polylab</strong> - Ramsses García
+            </p>
+          </div>
+        </a>
+
+        <!-- Acciones rápidas móviles -->
+        <div class="md:hidden flex items-center gap-1.5">
+          <!-- Términos móvil -->
+          <a href="./terminos-y-privacidad.html" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Términos y Privacidad" aria-label="Términos y Privacidad">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </a>
+
+          <!-- Modo Oscuro móvil -->
+          <button id="btn-toggle-theme-mobile" type="button" onclick="toggleThemeStudio()" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer" title="Cambiar a modo oscuro / claro" aria-label="Cambiar tema">
+            <span class="theme-icon text-sm">🌙</span>
+          </button>
+
+          <!-- Botón rápido móvil para volver al directorio -->
+          <a href="./index.html" class="inline-flex items-center gap-1 px-3 py-1.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-950 text-white rounded-lg text-xs font-bold shadow-xs transition btn-glow cursor-pointer">
+            <span>← Inicio</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Acciones Principales en Barra de Encabezado (Desktop) -->
+      <div class="hidden md:flex items-center gap-2.5">
+        
+        <!-- Botón Directorio -->
+        <a href="./index.html" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition" title="Ir al mapa y directorio">
+          <svg class="w-4 h-4 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span>Directorio</span>
+        </a>
+
+        <!-- Botón Términos y Privacidad -->
+        <a href="./terminos-y-privacidad.html" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition" title="Ver términos cívicos, deslinde y privacidad">
+          <svg class="w-4 h-4 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span>Términos</span>
+        </a>
+
+        <!-- Botón para alternar Modo Oscuro -->
+        <button 
+          id="btn-toggle-theme" 
+          type="button" 
+          onclick="toggleThemeStudio()" 
+          class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition cursor-pointer" 
+          title="Alternar entre modo claro y modo oscuro" 
+          aria-label="Cambiar tema"
+        >
+          <span class="theme-icon text-sm">🌙</span>
+        </button>
+
+        <!-- Botón Volver al mapa -->
+        <a href="./index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 shadow-sm transition btn-glow cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span>← Volver al Directorio</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- CONTENIDO PRINCIPAL                                                       -->
+  <!-- ========================================================================= -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-16">
+
+    <!-- --------------------------------------------------------------------- -->
+    <!-- HERO HEADER: BRUTALIST STUDIO TITLE                                   -->
+    <!-- --------------------------------------------------------------------- -->
+    <div class="border-b border-[#e2ded8] dark:border-[#1c1c1c] pb-10 sm:pb-14 space-y-6">
+      
+      <!-- Metadata Tag Header -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-[#9c958a] dark:text-[#737373]">
+        <div class="tag-bracket flex items-center gap-2">
+          <span class="w-2 h-2 bg-[#10b981] inline-block animate-pulse"></span>
+          <span>ESTUDIO DE DISEÑO CONTEMPORÁNEO & FABRICACIÓN ADITIVA</span>
+        </div>
+        <div class="text-[11px] font-mono tracking-widest uppercase text-[#544e45] dark:text-[#a3a3a3]">
+          LOC: LOS MOCHIS, SINALOA // REF: OFICIOS-AHOME-2026
+        </div>
+      </div>
+
+      <!-- Main Display Headline -->
+      <div class="space-y-4">
+        <h1 class="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl tracking-tighter uppercase text-black dark:text-white leading-[0.95]">
+          RAMSSES GARCÍA<br />
+          <span class="text-[#9c958a] dark:text-[#737373]">// POLYLAB STUDIO</span>
+        </h1>
+        <p class="text-base sm:text-xl font-normal text-[#544e45] dark:text-[#a3a3a3] max-w-3xl leading-relaxed">
+          Fundador de <strong>PolyLab</strong> y creador de <strong>Oficios Ahome</strong>. Explorando la intersección entre el diseño contemporáneo, la fabricación digital y el software cívico libre.
+        </p>
+      </div>
+
+      <!-- Action Badges Row -->
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <a 
+          href="https://wa.me/526683956301?text=Hola%20Ramsses,%20contacto%20desde%20PolyLab%20/%20Oficios%20Ahome" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center gap-2 px-4 py-2.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-xs uppercase tracking-wider transition btn-interactive-glow"
+        >
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
+          <span>WhatsApp // 668 395 6301</span>
+        </a>
+
+        <a 
+          href="mailto:gmramgarcia@gmail.com?subject=Contacto%20PolyLab%20Studio" 
+          class="inline-flex items-center gap-2 px-4 py-2.5 border border-[#e2ded8] dark:border-[#1c1c1c] hover:border-black dark:hover:border-white font-mono font-bold text-xs uppercase tracking-wider text-black dark:text-white transition"
+        >
+          <span>✉️ gmramgarcia@gmail.com</span>
+        </a>
+
+        <a 
+          href="https://polylab-web-cliente.onrender.com/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center gap-2 px-4 py-2.5 border border-[#e2ded8] dark:border-[#1c1c1c] hover:border-black dark:hover:border-white font-mono font-bold text-xs uppercase tracking-wider text-[#544e45] dark:text-[#a3a3a3] hover:text-black dark:hover:text-white transition"
+        >
+          <span>Web Oficial PolyLab ↗</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- --------------------------------------------------------------------- -->
+    <!-- MANIFIESTO PRINCIPAL: FILOSOFÍA CENTRAL POLYLAB                       -->
+    <!-- --------------------------------------------------------------------- -->
+    <section class="relative p-6 sm:p-12 border border-[#e2ded8] dark:border-[#1c1c1c] bg-[#f4f2ef] dark:bg-[#050505] overflow-hidden">
+      
+      <!-- Watermark Background -->
+      <div class="absolute -right-6 -bottom-10 polylab-watermark">
+        POLYLAB
+      </div>
+
+      <div class="relative z-10 max-w-3xl space-y-6">
+        <div class="tag-bracket text-[#9c958a] dark:text-[#737373]">
+          --- [ 01 // MANIFIESTO & FILOSOFÍA DE DISEÑO ] -----------------------
+        </div>
+
+        <blockquote class="font-display font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tighter text-black dark:text-white leading-[1.05]">
+          “UN LUGAR DONDE CREAMOS COSAS PARA MUNDOS QUE AÚN NO EXISTEN.”
+        </blockquote>
+
+        <div class="space-y-4 text-sm sm:text-base text-[#38332b] dark:text-[#d4d4d4] leading-relaxed">
+          <p>
+            <strong>PolyLab</strong> es un estudio mexicano independiente de <strong>diseño, fabricación e impresión artística en 3D</strong>, nacido en Los Mochis, Sinaloa. No nos entendemos como un simple servicio de impresión ni como una tienda genérica de figuras o souvenirs.
+          </p>
+          <p>
+            PolyLab es una <strong>marca de diseño contemporáneo</strong> que utiliza la fabricación digital para crear objetos que combinan <strong>arte, funcionalidad, geometría, tecnología y estética</strong>.
+          </p>
+          <p class="border-l-2 border-black dark:border-white pl-4 italic text-[#221f1a] dark:text-[#f5f5f5]">
+            La pregunta en nuestro estudio nunca es: <em>“¿Qué podemos imprimir?”</em>, sino: <strong>“¿Qué objeto podemos crear que no existiría de la misma manera sin esta tecnología?”</strong>
+          </p>
+        </div>
+
+        <!-- Colecciones del Estudio -->
+        <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="p-3.5 border border-[#e2ded8] dark:border-[#1c1c1c] bg-[#ffffff] dark:bg-[#0a0a0a]">
+            <div class="font-mono text-xs font-bold uppercase tracking-wider text-black dark:text-white">CASA BLANCA</div>
+            <div class="text-[11px] text-[#6d665a] dark:text-[#737373] mt-1">Objetos funcionales y escultóricos para el hogar contemporáneo.</div>
+          </div>
+          <div class="p-3.5 border border-[#e2ded8] dark:border-[#1c1c1c] bg-[#ffffff] dark:bg-[#0a0a0a]">
+            <div class="font-mono text-xs font-bold uppercase tracking-wider text-black dark:text-white">LUX</div>
+            <div class="text-[11px] text-[#6d665a] dark:text-[#737373] mt-1">Piezas con estética sofisticada, experimental y premium.</div>
+          </div>
+          <div class="p-3.5 border border-[#e2ded8] dark:border-[#1c1c1c] bg-[#ffffff] dark:bg-[#0a0a0a]">
+            <div class="font-mono text-xs font-bold uppercase tracking-wider text-black dark:text-white">ARTE</div>
+            <div class="text-[11px] text-[#6d665a] dark:text-[#737373] mt-1">Objetos de exploración escultórica y expresión visual pura.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------- -->
+    <!-- LA CONEXIÓN CÍVICA: POR QUÉ CREÉ OFICIOS AHOME                        -->
+    <!-- --------------------------------------------------------------------- -->
+    <section class="space-y-6">
+      <div class="tag-bracket text-[#9c958a] dark:text-[#737373]">
+        --- [ 02 // RESPONSABILIDAD SOCIAL & TECNOLOGÍA CÍVICA ] ---------------
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <div class="md:col-span-5 space-y-4">
+          <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tighter uppercase text-black dark:text-white leading-tight">
+            TECNOLOGÍA AL SERVICIO DE NUESTRO BARRIO
+          </h2>
+          <div class="text-xs font-mono uppercase tracking-widest text-[#9c958a] dark:text-[#737373]">
+            VISIÓN COMUNITARIA // LOS MOCHIS & 7 SINDICATURAS
+          </div>
+        </div>
+
+        <div class="md:col-span-7 space-y-4 text-sm sm:text-base text-[#38332b] dark:text-[#d4d4d4] leading-relaxed">
+          <p>
+            En <strong>PolyLab</strong> tenemos una dimensión inquebrantable de <strong>responsabilidad social</strong>: creemos que el conocimiento tecnológico y el diseño deben traducirse en herramientas prácticas que mejoren la vida de nuestra comunidad en Sinaloa.
+          </p>
+          <p>
+            Crecí y vivo en Los Mochis. Conozco de primera mano el enorme valor del trabajo de nuestra gente y la importancia de contar con herramientas digitales dignas, directas y accesibles para conectar a quienes ofrecen un oficio con quienes necesitan resolver una necesidad en su hogar o negocio.
+          </p>
+          <p>
+            Por eso programé y diseñé <strong>Oficios Ahome</strong>: aplicando los mismos estándares de rendimiento, estética brutalista y arquitectura modular que caracterizan al estudio, para ofrecer un directorio cívico de software libre (MIT), 100% gratuito y sin intermediarios.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------- -->
+    <!-- SWISS MODULAR GRID: LOS 4 PILARES DEL PROYECTO                        -->
+    <!-- --------------------------------------------------------------------- -->
+    <section class="space-y-6">
+      <div class="tag-bracket text-[#9c958a] dark:text-[#737373]">
+        --- [ 03 // COMPROMISOS INNEGOCIABLES ] --------------------------------
+      </div>
+
+      <div class="swiss-modular-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        
+        <!-- Módulo 1 -->
+        <div class="p-6 sm:p-8 space-y-3">
+          <div class="font-mono text-xs font-bold text-[#9c958a] dark:text-[#737373]">
+            [ 01 ]
+          </div>
+          <h3 class="font-display font-extrabold text-lg uppercase tracking-tight text-black dark:text-white">
+            0% COMISIONES
+          </h3>
+          <p class="text-xs sm:text-sm text-[#544e45] dark:text-[#a3a3a3] leading-relaxed">
+            Ni le quitamos porcentaje al trabajador ni le cobramos cuotas al vecino. El trato, la cotización y el pago se pactan 100% directo Persona a Persona (P2P).
+          </p>
+        </div>
+
+        <!-- Módulo 2 -->
+        <div class="p-6 sm:p-8 space-y-3">
+          <div class="font-mono text-xs font-bold text-[#9c958a] dark:text-[#737373]">
+            [ 02 ]
+          </div>
+          <h3 class="font-display font-extrabold text-lg uppercase tracking-tight text-black dark:text-white">
+            PWA OFFLINE
+          </h3>
+          <p class="text-xs sm:text-sm text-[#544e45] dark:text-[#a3a3a3] leading-relaxed">
+            La plataforma almacena la base de datos localmente en tu teléfono. Si te quedas sin datos en la calle, puedes consultar oficios y llamar por red celular convencional.
+          </p>
+        </div>
+
+        <!-- Módulo 3 -->
+        <div class="p-6 sm:p-8 space-y-3">
+          <div class="font-mono text-xs font-bold text-[#9c958a] dark:text-[#737373]">
+            [ 03 ]
+          </div>
+          <h3 class="font-display font-extrabold text-lg uppercase tracking-tight text-black dark:text-white">
+            7 SINDICATURAS
+          </h3>
+          <p class="text-xs sm:text-sm text-[#544e45] dark:text-[#a3a3a3] leading-relaxed">
+            Cobertura completa en Topolobampo, Villa de Ahome, Higuera de Zaragoza, San Miguel, El Guayabo, El Carrizo, Central y más de 150 comunidades y ejidos.
+          </p>
+        </div>
+
+        <!-- Módulo 4 -->
+        <div class="p-6 sm:p-8 space-y-3">
+          <div class="font-mono text-xs font-bold text-[#9c958a] dark:text-[#737373]">
+            [ 04 ]
+          </div>
+          <h3 class="font-display font-extrabold text-lg uppercase tracking-tight text-black dark:text-white">
+            LICENCIA LIBRE MIT
+          </h3>
+          <p class="text-xs sm:text-sm text-[#544e45] dark:text-[#a3a3a3] leading-relaxed">
+            Código abierto, transparente y auditable por la comunidad. Respeto absoluto a la LFPDPPP; sin venta de bases de datos ni rastreadores publicitarios.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------- -->
+    <!-- PANEL DE CONTACTO Y LLAMADO A LA ACCIÓN                               -->
+    <!-- --------------------------------------------------------------------- -->
+    <section class="border border-[#e2ded8] dark:border-[#1c1c1c] p-6 sm:p-12 bg-black text-white space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="space-y-2 max-w-xl">
+          <div class="text-[10px] font-mono tracking-widest text-[#a3a3a3] uppercase">
+            CONSTRUCCIÓN COMUNITARIA // 2026
+          </div>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl tracking-tight uppercase leading-tight">
+            ¿ERES PRESTADOR DE OFICIOS O QUIERES COLABORAR?
+          </h2>
+          <p class="text-xs sm:text-sm text-[#a3a3a3] leading-relaxed">
+            Escríbeme directamente por WhatsApp para sumar tu ficha con fotos de tus trabajos o para proyectos de diseño y fabricación digital con <strong>PolyLab</strong>.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+          <a 
+            href="https://wa.me/526683956301?text=Hola%20Ramsses,%20quiero%20sumar%20mi%20oficio%20o%20conocer%20PolyLab" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-white text-black font-mono font-bold text-xs uppercase tracking-widest hover:bg-[#e2ded8] transition btn-interactive-glow"
+          >
+            <span>HABLAR CON RAMSSES</span>
+          </a>
+
+          <a 
+            href="./index.html" 
+            class="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#333] hover:border-white text-white font-mono font-bold text-xs uppercase tracking-widest transition"
+          >
+            <span>VER MAPA DE OFICIOS</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- PIE DE PÁGINA (POLYLAB TECHNICAL FOOTER)                                  -->
+  <!-- ========================================================================= -->
+  <footer class="border-t border-[#e2ded8] dark:border-[#1c1c1c] bg-[#f4f2ef] dark:bg-[#050505] py-10 px-4 sm:px-6 transition-colors">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-xs text-[#6d665a] dark:text-[#a3a3a3]">
+      
+      <div class="space-y-1">
+        <div class="font-display font-extrabold text-sm uppercase text-black dark:text-white tracking-tight flex items-center gap-2">
+          <span>POLYLAB STUDIO</span>
+          <span class="text-[9px] font-mono font-bold px-1 py-0.2 border border-[#cbc5bc] dark:border-[#333]">FABRICACIÓN ADITIVA</span>
+        </div>
+        <p class="text-[11px] font-mono text-[#9c958a] dark:text-[#737373]">
+          © 2026 PolyLab & Oficios Ahome • Software Cívico de Libre Distribución (MIT)
+        </p>
+        <p class="text-[10px] text-[#9c958a] dark:text-[#737373]">
+          Diseñado y fabricado en Los Mochis, Sinaloa, México.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-4 font-mono text-xs uppercase tracking-wider">
+        <a href="./index.html" class="hover:text-black dark:hover:text-white transition font-bold">[ Directorio ]</a>
+        <a href="./terminos-y-privacidad.html" class="hover:text-black dark:hover:text-white transition font-bold">[ Términos ]</a>
+        <a href="https://polylab-web-cliente.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-black dark:hover:text-white transition font-bold">[ Web PolyLab ↗ ]</a>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-black dark:hover:text-white transition cursor-pointer font-bold">[ Subir ↑ ]</button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Sincronización del Tema Oscuro PolyLab Studio -->
+  <script>
+    function initThemeStudio() {
+      const savedTheme = localStorage.getItem('ahome_theme') || localStorage.getItem('theme');
+      const isDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.querySelectorAll('.theme-icon').forEach(el => el.textContent = '☀️');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.querySelectorAll('.theme-icon').forEach(el => el.textContent = '🌙');
+      }
+    }
+
+    function toggleThemeStudio() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      const newTheme = isDark ? 'dark' : 'light';
+      localStorage.setItem('ahome_theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      document.querySelectorAll('.theme-icon').forEach(el => el.textContent = isDark ? '☀️' : '🌙');
+    }
+
+    document.addEventListener('DOMContentLoaded', initThemeStudio);
+  </script>
+
+</body>
+</html>

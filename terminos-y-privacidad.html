@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es-MX" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Términos Cívicos y Aviso de Privacidad | Oficios Ahome</title>
+  <meta name="description" content="Marco legal cívico, deslinde de responsabilidad, términos de uso y aviso de privacidad (LFPDPPP) del directorio comunitario Oficios Ahome en lenguaje claro y formal.">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+
+  <!-- Google Fonts: PolyLab Aesthetic (Inter, Space Grotesk, JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN con configuración personalizada PolyLab Studio -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Space Grotesk"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            // PolyLab Palette: Warm Paper Studio Neutral Grays
+            slate: {
+              50: '#fcfbf9',
+              100: '#f4f2ef',
+              200: '#eeece8',
+              300: '#e2ded8',
+              400: '#9c958a',
+              500: '#6d665a',
+              600: '#544e45',
+              700: '#38332b',
+              800: '#221f1a',
+              900: '#090a0f',
+              950: '#000000',
+            },
+            poly: {
+              bg: '#fcfbf9',
+              secondary: '#f4f2ef',
+              surface: '#ffffff',
+              card: '#ffffff',
+              black: '#090a0f',
+              border: '#e2ded8',
+              subtle: '#eeece8',
+            },
+            civic: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #fcfbf9;
+      color: #090a0f;
+      -webkit-tap-highlight-color: transparent;
+    }
+    ::selection {
+      background-color: #090a0f;
+      color: #ffffff;
+    }
+    .dark ::selection {
+      background-color: #ffffff;
+      color: #090a0f;
+    }
+    .dark body {
+      background-color: #000000;
+      color: #f5f5f5;
+    }
+    .view-transition {
+      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 min-h-screen flex flex-col antialiased transition-colors duration-200">
+
+  <!-- ========================================================================= -->
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR                                              -->
+  <!-- ========================================================================= -->
+  <header class="no-print sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+      
+      <!-- Marca y Enlace de Retorno -->
+      <a href="./index.html" class="flex items-center gap-2.5 group">
+        <span class="text-2xl group-hover:scale-110 transition-transform">🛠️</span>
+        <div>
+          <div class="font-extrabold text-slate-950 dark:text-white text-base tracking-tight flex items-center gap-1.5">
+            <span>Oficios Ahome</span>
+            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Cívico</span>
+          </div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400">Directorio Barrial Comunitario</div>
+        </div>
+      </a>
+
+      <!-- Acciones de Navegación -->
+      <div class="flex items-center gap-2">
+        <a 
+          href="./sobre-nosotros.html" 
+          class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 transition"
+        >
+          <span>Sobre nosotros</span>
+        </a>
+
+        <!-- Botón de Simplificar / Alternar Modo de Lectura -->
+        <button 
+          id="btn-toggle-simplify-nav" 
+          type="button" 
+          onclick="toggleLanguageMode()" 
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition shadow-2xs cursor-pointer active:scale-95"
+          title="Cambiar entre Lenguaje Sencillo y Lenguaje Legal Formal"
+        >
+          <span id="nav-mode-icon" class="text-sm">💬</span>
+          <span id="nav-mode-text">Simplificar lenguaje</span>
+        </button>
+
+        <button 
+          onclick="window.print()" 
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 transition cursor-pointer"
+          title="Imprimir documento o guardar como PDF"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          <span>Imprimir</span>
+        </button>
+
+        <a 
+          href="./index.html" 
+          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold text-white bg-[#090a0f] hover:bg-slate-800 rounded-lg transition shadow-xs cursor-pointer btn-glow"
+        >
+          <span>← Volver</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- CONTENIDO PRINCIPAL                                                       -->
+  <!-- ========================================================================= -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8">
+
+    <!-- Encabezado del Documento -->
+    <div class="space-y-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-mono font-bold">
+          <span>🇲🇽</span>
+          <span>Municipio de Ahome, Sinaloa • México</span>
+        </div>
+
+        <div id="status-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center gap-1.5 transition font-mono">
+          <span id="badge-icon">📜</span>
+          <span id="badge-text">Modo: Texto Legal Formal</span>
+        </div>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
+        Marco Cívico, Términos de Uso y Privacidad
+      </h1>
+      
+      <!-- Selector Destacado de Modo de Lenguaje (Switch Interactivo) -->
+      <div class="no-print p-4 sm:p-5 bg-slate-100 dark:bg-slate-900 rounded-2xl border border-slate-300 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+        <div class="space-y-1">
+          <div class="font-extrabold text-sm text-slate-950 dark:text-white flex items-center gap-2">
+            <span>✨</span>
+            <span>¿Prefieres una explicación directa sin tecnicismos legales?</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-400">
+            Toca el botón para alternar entre la versión formal jurídica y la explicación en palabras claras y de barrio.
+          </p>
+        </div>
+
+        <div class="inline-flex items-center p-1 bg-white dark:bg-slate-950 rounded-xl border border-slate-300 dark:border-slate-700 shadow-inner shrink-0">
+          <button 
+            id="btn-mode-formal" 
+            type="button" 
+            onclick="setLanguageMode('formal')" 
+            class="px-3.5 py-1.5 text-xs font-bold rounded-lg transition cursor-pointer bg-[#090a0f] text-white shadow-xs"
+          >
+            📜 Legal Formal
+          </button>
+          <button 
+            id="btn-mode-simple" 
+            type="button" 
+            onclick="setLanguageMode('simple')" 
+            class="px-3.5 py-1.5 text-xs font-bold rounded-lg transition cursor-pointer text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+          >
+            💬 Lenguaje Sencillo
+          </button>
+        </div>
+      </div>
+
+      <div class="text-xs text-slate-400 dark:text-slate-500 flex flex-wrap items-center gap-x-4 gap-y-1">
+        <span>📅 Actualizado: Marzo 2026</span>
+        <span>•</span>
+        <span>📜 LFPDPPP Cumplimiento</span>
+        <span>•</span>
+        <span>🏛️ Software Cívico de Libre Distribución</span>
+      </div>
+    </div>
+
+    <!-- Navegación Rápida por Secciones (Píldoras) -->
+    <nav class="no-print flex items-center gap-2 overflow-x-auto pb-2 text-xs font-mono font-bold" aria-label="Navegación del documento">
+      <a href="#civica" class="px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-slate-900 dark:hover:border-white text-slate-700 dark:text-slate-300 shrink-0 transition shadow-2xs">
+        🏛️ 1. Naturaleza Cívica
+      </a>
+      <a href="#deslinde" class="px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-slate-900 dark:hover:border-white text-slate-700 dark:text-slate-300 shrink-0 transition shadow-2xs">
+        ⚖️ 2. Términos y Deslinde
+      </a>
+      <a href="#privacidad" class="px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-slate-900 dark:hover:border-white text-slate-700 dark:text-slate-300 shrink-0 transition shadow-2xs">
+        🔒 3. Aviso de Privacidad
+      </a>
+      <a href="#arco" class="px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-slate-900 dark:hover:border-white text-slate-700 dark:text-slate-300 shrink-0 transition shadow-2xs">
+        🛡️ 4. Derechos ARCO / Bajas
+      </a>
+      <a href="#licencias" class="px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-slate-900 dark:hover:border-white text-slate-700 dark:text-slate-300 shrink-0 transition shadow-2xs">
+        🗺️ 5. Mapas y Licencia MIT
+      </a>
+    </nav>
+
+    <!-- ======================================================================= -->
+    <!-- SECCIÓN 1: DECLARACIÓN CÍVICA Y NO AFILIACIÓN GUBERNAMENTAL             -->
+    <!-- ======================================================================= -->
+    <section id="civica" class="scroll-mt-24 space-y-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center text-xl font-black font-mono border border-slate-200 dark:border-slate-700">
+          1
+        </span>
+        <div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-950 dark:text-white">
+            Naturaleza Cívica y Declaración de Independencia
+          </h2>
+          <p class="text-xs text-slate-500">¿Quiénes somos y cuál es el objetivo?</p>
+        </div>
+      </div>
+
+      <!-- VISTA FORMAL -->
+      <div class="view-formal space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <div class="p-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-200 font-medium">
+          <strong>Iniciativa Ciudadana Autogestiva:</strong> Oficios Ahome es un proyecto de Tecnología Cívica (Civic Tech) creado por <strong>POLYLAB (Ramsses García)</strong> para visibilizar el trabajo barrial, fomentar la economía solidaria y conectar a vecinos con trabajadores de oficio sin cobrar comisiones.
+        </div>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">1.1. No Afiliación Gubernamental</h3>
+        <p>
+          Se deja constancia expresa de que <strong>Oficios Ahome NO forma parte, no depende, no representa y no tiene relación oficial o contractual con el H. Ayuntamiento de Ahome</strong>, con el Gobierno del Estado de Sinaloa ni con ninguna entidad del Gobierno Federal de los Estados Unidos Mexicanos.
+        </p>
+        <p>
+          El uso de nombres de sindicaturas (Central Los Mochis, Topolobampo, Villa de Ahome, Higuera de Zaragoza, San Miguel Zapotitlán, El Guayabo, El Carrizo) responde exclusivamente a criterios de <strong>ubicación geográfica comunitaria</strong> para facilitar la búsqueda local entre vecinos.
+        </p>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">1.2. Ausencia de Partidos Políticos</h3>
+        <p>
+          Esta plataforma es estrictamente apartidista. No apoya, promueve ni recibe financiamiento de ningún partido político, coalición, precandidato, candidato o funcionario público en funciones o fuera de ellas.
+        </p>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">1.3. Cero Lucro y Gratuidad Permanente</h3>
+        <p>
+          El uso del directorio, la consulta de números telefónicos, el acceso al mapa interactivo y la publicación de fichas de oficios son <strong>100% gratuitos</strong>. No existen costos de suscripción, tarifas ocultas, membresías ni porcentajes retenidos por los trabajos realizados.
+        </p>
+      </div>
+
+      <!-- VISTA SIMPLIFICADA (LENGUAJE SENCILLO) -->
+      <div class="view-simple hidden space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+        <div class="p-4 bg-slate-100 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-200 font-medium">
+          <strong>💬 En palabras sencillas:</strong> Este es un proyecto hecho por y para la gente de Los Mochis y Ahome, sin políticos ni empresas intermediarias.
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🏛️</span> ¿Somos del Ayuntamiento o del gobierno?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              <strong>No.</strong> Es una iniciativa 100% ciudadana e independiente. Usamos los nombres de Los Mochis, Topolobampo y las sindicaturas solo para que encuentres al trabajador más cercano a tu casa.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🚫</span> ¿Hay partidos políticos metidos?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              <strong>Cero política.</strong> No le pertenecemos a ningún partido ni candidato. Nuestro único fin es apoyar el trabajo local.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1 sm:col-span-2">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>💸</span> ¿Cobramos algo por registrarte o por buscar?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              <strong>Ni un solo peso.</strong> Anunciar tu oficio es gratis, buscar en el mapa es gratis y llamar o mandar WhatsApp es directo sin comisiones.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- SECCIÓN 2: TÉRMINOS DE USO Y DESLINDE DE RESPONSABILIDAD                -->
+    <!-- ======================================================================= -->
+    <section id="deslinde" class="scroll-mt-24 space-y-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-xl bg-amber-500/10 dark:bg-amber-950/40 text-amber-900 dark:text-amber-400 border border-amber-600/30 dark:border-amber-700/40 flex items-center justify-center text-xl font-black font-mono">
+          2
+        </span>
+        <div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-950 dark:text-white">
+            Términos de Uso y Deslinde de Responsabilidad
+          </h2>
+          <p class="text-xs text-slate-500">¿Cómo funcionan los tratos y qué responsabilidades hay?</p>
+        </div>
+      </div>
+
+      <!-- VISTA FORMAL -->
+      <div class="view-formal space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <div class="p-4 bg-amber-500/10 dark:bg-amber-950/40 border border-amber-600/30 dark:border-amber-700/40 rounded-xl text-amber-950 dark:text-amber-200 font-medium">
+          <strong>Aclaración de Trato Directo (P2P):</strong> La plataforma funge únicamente como un tablón digital comunitario. Todo acuerdo, cotización y pago se realiza directamente entre particulares.
+        </div>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">2.1. Inexistencia de Relación Laboral o Patronal</h3>
+        <p>
+          La publicación de un oficio no genera relación de subordinación, patrón-trabajador, intermediación laboral, agencia de colocación ni sociedad mercantil entre el titular del oficio y los desarrolladores o administradores de la plataforma. Cada trabajador o taller opera de forma independiente y autónoma.
+        </p>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">2.2. Deslinde por Calidad, Presupuestos y Pagos</h3>
+        <p>
+          <strong>Oficios Ahome no interviene en cotizaciones, transferencias ni cobros de dinero.</strong> Los acuerdos de precios, tiempos de entrega, anticipos, compras de materiales y garantías son convenidos exclusivamente entre el cliente contratante y el prestador del servicio.
+        </p>
+        <p>
+          En consecuencia, la plataforma y sus creadores quedan exentos de toda responsabilidad civil, penal, mercantil o administrativa derivada de desacuerdos, atrasos, daños a propiedades, vicios ocultos, accidentes o incumplimientos que ocurran en el desarrollo de los trabajos contratados.
+        </p>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">2.3. Compromiso de Veracidad y Cuidado de Reputación</h3>
+        <p>
+          Quien registra un oficio declara bajo protesta de decir verdad que los datos de contacto, oficios y fotos suministradas son legítimos. Asimismo, asume el compromiso de atender con respeto y formalidad a los vecinos o solicitar su baja cuando no tenga disponibilidad.
+        </p>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">2.4. Convivencia Comunitaria y Derecho de Remoción</h3>
+        <p>
+          <strong>Oficios Ahome se reserva el derecho de retirar de forma inmediata y sin previo aviso cualquier ficha o registro si se detectan reportes vecinales graves de fraude, actos ilícitos, comportamiento agresivo o información falsa, a fin de salvaguardar la confianza y seguridad de la comunidad.</strong>
+        </p>
+      </div>
+
+      <!-- VISTA SIMPLIFICADA (LENGUAJE SENCILLO) -->
+      <div class="view-simple hidden space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+        <div class="p-4 bg-amber-500/10 dark:bg-amber-950/40 border border-amber-600/30 dark:border-amber-700/40 rounded-xl text-amber-950 dark:text-amber-200 font-medium">
+          <strong>💬 En palabras sencillas:</strong> Somos como la sección amarilla del barrio: te pasamos el teléfono del plomero o herrero, pero el trato y el pago lo arreglas tú con él.
+        </div>
+
+        <div class="space-y-2.5 pt-1">
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🤝</span> ¿Los trabajadores son empleados de esta página?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              <strong>No.</strong> Cada herrero, plomero o electricista trabaja por su propia cuenta con su propio taller.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🛠️</span> ¿Y si hay un problema con un trabajo o presupuesto?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              El precio, los anticipos, la calidad y las garantías se acuerdan <strong>directamente entre tú y el trabajador</strong>. Como la página no cobra dinero ni cobra comisiones, no podemos hacernos responsables de garantías ni reembolsos.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🚨</span> ¿Qué pasa si alguien comete un fraude o falta al respeto?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              <strong>Lo damos de baja de inmediato.</strong> Si recibimos reportes graves de estafa, agresión o datos falsos, borramos la ficha sin previo aviso para cuidar la seguridad de todos los vecinos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- SECCIÓN 3: AVISO DE PRIVACIDAD INTEGRAL (LFPDPPP)                       -->
+    <!-- ======================================================================= -->
+    <section id="privacidad" class="scroll-mt-24 space-y-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-blue-950 text-blue-700 dark:text-blue-400 border border-blue-600/30 dark:border-blue-700/40 flex items-center justify-center text-xl font-black font-mono">
+          3
+        </span>
+        <div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-950 dark:text-white">
+            Aviso de Privacidad Integral (LFPDPPP)
+          </h2>
+          <p class="text-xs text-slate-500">¿Qué datos pedimos y qué hacemos con ellos?</p>
+        </div>
+      </div>
+
+      <!-- VISTA FORMAL -->
+      <div class="view-formal space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <div class="p-4 bg-blue-500/10 dark:bg-blue-950/40 border border-blue-600/30 dark:border-blue-700/40 rounded-xl text-blue-950 dark:text-blue-200 font-medium">
+          En estricto cumplimiento con los Artículos 15, 16 y demás aplicables de la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong> y su Reglamento, se emite el presente Aviso de Privacidad Integral.
+        </div>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">3.1. Identidad y Domicilio del Responsable (Art. 16, Fracc. I)</h3>
+        <p>
+          El responsable del tratamiento y resguardo de sus datos personales es la iniciativa ciudadana comunitaria <strong>Oficios Ahome</strong> (desarrollada y coordinada por <strong>Ramsses García / POLYLAB</strong>), con domicilio de contacto para oír y recibir cualquier notificación legal o de privacidad en la ciudad de <strong>Los Mochis, Municipio de Ahome, Sinaloa, México</strong>.
+        </p>
+        <p>
+          <strong>Canales oficiales de atención a la privacidad:</strong>
+        </p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li><strong>Correo electrónico formal:</strong> <a href="mailto:gmramgarcia@gmail.com" class="font-bold text-slate-900 dark:text-white underline">gmramgarcia@gmail.com</a></li>
+          <li><strong>Canal cívico directo vía WhatsApp:</strong> <a href="https://wa.me/526683956301" target="_blank" class="font-bold text-slate-900 dark:text-white underline">+52 668 395 6301</a></li>
+        </ul>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">3.2. Datos Personales Recabados (Minimización)</h3>
+        <p>
+          Bajo el principio de proporcionalidad y licitud, únicamente se solicitan datos de contacto comercial público:
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-slate-600 dark:text-slate-400">
+          <li><strong>Nombre o Razón Comercial:</strong> Nombre del trabajador o denominación de su taller.</li>
+          <li><strong>Oficio o Especialidad:</strong> Rama de trabajo (plomería, electricidad, herrería, etc.).</li>
+          <li><strong>Zona de Cobertura:</strong> Sindicatura, colonia o ejido de atención (sin requerir dirección particular íntima).</li>
+          <li><strong>Teléfono de Contacto:</strong> Número telefónico público para llamadas y WhatsApp.</li>
+          <li><strong>Descripción de Servicios:</strong> Resumen de trabajos, experiencia y disponibilidad de urgencias.</li>
+          <li><strong>Muestras de Trabajo:</strong> Fotografías de trabajos concluidos y enlaces a portafolios (opcional).</li>
+        </ul>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">3.3. Finalidad del Tratamiento</h3>
+        <p>
+          <strong>Finalidades primarias:</strong> Publicar la ficha del oficio en la aplicación web, indexarla en el motor de búsqueda vecinal y georreferenciarla de forma aproximada en el mapa cívico de OpenStreetMap para que la comunidad de Ahome pueda contactarle directamente.
+        </p>
+        <p>
+          <strong>Finalidades secundarias:</strong> No existen finalidades secundarias. No se envían correos promocionales masivos ni mensajes publicitarios no solicitados.
+        </p>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">3.4. No Venta ni Transferencia a Terceros</h3>
+        <p>
+          <strong>Los datos personales jamás serán vendidos, rentados, transferidos ni compartidos con empresas privadas, agencias publicitarias, entidades bancarias o despachos de cobranza.</strong> La información reside únicamente en la hoja de cálculo comunitaria y en la memoria local del navegador.
+        </p>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">3.5. Procedimiento de Notificación de Cambios al Aviso (Art. 16, Fracc. VI)</h3>
+        <p>
+          <strong>Cualquier modificación o actualización a este aviso se publicará directamente en esta misma sección dentro de la plataforma web, indicando la fecha de última actualización al calce.</strong>
+        </p>
+      </div>
+
+      <!-- VISTA SIMPLIFICADA (LENGUAJE SENCILLO) -->
+      <div class="view-simple hidden space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+        <div class="p-4 bg-blue-50 dark:bg-blue-950/40 border border-blue-300 dark:border-blue-700 rounded-xl text-blue-950 dark:text-blue-200 font-medium">
+          <strong>💬 En palabras sencillas:</strong> Cuidamos tus datos, te decimos quién responde por la página y jamás compartiremos tu información.
+        </div>
+
+        <div class="space-y-2.5 pt-1">
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>📍</span> ¿Quién es el responsable y dónde contactarlo?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              El responsable del proyecto es <strong>Ramsses García (POLYLAB)</strong> con domicilio de contacto para cualquier aclaración en <strong>Los Mochis, Ahome, Sinaloa</strong>. Puedes escribir formalmente a <a href="mailto:gmramgarcia@gmail.com" class="font-bold text-slate-900 dark:text-white underline">gmramgarcia@gmail.com</a> o por WhatsApp al <strong>668 395 6301</strong>.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>📋</span> ¿Qué datos te pedimos?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              Solo lo necesario para que los clientes te llamen: tu nombre o taller, tu oficio, tu colonia/sindicatura, tu teléfono de WhatsApp y fotos de tus trabajos. <strong>Nunca te pediremos tu dirección particular privada ni datos bancarios.</strong>
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🔒</span> ¿Vendemos tus datos a bancos o spam?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              <strong>Jamás.</strong> Cero venta de bases de datos, cero llamadas molestas de bancos y cero publicidad engañosa.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>📢</span> ¿Cómo te enteras si cambian estas reglas?
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              Cualquier cambio se actualizará en esta misma página con la fecha indicada al final.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- SECCIÓN 4: EJERCICIO DE DERECHOS ARCO Y PROCEDIMIENTO DE BAJA           -->
+    <!-- ======================================================================= -->
+    <section id="arco" class="scroll-mt-24 space-y-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-xl bg-rose-500/10 dark:bg-rose-950 text-rose-700 dark:text-rose-400 border border-rose-600/30 dark:border-rose-800/40 flex items-center justify-center text-xl font-black font-mono">
+          4
+        </span>
+        <div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-950 dark:text-white">
+            Ejercicio de Derechos ARCO y Solicitud de Baja
+          </h2>
+          <p class="text-xs text-slate-500">¿Cómo modificar tus datos o borrar tu oficio?</p>
+        </div>
+      </div>
+
+      <!-- VISTA FORMAL -->
+      <div class="view-formal space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <div class="p-4 bg-rose-500/10 dark:bg-rose-950/40 border border-rose-600/30 dark:border-rose-800/40 rounded-xl text-rose-950 dark:text-rose-200 font-medium">
+          <strong>Tú tienes el control total de tu información:</strong> Conforme al Artículo 28 y correlativos de la LFPDPPP, cualquier prestador puede ejercer sus derechos de <strong>Acceso, Rectificación, Cancelación y Oposición (ARCO)</strong> respecto a su registro en la plataforma.
+        </div>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">4.1. Medios de Recepción y Prevención de Suplantación</h3>
+        <p>
+          <strong>Acreditación de Titularidad:</strong> Para prevenir suplantaciones de identidad o solicitudes no autorizadas promovidas por terceros de mala fe, <strong>la solicitud de baja, cancelación o modificación deberá enviarse preferentemente desde el mismo número telefónico registrado en la ficha</strong> o, en su defecto, acreditando la titularidad de los datos a través de correo electrónico.
+        </p>
+
+        <div class="p-4 sm:p-5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+          <div class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-sm">
+            <span>📲</span> Canales Formales para Solicitud ARCO:
+          </div>
+          <p class="text-slate-600 dark:text-slate-300">
+            Indica el <strong>nombre del oficio</strong>, el <strong>número telefónico registrado</strong> y la acción deseada (baja definitiva, cambio de teléfono, actualización de zona o fotos) a cualquiera de los siguientes medios:
+          </p>
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <a 
+              href="https://wa.me/526683956301?text=Hola,%20solicito%20la%20baja%20o%20modificación%20de%20mi%20registro%20en%20Oficios%20Ahome" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#164e37] hover:bg-[#113d2b] text-white font-bold rounded-xl transition text-xs btn-glow"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
+              <span>WhatsApp ARCO: 668 395 6301</span>
+            </a>
+            <a 
+              href="mailto:gmramgarcia@gmail.com?subject=Solicitud%20ARCO%20-%20Oficios%20Ahome" 
+              class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition text-xs shadow-xs"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>Correo: gmramgarcia@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">4.2. Plazos Legales y Compromiso Cívico (Arts. 31 y 32)</h3>
+        <p>
+          De conformidad con los Artículos 31 y 32 de la LFPDPPP, el plazo legal formal máximo para emitir respuesta a una solicitud ARCO es de <strong>hasta 20 (veinte) días hábiles</strong> contados a partir de la recepción de la misma, y de <strong>15 (quince) días hábiles adicionales</strong> para hacer efectiva la determinación.
+        </p>
+        <p>
+          Sin perjuicio del plazo legal máximo anterior, como parte de nuestro <strong>compromiso cívico comunitario de agilidad</strong>, la plataforma procura procesar y reflejar las cancelaciones, ediciones y bajas en un plazo operativo preferencial de <strong>24 a 48 horas hábiles</strong>.
+        </p>
+      </div>
+
+      <!-- VISTA SIMPLIFICADA (LENGUAJE SENCILLO) -->
+      <div class="view-simple hidden space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+        <div class="p-4 bg-rose-500/10 dark:bg-rose-950/40 border border-rose-600/30 dark:border-rose-800/40 rounded-xl text-rose-950 dark:text-rose-200 font-medium">
+          <strong>💬 En palabras sencillas:</strong> Si quieres cambiar tu teléfono o borrar tu oficio, te ayudamos de volada y cuidamos que nadie se haga pasar por ti.
+        </div>
+
+        <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+          <div class="font-bold text-slate-900 dark:text-white">
+            ¿Cómo pedir tu baja o cambio de datos de forma segura?
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-400">
+            Para evitar que otra persona intente borrar tu oficio con malas intenciones, <strong>escríbenos preferentemente desde el mismo número de WhatsApp que tienes registrado</strong> o por correo a <a href="mailto:gmramgarcia@gmail.com" class="font-bold text-slate-900 dark:text-white underline">gmramgarcia@gmail.com</a>.
+          </p>
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            <a 
+              href="https://wa.me/526683956301?text=Hola,%20solicito%20la%20baja%20o%20modificación%20de%20mi%20registro%20en%20Oficios%20Ahome" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#164e37] hover:bg-[#113d2b] text-white font-bold rounded-xl transition text-xs btn-glow"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
+              <span>Pedir baja por WhatsApp (668 395 6301)</span>
+            </a>
+            <a 
+              href="mailto:gmramgarcia@gmail.com?subject=Baja%20de%20oficio%20-%20Oficios%20Ahome" 
+              class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition text-xs shadow-xs"
+            >
+              <span>Correo: gmramgarcia@gmail.com</span>
+            </a>
+          </div>
+          <p class="text-[11px] text-slate-500">
+            Aunque la ley da hasta 20 días hábiles de plazo, nosotros procuramos atender tu mensaje en menos de 24 a 48 horas sin trámites engorrosos.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- SECCIÓN 5: CARTOGRAFÍA OPENSTREETMAP Y LICENCIA DE SOFTWARE LIBRE       -->
+    <!-- ======================================================================= -->
+    <section id="licencias" class="scroll-mt-24 space-y-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+      
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center text-xl font-black font-mono">
+          5
+        </span>
+        <div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-950 dark:text-white">
+            Cartografía OpenStreetMap y Licencia de Software Libre
+          </h2>
+          <p class="text-xs text-slate-500">Atribución de propiedad intelectual y código abierto</p>
+        </div>
+      </div>
+
+      <!-- VISTA FORMAL -->
+      <div class="view-formal space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">5.1. Atribución Legal de Cartografía Cívica</h3>
+        <p>
+          Los mapas interactivos utilizados en esta plataforma operan con datos abiertos de <strong>© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-900 dark:text-white underline">OpenStreetMap</a> contributors</strong> bajo la licencia <em>Open Data Commons Open Database License (ODbL)</em>.
+        </p>
+
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base pt-2">5.2. Licencia de Software Libre (MIT License)</h3>
+        <p>
+          El código fuente de <strong>Oficios Ahome</strong> es software libre distribuido bajo la <strong>Licencia MIT (MIT License)</strong>. Se concede permiso gratuito a cualquier persona para usar, copiar, modificar y distribuir el software con fines cívicos y comunitarios, manteniendo el reconocimiento de autoría original a <strong>POLYLAB (Ramsses García)</strong>.
+        </p>
+      </div>
+
+      <!-- VISTA SIMPLIFICADA (LENGUAJE SENCILLO) -->
+      <div class="view-simple hidden space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+        <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+          <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+            <span>🗺️</span> ¿De dónde salen los mapas?
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-400">
+            Usamos <strong>OpenStreetMap</strong>, el mapa libre y gratuito creado por colaboradores de todo el mundo, sin pagarle a Google Maps ni cobrarle a los usuarios.
+          </p>
+          <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 pt-1">
+            <span>💻</span> ¿Es software libre?
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-400">
+            <strong>Sí.</strong> Todo el código fue programado por <strong>POLYLAB (Ramsses García)</strong> bajo la <strong>Licencia MIT</strong> para beneficiar a la gente y los trabajadores de Ahome.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Botón Inferior para Regresar al Directorio -->
+    <div class="no-print pt-4 text-center">
+      <a 
+        href="./index.html" 
+        class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#090a0f] hover:bg-slate-800 text-white font-extrabold text-sm rounded-xl shadow-lg transition btn-glow"
+      >
+        <span>← Volver a Oficios Ahome</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- PIE DE PÁGINA                                                             -->
+  <!-- ========================================================================= -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 px-4 sm:px-6 transition-colors">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div>
+        <p>© 2026 Oficios Ahome • Software Cívico de Libre Distribución</p>
+        <p class="text-[11px] text-slate-400 mt-0.5">Creación y desarrollo por POLYLAB (Ramsses García) para el Municipio de Ahome, Sinaloa.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="hover:text-slate-900 dark:hover:text-white transition font-bold text-slate-900 dark:text-white">Directorio</a>
+        <span>•</span>
+        <a href="./sobre-nosotros.html" class="hover:text-slate-900 dark:hover:text-white transition font-medium">Sobre nosotros</a>
+        <span>•</span>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Subir ↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- LÓGICA DE SIMPLIFICACIÓN Y TEMA OSCURO                                    -->
+  <!-- ========================================================================= -->
+  <script>
+    let currentMode = 'formal'; // 'formal' o 'simple'
+
+    function setLanguageMode(mode) {
+      currentMode = mode;
+      localStorage.setItem('oficios_legal_mode', mode);
+
+      const formalEls = document.querySelectorAll('.view-formal');
+      const simpleEls = document.querySelectorAll('.view-simple');
+      const btnFormal = document.getElementById('btn-mode-formal');
+      const btnSimple = document.getElementById('btn-mode-simple');
+      const badgeIcon = document.getElementById('badge-icon');
+      const badgeText = document.getElementById('badge-text');
+      const navIcon = document.getElementById('nav-mode-icon');
+      const navText = document.getElementById('nav-mode-text');
+
+      if (mode === 'simple') {
+        formalEls.forEach(el => el.classList.add('hidden'));
+        simpleEls.forEach(el => el.classList.remove('hidden'));
+
+        if (btnFormal && btnSimple) {
+          btnFormal.className = 'px-3.5 py-1.5 text-xs font-bold rounded-lg transition cursor-pointer text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+          btnSimple.className = 'px-3.5 py-1.5 text-xs font-bold rounded-lg transition cursor-pointer bg-[#090a0f] text-white shadow-xs';
+        }
+
+        if (badgeIcon && badgeText) {
+          badgeIcon.textContent = '💬';
+          badgeText.textContent = 'Modo: Lenguaje Sencillo (Explicado fácil)';
+        }
+
+        if (navIcon && navText) {
+          navIcon.textContent = '📜';
+          navText.textContent = 'Ver texto legal formal';
+        }
+      } else {
+        formalEls.forEach(el => el.classList.remove('hidden'));
+        simpleEls.forEach(el => el.classList.add('hidden'));
+
+        if (btnFormal && btnSimple) {
+          btnFormal.className = 'px-3.5 py-1.5 text-xs font-bold rounded-lg transition cursor-pointer bg-slate-900 text-white shadow-xs';
+          btnSimple.className = 'px-3.5 py-1.5 text-xs font-bold rounded-lg transition cursor-pointer text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+        }
+
+        if (badgeIcon && badgeText) {
+          badgeIcon.textContent = '📜';
+          badgeText.textContent = 'Modo: Texto Legal Formal';
+        }
+
+        if (navIcon && navText) {
+          navIcon.textContent = '💬';
+          navText.textContent = 'Simplificar lenguaje';
+        }
+      }
+    }
+
+    function toggleLanguageMode() {
+      if (currentMode === 'formal') {
+        setLanguageMode('simple');
+      } else {
+        setLanguageMode('formal');
+      }
+    }
+
+    // Cargar preferencia guardada
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedMode = localStorage.getItem('oficios_legal_mode') || 'formal';
+      setLanguageMode(savedMode);
+    });
+
+    // Sincronizar tema oscuro según preferencias
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+</body>
+</html>

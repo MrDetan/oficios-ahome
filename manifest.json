@@ -1,0 +1,49 @@
+{
+  "name": "Oficios Ahome - Directorio Comunitario",
+  "short_name": "Oficios Ahome",
+  "description": "Directorio cívico de oficios barriales en Los Mochis, Topolobampo y sindicaturas de Ahome. Sin intermediarios, sin comisiones y sin registro.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "es-MX",
+  "categories": ["utilities", "lifestyle", "social"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Buscar Oficios",
+      "short_name": "Buscar",
+      "description": "Busca plomeros, electricistas y técnicos en Ahome",
+      "url": "./index.html#directorio",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Suma tu Oficio",
+      "short_name": "Registrar",
+      "description": "Publica tus servicios de forma gratuita y sin comisiones",
+      "url": "./index.html#registro",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
