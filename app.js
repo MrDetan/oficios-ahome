@@ -696,6 +696,31 @@ function refreshElements() {
   elements.btnAboutCloseAction = document.getElementById('btn-about-close-action');
 }
 
+var toastTimer = null;
+function showToast(message, icon = '✓') {
+  if (!elements || !elements.toast) return;
+  if (elements.toastMessage) elements.toastMessage.textContent = message;
+  if (elements.toastIcon) elements.toastIcon.textContent = icon;
+  elements.toast.classList.remove('hidden');
+
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    if (elements.toast) elements.toast.classList.add('hidden');
+  }, 3500);
+}
+window.showToast = showToast;
+
+function escapeHtml(string) {
+  if (!string) return '';
+  return String(string)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+window.escapeHtml = escapeHtml;
+
 function bootApp() {
   try { refreshElements(); } catch (e) { console.warn('refreshElements:', e); }
   try { initTheme(); } catch (e) { console.warn('initTheme:', e); }
@@ -4402,19 +4427,6 @@ function copyToClipboard(text, providerName) {
   }
 }
 
-let toastTimer = null;
-function showToast(message, icon = '✓') {
-  if (!elements.toast) return;
-  elements.toastMessage.textContent = message;
-  elements.toastIcon.textContent = icon;
-  elements.toast.classList.remove('hidden');
-
-  if (toastTimer) clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => {
-    elements.toast.classList.add('hidden');
-  }, 3500);
-}
-
 function filterByQuickCategory(categoryName) {
   if (!categoryName) return;
   
@@ -4451,6 +4463,18 @@ function filterByQuickCategory(categoryName) {
 }
 
 window.filterByQuickCategory = filterByQuickCategory;
+
+function escapeHtml(string) {
+  if (!string) return '';
+  return String(string)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+window.escapeHtml = escapeHtml;
 
 // Atajo universal de teclado [/] para activar el buscador inteligente
 document.addEventListener('keydown', (e) => {
