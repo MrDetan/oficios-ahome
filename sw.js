@@ -1,7 +1,9 @@
-const CACHE_NAME = 'oficios-ahome-v3.5';
+const CACHE_NAME = 'oficios-ahome-v4.0';
 const STATIC_ASSETS = [
   './',
   './index.html',
+  './sobre-nosotros.html',
+  './terminos-y-privacidad.html',
   './app.js',
   './qrcode.min.js',
   './oficios.json',
@@ -10,6 +12,10 @@ const STATIC_ASSETS = [
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/apple-touch-icon.png',
+  './images/hero_oficio_1.jpg',
+  './images/hero_oficio_2.jpg',
+  './images/hero_oficio_3.jpg',
+  './images/hero_oficio_4.jpg',
   './images/juan_referencia.png',
   './images/herreria_porton.jpg',
   './images/herreria_taller.jpg',

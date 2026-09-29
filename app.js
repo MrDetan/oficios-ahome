@@ -3753,6 +3753,16 @@ function createCardElement(item) {
             <span>📲</span>
             <span>Compartir</span>
           </button>
+
+          <!-- Botón Reportar Novedad / Número Inactivo -->
+          <button 
+            type="button" 
+            onclick="window.reportOficioIssue('${escapeHtml(item.id)}', '${escapeHtml(item.nombre)}')" 
+            class="inline-flex items-center gap-0.5 py-1 px-1.5 text-zinc-400 hover:text-rose-600 dark:hover:text-rose-400 text-[10px] font-mono transition cursor-pointer"
+            title="Reportar número fuera de servicio o dato incorrecto"
+          >
+            <span>⚠️</span>
+          </button>
         </div>
       </div>
 
@@ -4506,6 +4516,69 @@ function escapeHtml(string) {
 
 window.escapeHtml = escapeHtml;
 
+function downloadVCard(id) {
+  const item = (state.oficios || []).find(o => String(o.id) === String(id));
+  if (!item) return;
+
+  const phone = String(item.telefono || '').replace(/\D/g, '');
+  const vcard = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    `FN:${item.nombre} - ${item.oficio}`,
+    `N:${item.oficio};${item.nombre};;;`,
+    `ORG:Oficios Ahome;${item.oficio}`,
+    `TITLE:${item.oficio}`,
+    `TEL;TYPE=CELL,VOICE:${phone}`,
+    `ADR;TYPE=WORK:;;${item.zona};Los Mochis;Sinaloa;;México`,
+    `NOTE:Contacto comunitario de Oficios Ahome. Servicios: ${item.descripcion || item.oficio}`,
+    `URL:https://oficios.polylab.com/?id=${encodeURIComponent(item.id)}`,
+    'END:VCARD'
+  ].join('\r\n');
+
+  const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${item.nombre.replace(/[^a-zA-Z0-9]/g, '_')}_${item.oficio.replace(/[^a-zA-Z0-9]/g, '_')}.vcf`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast(`Contacto de ${item.nombre} descargado en formato .vcf`, '📇');
+}
+window.downloadVCard = downloadVCard;
+
+function shareOficioViaWhatsApp(id) {
+  const item = (state.oficios || []).find(o => String(o.id) === String(id));
+  if (!item) return;
+
+  const phone = String(item.telefono || '').replace(/\D/g, '');
+  const text = `🛠️ *${item.nombre}* (${item.oficio})\n📍 *Zona:* ${item.zona}\n📞 *WhatsApp:* https://wa.me/52${phone}\n\nEncontrado en el Directorio Cívico *Oficios Ahome*:\nhttps://oficios.polylab.com/?id=${encodeURIComponent(item.id)}`;
+  const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+}
+window.shareOficioViaWhatsApp = shareOficioViaWhatsApp;
+
+function reportOficioIssue(id, nombre) {
+  const text = `Hola Ramsses, quiero reportar una novedad o número inactivo en la ficha [${id}] - ${nombre} de Oficios Ahome.`;
+  const url = `https://wa.me/526683956301?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+}
+window.reportOficioIssue = reportOficioIssue;
+
+function calculateDistanceKm(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = 
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return Number((R * c).toFixed(1));
+}
+window.calculateDistanceKm = calculateDistanceKm;
+
 // Atajo universal de teclado [/] para activar el buscador inteligente
 document.addEventListener('keydown', (e) => {
   if (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
@@ -4516,4 +4589,5 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
 

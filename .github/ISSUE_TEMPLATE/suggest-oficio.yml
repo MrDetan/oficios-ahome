@@ -1,0 +1,42 @@
+name: 🛠️ Proponer nuevo oficio o colonia
+description: Recomienda un prestador de oficios o taller para ser sumado al directorio cívico.
+title: "[PROPUESTA]: Nuevo oficio para Ahome"
+labels: ["propuesta-oficio", "comunidad"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Plataforma Cívica Libre de Ahome • Cero intermediarios y cero comisiones.
+  - type: input
+    id: nombre
+    attributes:
+      label: Nombre del Trabajador o Taller
+      placeholder: "Ejemplo: Taller Mecánico Los Mochis"
+    validations:
+      required: true
+  - type: input
+    id: oficio
+    attributes:
+      label: Oficio o Especialidad
+      placeholder: "Ejemplo: Electricista, Plomero, Herrero..."
+    validations:
+      required: true
+  - type: input
+    id: zona
+    attributes:
+      label: Colonia, Sindicatura o Ejido
+      placeholder: "Ejemplo: Fracc. Cedros, Topolobampo, Villa de Ahome..."
+    validations:
+      required: true
+  - type: input
+    id: telefono
+    attributes:
+      label: Teléfono / WhatsApp (10 dígitos)
+      placeholder: "Ejemplo: 6681234567"
+    validations:
+      required: true
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Trabajos que realiza
+      placeholder: "Describe los servicios o trabajos que realiza."
