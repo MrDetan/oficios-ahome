@@ -7,7 +7,8 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab 
 
 ---
 
-[![PWA Ready](https://img.shields.io/badge/PWA-Offline--First%20v3.1-10b981?style=for-the-badge&logo=pwa&logoColor=white)](https://github.com/)
+[![Live Demo](https://img.shields.io/badge/Web%20App-oficiosahome.netlify.app-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://oficiosahome.netlify.app/)
+[![PWA Ready](https://img.shields.io/badge/PWA-Offline--First%20v3.1-10b981?style=for-the-badge&logo=pwa&logoColor=white)](https://oficiosahome.netlify.app/)
 [![Zero Backend](https://img.shields.io/badge/Backend-Serverless%20Google%20Sheets-0284c7?style=for-the-badge&logo=google-sheets&logoColor=white)](https://sheets.new)
 [![Open Source](https://img.shields.io/badge/License-MIT%20Civic-64748b?style=for-the-badge&logo=open-source-initiative&logoColor=white)](./LICENSE)
 [![Tests Passing](https://img.shields.io/badge/Tests-23%2F23%20Passed%20(100%25)-16a34a?style=for-the-badge)](./test_coords.js)
