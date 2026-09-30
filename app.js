@@ -15,7 +15,7 @@ const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKZGja4fVGI
 const STORAGE_KEY_DATA = 'oficios_ahome_data_v5'; // v5 para base de datos limpia en producción
 const STORAGE_KEY_URL = 'oficios_ahome_script_url';
 const STORAGE_KEY_USER_COLONIA = 'oficios_ahome_user_colonia';
-const SW_CACHE_NAME = 'oficios-ahome-v4.0';
+const SW_CACHE_NAME = 'oficios-ahome-v5.0';
 const MAX_OFICIO_PHOTOS = 5; // Límite máximo de fotos por oficio al registrarse
 
 // Diccionario de coordenadas para todas las sindicaturas, colonias y ejidos de Ahome
@@ -3065,6 +3065,31 @@ async function loadOficiosData() {
   }
 
   checkSharedWorkerParam();
+
+  // Polling en vivo en segundo plano cada 30 segundos si la pestaña está activa
+  if (typeof window !== 'undefined' && !window._liveSheetSyncInterval) {
+    window._liveSheetSyncInterval = setInterval(() => {
+      if (navigator.onLine && !document.hidden) {
+        const currentUrl = localStorage.getItem(STORAGE_KEY_URL) || DEFAULT_SCRIPT_URL;
+        if (currentUrl) {
+          fetch(currentUrl, { method: 'GET' })
+            .then(res => res.ok ? res.json() : null)
+            .then(freshData => {
+              if (Array.isArray(freshData)) {
+                const prevLength = state.oficios.length;
+                state.oficios = freshData;
+                syncDatabaseToOfflineCache(freshData);
+                applyFilters();
+                if (freshData.length !== prevLength) {
+                  console.log(`[Tiempo Real] Base sincronizada en vivo: ${freshData.length} oficios.`);
+                }
+              }
+            })
+            .catch(() => {});
+        }
+      }
+    }, 30000);
+  }
 }
 
 function checkSharedWorkerParam() {
@@ -3343,6 +3368,19 @@ function updateResultsCount() {
   const count = state.filteredOficios.length;
   const total = state.oficios.length;
   
+  // Actualizar contador en tiempo real en la tarjeta Bento Hero
+  const statVerified = document.getElementById('stat-verified-count');
+  if (statVerified) {
+    statVerified.textContent = String(total);
+  }
+
+  const heroExploreText = document.getElementById('hero-explore-text');
+  if (heroExploreText) {
+    heroExploreText.textContent = total > 0 
+      ? `Explorar mapa interactivo y directorio de ${total} oficios`
+      : 'Explorar mapa interactivo y directorio comunitario';
+  }
+
   if (count === 0) {
     elements.resultsCount.textContent = '0 oficios encontrados';
   } else if (count === 1) {

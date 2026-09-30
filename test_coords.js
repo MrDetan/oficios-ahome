@@ -188,14 +188,14 @@ console.log('✓ Generador de mensaje claro para cotización: 3 casillas, vista 
 
 // 9. Test Modo Sin Conexión Garantizado (Offline Cache)
 const swJs = fs.readFileSync('sw.js', 'utf8');
-assert.ok(swJs.includes("CACHE_NAME = 'oficios-ahome-v4.0'"), 'sw.js must be at v4.0');
+assert.ok(swJs.includes("CACHE_NAME = 'oficios-ahome-v5.0'"), 'sw.js must be at v5.0');
 assert.ok(swJs.includes("'./oficios.json'"), 'sw.js must precache oficios.json');
 assert.ok(swJs.includes("url.pathname.endsWith('oficios.json')"), 'sw.js must serve cached oficios.json');
 assert.ok(swJs.includes("SKIP_WAITING"), 'sw.js must handle SKIP_WAITING message');
 
 // app.js offline cache sync
 assert.ok(appJs.includes('async function syncDatabaseToOfflineCache'), 'app.js must implement syncDatabaseToOfflineCache');
-assert.ok(appJs.includes("SW_CACHE_NAME = 'oficios-ahome-v4.0'"), 'app.js SW_CACHE_NAME must match sw.js');
+assert.ok(appJs.includes("SW_CACHE_NAME = 'oficios-ahome-v5.0'"), 'app.js SW_CACHE_NAME must match sw.js');
 assert.ok(appJs.includes("syncDatabaseToOfflineCache(state.oficios)"), 'app.js must sync state.oficios to offline cache');
 
 // Calling by conventional cellular network

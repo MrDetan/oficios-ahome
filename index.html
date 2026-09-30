@@ -708,9 +708,18 @@
       <div class="pt-4 sm:pt-6 border-t border-zinc-200 dark:border-zinc-800 w-full">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           
-          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-soft hover:shadow-hover transition duration-200">
-            <div class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white font-heading">288+</div>
-            <div class="text-xs text-zinc-600 dark:text-zinc-400 font-semibold mt-0.5">Oficios Verificados</div>
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-soft hover:shadow-hover transition duration-200 flex flex-col justify-between">
+            <div class="flex items-center justify-between gap-2">
+              <div id="stat-verified-count" class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white font-heading">0</div>
+              <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-[10px] font-mono font-extrabold text-rose-600 dark:text-rose-400 select-none shrink-0" title="Transmisión y conteo en vivo de oficios activos">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-600"></span>
+                </span>
+                <span>EN VIVO</span>
+              </div>
+            </div>
+            <div class="text-xs text-zinc-600 dark:text-zinc-400 font-semibold mt-1">Oficios Verificados</div>
           </div>
 
           <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-soft hover:shadow-hover transition duration-200">
@@ -733,7 +742,7 @@
         <!-- Indicador de desplazamiento hacia el directorio -->
         <div class="pt-4 sm:pt-6 flex items-center justify-center">
           <a href="#directorio" class="inline-flex items-center gap-2 text-xs font-bold text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition group">
-            <span>Explorar mapa interactivo y directorio de 288 oficios</span>
+            <span id="hero-explore-text">Explorar mapa interactivo y directorio comunitario</span>
             <svg class="w-4 h-4 transform group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
           </a>
         </div>
