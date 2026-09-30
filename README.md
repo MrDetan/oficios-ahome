@@ -7,9 +7,9 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab 
 
 ---
 
-[![Dominio Oficial](https://img.shields.io/badge/Web%20App-oficios.polylab.com-09090B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://oficios.polylab.com/)
+[![Dominio Oficial](https://img.shields.io/badge/Web%20App-oficiosahome.org-09090B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://oficiosahome.org/)
 [![GitHub Actions CI](https://img.shields.io/badge/Data%20Sync-Daily%20Cron-18181B?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/MrDetan/oficios-ahome/actions)
-[![PWA Ready](https://img.shields.io/badge/PWA-Offline--First%20v4.0-09090B?style=for-the-badge&logo=pwa&logoColor=white)](https://oficios.polylab.com/)
+[![PWA Ready](https://img.shields.io/badge/PWA-Offline--First%20v4.0-09090B?style=for-the-badge&logo=pwa&logoColor=white)](https://oficiosahome.org/)
 [![Zero Backend](https://img.shields.io/badge/Backend-Serverless%20Google%20Sheets-27272A?style=for-the-badge&logo=google-sheets&logoColor=white)](https://sheets.new)
 [![Open Source](https://img.shields.io/badge/License-MIT%20Civic-52525B?style=for-the-badge&logo=open-source-initiative&logoColor=white)](./LICENSE)
 [![Data Quality](https://img.shields.io/badge/Oficios%20Verificados-288%20(100%25)-09090B?style=for-the-badge)](./scripts/validate-data.js)
@@ -78,7 +78,7 @@ Barrio/
 ├── manifest.json                # Manifiesto PWA para instalación en Android, iOS y PC
 ├── oficios.json                 # Base de datos local (288 oficios en 7 sindicaturas)
 ├── google-apps-script.js        # Webhook serverless para sincronización con Google Sheets
-├── CNAME                        # Subdominio personalizado (oficios.polylab.com)
+├── CNAME                        # Dominio personalizado oficial (oficiosahome.org)
 ├── robots.txt                   # Directivas para motores de búsqueda y Googlebot
 ├── sitemap.xml                  # Mapa del sitio para indexación SEO
 ├── qrcode.min.js                # Librería local para generación de códigos QR offline

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap oficial de la plataforma
-Sitemap: https://oficios.polylab.com/sitemap.xml
+Sitemap: https://oficiosahome.org/sitemap.xml

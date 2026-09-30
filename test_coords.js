@@ -201,14 +201,14 @@ console.log('✓ Generador de mensaje claro para cotización: 3 casillas, vista 
 
 // 9. Test Modo Sin Conexión Garantizado (Offline Cache)
 const swJs = fs.readFileSync('sw.js', 'utf8');
-assert.ok(swJs.includes("CACHE_NAME = 'oficios-ahome-v3.1'"), 'sw.js must be at v3.1');
+assert.ok(swJs.includes("CACHE_NAME = 'oficios-ahome-v4.0'"), 'sw.js must be at v4.0');
 assert.ok(swJs.includes("'./oficios.json'"), 'sw.js must precache oficios.json');
 assert.ok(swJs.includes("url.pathname.endsWith('oficios.json')"), 'sw.js must serve cached oficios.json');
 assert.ok(swJs.includes("SKIP_WAITING"), 'sw.js must handle SKIP_WAITING message');
 
 // app.js offline cache sync
 assert.ok(appJs.includes('async function syncDatabaseToOfflineCache'), 'app.js must implement syncDatabaseToOfflineCache');
-assert.ok(appJs.includes("SW_CACHE_NAME = 'oficios-ahome-v3.1'"), 'app.js SW_CACHE_NAME must match sw.js');
+assert.ok(appJs.includes("SW_CACHE_NAME = 'oficios-ahome-v4.0'"), 'app.js SW_CACHE_NAME must match sw.js');
 assert.ok(appJs.includes("syncDatabaseToOfflineCache(state.oficios)"), 'app.js must sync state.oficios to offline cache');
 
 // Calling by conventional cellular network
@@ -238,7 +238,7 @@ const formatShareMatch = appJs.match(/function formatOficioShareText\([\s\S]*?\n
 assert.ok(formatShareMatch, 'formatOficioShareText function must be present in app.js');
 const formatOficioShareTextFn = new Function('item', 'shareUrl', `${formatShareMatch[0]}; return formatOficioShareText(item, shareUrl);`);
 
-const testUrl = 'https://oficiosahome.mx/?id=ahome-001';
+const testUrl = 'https://oficiosahome.org/?id=ahome-001';
 const formattedShareMsg = formatOficioShareTextFn(sampleWorker, testUrl);
 
 assert.ok(formattedShareMsg.includes('👋 *Recomendación en Oficios Ahome:*'), 'Must include friendly neighbor recommendation header');
@@ -368,7 +368,7 @@ assert.ok(appJs.includes('function toggleFavoritesFilter'), 'app.js must define 
 assert.ok(appJs.includes('ahome_favoritos'), 'app.js must persist favorites in localStorage under ahome_favoritos');
 assert.ok(appJs.includes('btn-fav-'), 'app.js must tag star buttons with btn-fav- prefix');
 assert.ok(indexHtml.includes('id="btn-filter-favorites"'), 'index.html must include btn-filter-favorites in search filter chips');
-assert.ok(indexHtml.includes('id="favorites-count-badge-quick"'), 'index.html must include favorites-count-badge-quick');
+assert.ok(indexHtml.includes('id="favorites-count-badge"'), 'index.html must include favorites-count-badge');
 console.log('✓ ⭐ Favoritos / Mis Oficios de Confianza (Opción 1): Persistencia, badges y filtrado verificados');
 
 // 18. Test 🧭 Botón "Cómo llegar" con Google Maps (Opción 2)
