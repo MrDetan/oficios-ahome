@@ -4317,14 +4317,11 @@ async function handleRegisterSubmit(e) {
 
   elements.btnSubmitRegister.disabled = true;
   elements.submitSpinner.classList.remove('hidden');
-  elements.submitText.textContent = 'Guardando oficio...';
+  elements.submitText.textContent = 'Enviando oficio para revisión...';
 
-  // 1. Optimistic Update: Guardar localmente de inmediato con caché offline garantizado
-  state.oficios.unshift(nuevoOficio);
-  syncDatabaseToOfflineCache(state.oficios);
-
-  // 2. Intentar enviar a Google Apps Script Webhook si está disponible
+  // 1. Intentar enviar a Google Apps Script Webhook (Hoja 'Ingresos_Pendientes')
   const webhookUrl = localStorage.getItem(STORAGE_KEY_URL) || DEFAULT_SCRIPT_URL;
+  let sentToWebhook = false;
 
   if (webhookUrl && navigator.onLine) {
     try {
@@ -4336,15 +4333,16 @@ async function handleRegisterSubmit(e) {
         },
         body: JSON.stringify(nuevoOficio)
       });
-      console.log('[Webhook] Oficio enviado a Google Sheets exitosamente.');
+      sentToWebhook = true;
+      console.log('[Webhook] Oficio enviado a Google Sheets (Ingresos_Pendientes) exitosamente.');
     } catch (err) {
-      console.warn('[Webhook] No se pudo conectar a Google Sheets, guardado en dispositivo:', err);
+      console.warn('[Webhook] Error al enviar a Google Sheets:', err);
     }
   }
 
   elements.btnSubmitRegister.disabled = false;
   elements.submitSpinner.classList.add('hidden');
-  elements.submitText.textContent = 'Publicar mi oficio gratis';
+  elements.submitText.textContent = 'Enviar oficio para revisión gratis';
   elements.formRegister.reset();
   elements.charCounter.textContent = '0/150';
   state.currentUploadedPhotos = [];
@@ -4352,19 +4350,8 @@ async function handleRegisterSubmit(e) {
 
   closeRegisterModal();
 
-  // Resetear filtros para mostrar el nuevo oficio arriba y en el mapa
-  state.searchQuery = '';
-  state.selectedOficio = 'todos';
-  state.selectedZona = 'todas';
-  state.onlyEmergencias = false;
-  elements.searchInput.value = '';
-  applyFilters();
-
-  showToast('¡Tu oficio con foto ha sido publicado y agregado al mapa!', '🎉');
-  
-  setTimeout(() => {
-    focusWorkerOnMap(nuevoOficio.id);
-  }, 350);
+  // Mensaje claro de confirmación de revisión comunitaria (hasta 24 horas)
+  showToast('¡Ficha recibida con éxito! Revisaremos tus datos y la publicaremos en el mapa lo antes posible (puede tardar hasta 24 horas).', '⏳', 7000);
 }
 
 // ============================================================================
