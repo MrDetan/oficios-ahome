@@ -517,10 +517,10 @@
   <!-- PIE DE PÁGINA (MONOCHROME TECHNICAL FOOTER)                               -->
   <!-- ========================================================================= -->
   <footer class="border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#09090B] py-10 px-4 sm:px-6 transition-colors mt-auto">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-xs text-zinc-500 dark:text-zinc-400">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-zinc-500 dark:text-zinc-400">
       
-      <div class="space-y-1.5">
-        <div class="font-extrabold text-sm uppercase text-black dark:text-white tracking-tight flex items-center gap-2">
+      <div class="space-y-1.5 text-center md:text-left">
+        <div class="font-extrabold text-sm uppercase text-black dark:text-white tracking-tight flex items-center justify-center md:justify-start gap-2">
           <span>POLYLAB STUDIO</span>
           <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 border border-zinc-300 dark:border-zinc-700 rounded">SOFTWARE CÍVICO</span>
         </div>
@@ -532,7 +532,14 @@
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center gap-4 font-mono text-xs uppercase tracking-wider">
+      <!-- Netlify Open Source Attribution -->
+      <div class="flex items-center gap-2">
+        <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center transition hover:opacity-80" title="Deploys by Netlify">
+          <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" class="h-8" width="114" height="32" />
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center md:justify-end gap-4 font-mono text-xs uppercase tracking-wider">
         <a href="./index.html" class="hover:text-black dark:hover:text-white transition font-bold">[ Directorio ]</a>
         <a href="./terminos-y-privacidad.html" class="hover:text-black dark:hover:text-white transition font-bold">[ Términos ]</a>
         <a href="https://polylab-web-cliente.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-black dark:hover:text-white transition font-bold">[ Web PolyLab ↗ ]</a>

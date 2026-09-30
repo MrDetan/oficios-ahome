@@ -8,10 +8,11 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab 
 ---
 
 [![Dominio Oficial](https://img.shields.io/badge/Web%20App-oficiosahome.org-09090B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://oficiosahome.org/)
-[![GitHub Actions CI](https://img.shields.io/badge/Data%20Sync-Daily%20Cron-18181B?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/MrDetan/oficios-ahome/actions)
+[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg)](https://www.netlify.com)
+[![OSI MIT License](https://img.shields.io/badge/License-MIT%20(OSI)-09090B?style=for-the-badge&logo=open-source-initiative&logoColor=white)](./LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Code%20of%20Conduct-v2.1-09090B?style=for-the-badge)](./CODE_OF_CONDUCT.md)
 [![PWA Ready](https://img.shields.io/badge/PWA-Offline--First%20v4.0-09090B?style=for-the-badge&logo=pwa&logoColor=white)](https://oficiosahome.org/)
 [![Zero Backend](https://img.shields.io/badge/Backend-Serverless%20Google%20Sheets-27272A?style=for-the-badge&logo=google-sheets&logoColor=white)](https://sheets.new)
-[![Open Source](https://img.shields.io/badge/License-MIT%20Civic-52525B?style=for-the-badge&logo=open-source-initiative&logoColor=white)](./LICENSE)
 [![Data Quality](https://img.shields.io/badge/Oficios%20Verificados-288%20(100%25)-09090B?style=for-the-badge)](./scripts/validate-data.js)
 
 ---
@@ -38,8 +39,9 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab 
 - **Service Worker con Estrategia Stale-While-Revalidate:** Guarda la base de datos completa (`oficios.json`), todas las páginas y fotos en el almacenamiento local del teléfono.
 - **Llamadas Celulares Directas sin Datos:** Si te quedas sin megas en la calle o hay fallas de red, puedes abrir la app y presionar **"Llamar"** para comunicarte por la red celular tradicional (GSM/VoLTE).
 
-### 🤖 3. Sincronización Automática con GitHub Actions
-- **Pipeline Diario:** Un flujo automatizado consulta el webhook de Google Sheets a medianoche, valida el esquema de datos con `scripts/validate-data.js` y actualiza el repositorio sin intervención manual.
+### 🛡️ 3. Validación y Sincronización Manual Controlada
+- **Revisión y Aprobación 1 a 1:** Ningún oficio se publica automáticamente. Todos los registros entran a la hoja de staging para ser validados por el administrador.
+- **Sincronización Bajo Demanda:** El flujo de GitHub Actions se ejecuta de forma manual (`workflow_dispatch`) o mediante `sync.bat` únicamente cuando hay cambios verificados.
 
 ### 💬 4. Trato Directo Persona a Persona (P2P)
 - **Cero comisiones ni intermediarios:** El precio, alcance y pago se acuerdan directamente entre cliente y prestador.
@@ -106,6 +108,25 @@ node scripts/validate-data.js
 
 ---
 
-## 📄 Licencia
+---
 
-Este proyecto está bajo la **Licencia Libre MIT**. Siéntete libre de clonarlo, adaptarlo o replicarlo en otros municipios de México para empoderar a la economía local.
+## 🤝 Código de Conducta
+
+Este proyecto se rige por el estándar **Contributor Covenant v2.1** para garantizar un entorno seguro, respetuoso, inclusivo y libre de acoso para toda la comunidad de desarrollo y usuarios. Puedes consultar el documento completo en [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+
+---
+
+## 🌐 Infraestructura & Código Abierto
+
+Este proyecto cívico y sin fines de lucro está alojado y desplegado gracias al programa de soporte para código abierto de **[Netlify](https://www.netlify.com)**:
+
+[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg)](https://www.netlify.com)
+
+---
+
+## 📄 Licencia y Naturaleza Cívica (Uso No Comercial)
+
+Este proyecto es una iniciativa de **software cívico y beneficio comunitario sin fines de lucro** desarrollada por **Ramsses García (PolyLab)**. 
+
+Se distribuye bajo la **[Licencia MIT](./LICENSE)** (aprobada por la **Open Source Initiative - OSI**). Es de uso libre y gratuito para la comunidad, auditoría pública y réplica solidaria en otros municipios.
+
