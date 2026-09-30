@@ -750,6 +750,9 @@ function initRandomHeroImage() {
 window.initRandomHeroImage = initRandomHeroImage;
 
 function bootApp() {
+  try {
+    ['oficios_ahome_data_v4', 'oficios_ahome_data_v3', 'oficios_ahome_data_v2', 'oficios_ahome_data'].forEach(k => localStorage.removeItem(k));
+  } catch (e) {}
   try { initRandomHeroImage(); } catch (e) { console.warn('initRandomHeroImage:', e); }
   try { refreshElements(); } catch (e) { console.warn('refreshElements:', e); }
   try { initTheme(); } catch (e) { console.warn('initTheme:', e); }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'oficios-ahome-v4.0';
+const CACHE_NAME = 'oficios-ahome-v5.0';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -24,11 +24,12 @@ const STATIC_ASSETS = [
   './images/polylab-logo.png'
 ];
 
-// Install event - precache core static assets
+// Install event - precache core static assets and activate immediately
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Precaching core assets for Oficios Ahome (v3.0)');
+      console.log('[SW] Precaching core assets for Oficios Ahome (v5.0)');
       return cache.addAll(STATIC_ASSETS);
     })
   );
