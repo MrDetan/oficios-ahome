@@ -1,3 +1,9 @@
+# Código de Conducta / Code of Conduct
+
+> [Español](#código-de-conducta-para-la-comunidad-de-oficios-ahome) | [English](#code-of-conduct-for-the-oficios-ahome-community)
+
+---
+
 # Código de Conducta para la Comunidad de Oficios Ahome
 
 ## Nuestro Compromiso
@@ -56,3 +62,65 @@ Todos los reportes serán revisados e investigados con prontitud y confidenciali
 ## Atribución
 
 Este Código de Conducta es una adaptación del [Contributor Covenant](https://www.contributor-covenant.org), versión 2.1, disponible en https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
+
+---
+---
+
+# Code of Conduct for the Oficios Ahome Community
+
+## Our Pledge
+
+We as members, contributors, and leaders of the civic initiative **Oficios Ahome** and **PolyLab Studio** pledge to make participation in our community and open-source civic tech project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+
+We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, civic-minded, and healthy community.
+
+---
+
+## Our Standards
+
+Examples of behavior that contributes to a positive environment for our community:
+
+- **Empathy and respect:** Demonstrating empathy and kindness toward other people (clients, tradespeople, and developers).
+- **Constructive feedback:** Being respectful of differing viewpoints and experiences. Gracefully accepting constructive criticism.
+- **Civic focus:** Focusing on what is best not just for us as individuals, but for the wider community of Ahome, Sinaloa, and platform users.
+- **Transparency and honesty:** Fostering truthfulness in listing details, fair pricing, and direct person-to-person respect.
+
+Examples of unacceptable behavior:
+
+- The use of sexualized language or imagery, and sexual attention or advances of any kind.
+- Trolling, insulting or derogatory comments, and personal or political attacks.
+- Public or private harassment, extortion, or unfair commercial practices.
+- Publishing others’ private information, such as physical addresses or email addresses, without explicit permission (Doxxing).
+- Other conduct which could reasonably be considered inappropriate in a civic, professional, or collaborative setting.
+
+---
+
+## Enforcement Responsibilities
+
+Community leaders and project maintainers are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
+
+Maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, issues, listings, and other contributions that are not aligned with this Code of Conduct.
+
+---
+
+## Scope
+
+This Code of Conduct applies within all project spaces (GitHub repository, Issues, Pull Requests, code discussions), as well as in direct community channels linked to the initiative (civic support WhatsApp and institutional email).
+
+---
+
+## Reporting & Contact
+
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the leadership team:
+
+- **Project Lead:** Ramsses García (Founder, PolyLab)
+- **Email:** [gmramgarcia@gmail.com](mailto:gmramgarcia@gmail.com)
+- **Civic WhatsApp:** [+52 668 395 6301](https://wa.me/526683956301)
+
+All reports will be reviewed and investigated promptly and fairly, with full confidentiality.
+
+---
+
+## Attribution
+
+This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.1, available at https://www.contributor-covenant.org/version/2/1/code_of_conduct.html

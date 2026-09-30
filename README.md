@@ -1,5 +1,9 @@
 # Oficios Ahome 🛠️🇲🇽
 
+> [Español](#oficios-ahome-️) | [English](#oficios-ahome---english-overview)
+
+---
+
 > **Directorio cívico, mapa interactivo y plataforma comunitaria de código abierto para el Municipio de Ahome, Sinaloa.**  
 > Conexión directa Persona a Persona (P2P) vía WhatsApp y llamada telefónica. Cero comisiones, cero intermediarios, acceso garantizado sin internet (PWA) y 100% gratuito para siempre.
 
@@ -68,7 +72,7 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab 
 Barrio/
 ├── .github/
 │   ├── workflows/
-│   │   └── sync-sheets.yml      # Sincronización diaria automatizada con GitHub Actions
+│   │   └── sync-sheets.yml      # Sincronización controlada con GitHub Actions
 │   └── ISSUE_TEMPLATE/          # Plantillas de reporte de número inactivo y propuesta de oficios
 ├── scripts/
 │   └── validate-data.js         # Validador de calidad y esquema de datos (Linter)
@@ -80,6 +84,8 @@ Barrio/
 ├── manifest.json                # Manifiesto PWA para instalación en Android, iOS y PC
 ├── oficios.json                 # Base de datos local (288 oficios en 7 sindicaturas)
 ├── google-apps-script.js        # Webhook serverless para sincronización con Google Sheets
+├── CODE_OF_CONDUCT.md           # Código de Conducta bilingüe (Contributor Covenant 2.1)
+├── LICENSE                      # Licencia MIT aprobada por la OSI
 ├── CNAME                        # Dominio personalizado oficial (oficiosahome.org)
 ├── robots.txt                   # Directivas para motores de búsqueda y Googlebot
 ├── sitemap.xml                  # Mapa del sitio para indexación SEO
@@ -108,8 +114,6 @@ node scripts/validate-data.js
 
 ---
 
----
-
 ## 🤝 Código de Conducta
 
 Este proyecto se rige por el estándar **Contributor Covenant v2.1** para garantizar un entorno seguro, respetuoso, inclusivo y libre de acoso para toda la comunidad de desarrollo y usuarios. Puedes consultar el documento completo en [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
@@ -130,3 +134,96 @@ Este proyecto es una iniciativa de **software cívico y beneficio comunitario si
 
 Se distribuye bajo la **[Licencia MIT](./LICENSE)** (aprobada por la **Open Source Initiative - OSI**). Es de uso libre y gratuito para la comunidad, auditoría pública y réplica solidaria en otros municipios.
 
+---
+---
+
+# Oficios Ahome - English Overview
+
+> **Civic directory, interactive map, and open-source community platform for the Municipality of Ahome, Sinaloa, Mexico.**  
+> Direct Person-to-Person (P2P) connection via WhatsApp and phone calls. Zero commissions, zero middlemen, guaranteed offline access (PWA), and 100% free forever.
+
+A civic technology and social impact initiative developed by **[PolyLab Studio](https://polylab-web-cliente.onrender.com/)** — **Ramsses García** in Los Mochis, Sinaloa.
+
+---
+
+## 🔬 About PolyLab Studio
+
+**PolyLab** is an independent Mexican design, additive manufacturing, and civic software studio based in Los Mochis, Sinaloa. We view our work not as a generic 3D printing shop or souvenir maker, but as a **contemporary design brand** leveraging technology to create solutions combining **art, function, geometry, and aesthetics**.
+
+> *“A place where we create things for worlds that do not yet exist.”*
+
+**Oficios Ahome** is PolyLab's **civic tech and social responsibility** flagship: we apply the exact same engineering rigor, monochromatic editorial design, and performance optimizations we use in our physical studio to build useful, open digital public goods for our local community.
+
+---
+
+## ✨ Key Platform Features
+
+### 🗺️ 1. Interactive Civic Map with Smart Clustering
+- **OpenStreetMap + Leaflet.js:** Zero proprietary API key fees (no Google Maps API dependency).
+- **Marker Clustering (`Leaflet.markercluster`):** Automatically groups workers into numerical bubbles to prevent screen clutter during zoom-out.
+- **Anti-Collision Orbital Distribution:** Spatially separates workers within the same neighborhood using trigonometric radius distribution.
+- **Location Selector with Draggable Pin & GPS:** Empowers new tradespeople to position their workshops or service coverage with sub-meter accuracy.
+
+### ⚡ 2. Guaranteed Offline Access (PWA Offline v4.0)
+- **Service Worker with Stale-While-Revalidate:** Caches the full database (`oficios.json`), HTML views, assets, and photos directly on the user's mobile device.
+- **Direct Cellular Calls without Mobile Data:** If a user runs out of cellular data on the street, they can open the app offline and tap **"Call"** via standard GSM/VoLTE cellular networks.
+
+### 🛡️ 3. Controlled Manual Review & Synchronization
+- **1-on-1 Manual Approval:** No listing is automatically published. Every submission enters an administrative staging sheet for human review.
+- **On-Demand Synchronization:** GitHub Actions sync runs on-demand via `workflow_dispatch` or the local `sync.bat` script only when changes are confirmed.
+
+### 💬 4. Direct Person-to-Person (P2P) Deals
+- **Zero commissions or transaction fees:** Scope, quotes, and payment terms are negotiated directly between the resident and the worker.
+- **1-Tap WhatsApp Sharing:** Pre-formatted message sharing to easily recommend trusted plumbers, electricians, or locksmiths to neighbors and family.
+
+### 📇 5. Save to Contacts (vCard 3.0 Offline)
+- Dynamically creates `.vcf` files in the browser (`Blob`) to save contact details directly to the device's native address book with one tap.
+
+### 🖨️ 6. Printable Community Posters with Offline QR
+- Poster generator for physical bulletin boards in corner stores, gates, and community kiosks.
+- Bundles `qrcode.min.js` locally for 100% offline generation. High-contrast `@media print` styles for clean black-and-white printing.
+
+### 🚨 7. 24/7 Night Emergency Mode
+- Instant 1-tap filter that isolates providers with emergency nighttime availability (pipe leaks, power outages, automotive lockouts).
+
+### ⭐ 8. Trusted Favorites
+- Persistent `localStorage` bookmarking system to keep trusted tradespeople at your fingertips without creating user accounts.
+
+---
+
+## 🚀 Local Development Setup
+
+No complex frameworks or heavy dependencies required:
+
+### Option 1: Run with Node.js
+```bash
+node server.js
+```
+Open in your browser: `http://localhost:3000`
+
+### Option 2: Validate Data Quality & Schema
+```bash
+node scripts/validate-data.js
+```
+
+---
+
+## 🤝 Code of Conduct
+
+This project is governed by the **Contributor Covenant v2.1** standard to ensure a safe, welcoming, respectful, and harassment-free environment for all contributors and users. Read the full document at [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+
+---
+
+## 🌐 Infrastructure & Open Source Sponsorship
+
+This non-profit civic project is hosted and deployed with the generous open-source support of **[Netlify](https://www.netlify.com)**:
+
+[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg)](https://www.netlify.com)
+
+---
+
+## 📄 License & Non-Commercial Civic Purpose
+
+This project is an open **non-profit civic technology initiative** developed by **Ramsses García (PolyLab)**.
+
+It is licensed under the **[MIT License](./LICENSE)** (approved by the **Open Source Initiative - OSI**). Free for community audit, public benefit, and non-commercial municipal replication across Mexico and Latin America.
