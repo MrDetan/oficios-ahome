@@ -29,7 +29,7 @@ jobs:
           const fs = require('fs');
           const https = require('https');
 
-          const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxJy_tOBdCL36Bz--UQ8WqqnLk3nXaKfVVTEuV5Yly7kV-NZytVUl_JvbqFqx7gjO2i/exec';
+          const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyKZGja4fVGI-pvVEEhD2NGfLtF9mZ9Ox-CM16wlc_SVyAPc3vt5_whSPifrdLHB4_x/exec';
 
           function fetchWithRedirect(url, maxRedirects = 5) {
             return new Promise((resolve, reject) => {

@@ -357,10 +357,16 @@ function doPost(e) {
     const fecha = new Date().toISOString();
     const estado = 'Pendiente de revisión'; // En espera de que Ramsses lo apruebe
 
-    // Guardar en la hoja de Ingresos_Pendientes
+    // Guardar SIEMPRE en la hoja de Ingresos_Pendientes (crearla si aún no existe)
     let sheet = ss.getSheetByName(SHEET_NAME_PENDING);
     if (!sheet) {
-      sheet = ss.getSheetByName(SHEET_NAME_PUBLISHED) || ss.getSheets()[0];
+      sheet = ss.insertSheet(SHEET_NAME_PENDING);
+      sheet.appendRow(HEADERS);
+      const headerRange = sheet.getRange(1, 1, 1, HEADERS.length);
+      headerRange.setBackground('#b45309');
+      headerRange.setFontColor('#ffffff');
+      headerRange.setFontWeight('bold');
+      sheet.setFrozenRows(1);
     }
     
     sheet.appendRow([

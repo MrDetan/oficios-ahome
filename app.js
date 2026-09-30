@@ -10,7 +10,7 @@
  */
 
 // Constante configurable para Google Apps Script (Webhook)
-const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJy_tOBdCL36Bz--UQ8WqqnLk3nXaKfVVTEuV5Yly7kV-NZytVUl_JvbqFqx7gjO2i/exec';
+const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKZGja4fVGI-pvVEEhD2NGfLtF9mZ9Ox-CM16wlc_SVyAPc3vt5_whSPifrdLHB4_x/exec';
 
 // Claves de LocalStorage y configuración
 const STORAGE_KEY_DATA = 'oficios_ahome_data_v4'; // v4 para base de datos completa de 288 oficios
