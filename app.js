@@ -12,8 +12,7 @@
 // Constante configurable para Google Apps Script (Webhook)
 const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKZGja4fVGI-pvVEEhD2NGfLtF9mZ9Ox-CM16wlc_SVyAPc3vt5_whSPifrdLHB4_x/exec';
 
-// Claves de LocalStorage y configuración
-const STORAGE_KEY_DATA = 'oficios_ahome_data_v4'; // v4 para base de datos completa de 288 oficios
+const STORAGE_KEY_DATA = 'oficios_ahome_data_v5'; // v5 para base de datos limpia en producción
 const STORAGE_KEY_URL = 'oficios_ahome_script_url';
 const STORAGE_KEY_USER_COLONIA = 'oficios_ahome_user_colonia';
 const SW_CACHE_NAME = 'oficios-ahome-v4.0';
@@ -2957,7 +2956,7 @@ function initPwaInstall() {
  * 3. Notifica al Service Worker activo por postMessage.
  */
 async function syncDatabaseToOfflineCache(data) {
-  if (!Array.isArray(data) || data.length === 0) return;
+  if (!Array.isArray(data)) return;
 
   // 1. Guardar en LocalStorage
   try {
@@ -3004,11 +3003,11 @@ async function loadOficiosData() {
   const cached = localStorage.getItem(STORAGE_KEY_DATA);
   const webhookUrl = localStorage.getItem(STORAGE_KEY_URL) || DEFAULT_SCRIPT_URL;
 
-  // 1. Mostrar caché local de inmediato si existe (para arranque instantáneo a 0ms)
+  // 1. Mostrar caché local si existe
   if (cached) {
     try {
       const parsed = JSON.parse(cached);
-      if (Array.isArray(parsed) && parsed.length > 0) {
+      if (Array.isArray(parsed)) {
         state.oficios = parsed;
         applyFilters();
       }
@@ -3017,17 +3016,17 @@ async function loadOficiosData() {
     }
   }
 
-  // 2. Siempre obtener la versión completa y actualizada de oficios.json
+  // 2. Obtener siempre la versión autoritativa de oficios.json
   try {
     const fetchUrl = `./oficios.json?t=${Date.now()}`;
     const res = await fetch(fetchUrl);
     if (res.ok) {
       const defaultData = await res.json();
-      if (Array.isArray(defaultData) && defaultData.length > 0) {
-        state.oficios = mergeOficios(defaultData, state.oficios || []);
+      if (Array.isArray(defaultData)) {
+        state.oficios = defaultData;
         syncDatabaseToOfflineCache(state.oficios);
         applyFilters();
-        console.log(`[Oficios Ahome] Base de datos cargada con éxito (${state.oficios.length} oficios activos).`);
+        console.log(`[Oficios Ahome] Base de datos sincronizada (${state.oficios.length} oficios activos).`);
       }
     }
   } catch (err) {
@@ -3036,8 +3035,8 @@ async function loadOficiosData() {
       const resFallback = await fetch('oficios.json');
       if (resFallback.ok) {
         const defaultData = await resFallback.json();
-        if (Array.isArray(defaultData) && defaultData.length > 0) {
-          state.oficios = mergeOficios(defaultData, state.oficios || []);
+        if (Array.isArray(defaultData)) {
+          state.oficios = defaultData;
           syncDatabaseToOfflineCache(state.oficios);
           applyFilters();
         }
@@ -3051,8 +3050,8 @@ async function loadOficiosData() {
       const response = await fetch(webhookUrl, { method: 'GET' });
       if (response.ok) {
         const liveData = await response.json();
-        if (Array.isArray(liveData) && liveData.length > 0) {
-          state.oficios = mergeOficios(liveData, state.oficios);
+        if (Array.isArray(liveData)) {
+          state.oficios = liveData;
           syncDatabaseToOfflineCache(state.oficios);
           applyFilters();
         }
@@ -3402,6 +3401,16 @@ function renderCards(list) {
   if (list.length === 0) {
     elements.cardsContainer.classList.add('hidden');
     elements.emptyState.classList.remove('hidden');
+
+    const emptyTitle = elements.emptyState.querySelector('h3');
+    const emptyDesc = elements.emptyState.querySelector('p');
+    if (state.oficios.length === 0) {
+      if (emptyTitle) emptyTitle.textContent = '¡Sé el primero en sumar tu oficio a Ahome!';
+      if (emptyDesc) emptyDesc.textContent = 'El directorio cívico está listo. Registra tu taller, oficio o servicio de forma 100% gratuita para aparecer en el mapa y recibir clientes de tu colonia.';
+    } else {
+      if (emptyTitle) emptyTitle.textContent = 'No encontramos oficios con estos filtros';
+      if (emptyDesc) emptyDesc.textContent = 'Intenta con otra palabra clave, selecciona "Todas las categorías" o elimina el filtro de zona.';
+    }
     return;
   }
 

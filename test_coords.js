@@ -4,13 +4,8 @@ const assert = require('assert');
 
 // 1. Validate oficios.json JSON syntax
 const oficiosData = JSON.parse(fs.readFileSync('oficios.json', 'utf8'));
-console.log(`✓ oficios.json parsed successfully (${oficiosData.length} oficios)`);
-
-const alamosCountryOficio = oficiosData.find(o => o.id === 'ahome-021');
-assert.ok(alamosCountryOficio, 'ahome-021 must exist in oficios.json');
-assert.strictEqual(alamosCountryOficio.lat, 25.7805, 'ahome-021 lat must be 25.7805');
-assert.strictEqual(alamosCountryOficio.lng, -109.0215, 'ahome-021 lng must be -109.0215');
-console.log(`✓ ahome-021 coordinates in oficios.json: [${alamosCountryOficio.lat}, ${alamosCountryOficio.lng}]`);
+assert.ok(Array.isArray(oficiosData), 'oficios.json must be a valid JSON array');
+console.log(`✓ oficios.json parsed successfully (${oficiosData.length} oficios en base de datos inicializada)`);
 
 // 2. Validate app.js functions
 const appJs = fs.readFileSync('app.js', 'utf8');
@@ -152,15 +147,7 @@ assert.strictEqual(imgurTest.type, 'imgur');
 assert.strictEqual(imgurTest.url, 'https://imgur.com/a/album123');
 assert.ok(imgurTest.label.includes('Imgur'));
 
-// Verify oficios.json has sample enlaceTrabajos
-const juanOficio = oficiosData.find(o => o.id === 'ahome-000-juan');
-assert.ok(juanOficio && juanOficio.enlaceTrabajos, 'Juan must have enlaceTrabajos in oficios.json');
-const tonoOficio = oficiosData.find(o => o.id === 'ahome-001');
-assert.ok(tonoOficio && tonoOficio.enlaceTrabajos, 'Toño must have enlaceTrabajos in oficios.json');
-const letyOficio = oficiosData.find(o => o.id === 'ahome-006');
-assert.ok(letyOficio && letyOficio.enlaceTrabajos, 'Doña Lety must have enlaceTrabajos in oficios.json');
-
-// Verify app.js integration
+// Verify app.js integration for enlaceTrabajos
 assert.ok(appJs.includes("formData.get('enlaceTrabajos')"), 'app.js must extract enlaceTrabajos from form');
 assert.ok(appJs.includes("enlaceTrabajos: formattedEnlaceTrabajos"), 'app.js must store enlaceTrabajos in nuevoOficio');
 assert.ok(appJs.includes("getEnlaceTrabajosInfo(item.enlaceTrabajos)"), 'app.js must parse enlaceTrabajos for cards');

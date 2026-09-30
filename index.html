@@ -34,6 +34,19 @@
   <!-- Tailwind CSS CDN con configuración personalizada Monochrome (Blanco y Negro) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Inicialización inmediata del tema (Sincronizado con el sistema del dispositivo por defecto)
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('ahome_theme');
+        var systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -1234,11 +1247,11 @@
   <!-- ========================================================================= -->
   <!-- MODAL: FICHA COMPLETA DEL OFICIO (POP-UP CON FOTO, DETALLES Y CONTACTO)    -->
   <!-- ========================================================================= -->
-  <div id="modal-ficha" role="dialog" aria-modal="true" aria-label="Ficha de detalles del oficio" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-    <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 dark:border-slate-800 relative overflow-hidden animate-in fade-in zoom-in-95 duration-150 max-h-[92vh] flex flex-col">
+  <div id="modal-ficha" role="dialog" aria-modal="true" aria-label="Ficha de detalles del oficio" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white dark:bg-zinc-900 rounded-3xl sm:rounded-2xl max-w-lg w-full shadow-2xl border border-zinc-200 dark:border-zinc-800 relative overflow-hidden animate-in fade-in zoom-in-95 duration-150 max-h-[92vh] flex flex-col">
       
       <!-- Botón de Cerrar Flotante -->
-      <button id="btn-close-ficha" class="absolute top-3.5 right-3.5 z-20 bg-slate-900/70 hover:bg-slate-900 text-white p-2 rounded-full backdrop-blur-md transition shadow-md" title="Cerrar ficha">
+      <button id="btn-close-ficha" class="absolute top-3.5 right-3.5 z-20 bg-zinc-900/80 hover:bg-black text-white p-2 rounded-full backdrop-blur-md transition shadow-md cursor-pointer" title="Cerrar ficha">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
 
@@ -1253,22 +1266,22 @@
   <!-- ========================================================================= -->
   <!-- MODAL: GENERADOR DE MENSAJE CLARO PARA COTIZACIÓN (WHATSAPP INTELIGENTE)   -->
   <!-- ========================================================================= -->
-  <div id="modal-quote" style="z-index: 70;" role="dialog" aria-modal="true" aria-label="Cotizar por WhatsApp" class="hidden fixed inset-0 z-[70] overflow-y-auto bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-    <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 dark:border-slate-800 relative overflow-hidden animate-in fade-in zoom-in-95 duration-150 max-h-[94vh] flex flex-col">
+  <div id="modal-quote" style="z-index: 70;" role="dialog" aria-modal="true" aria-label="Cotizar por WhatsApp" class="hidden fixed inset-0 z-[70] overflow-y-auto bg-black/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white dark:bg-zinc-900 rounded-3xl sm:rounded-2xl max-w-lg w-full shadow-2xl border border-zinc-200 dark:border-zinc-800 relative overflow-hidden animate-in fade-in zoom-in-95 duration-150 max-h-[94vh] flex flex-col">
       
-      <!-- Encabezado con datos del prestador con Gradiente Corporate Trust -->
-      <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 relative shrink-0 border-b border-indigo-900/60">
+      <!-- Encabezado con datos del prestador -->
+      <div class="bg-zinc-900 text-white p-5 relative shrink-0 border-b border-zinc-800">
         <button id="btn-close-quote" type="button" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition cursor-pointer" title="Cerrar generador de mensaje">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
         <div class="flex items-center gap-2 mb-1">
-          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-indigo-900/80 text-indigo-200 border border-indigo-700/80 shadow-xs">
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-zinc-800 text-zinc-200 border border-zinc-700 shadow-xs">
             <span>💬</span> Mensaje Claro para Cotización
           </span>
-          <span id="quote-worker-badge" class="text-[11px] font-semibold text-slate-300"></span>
+          <span id="quote-worker-badge" class="text-[11px] font-semibold text-zinc-400"></span>
         </div>
         <h3 id="quote-worker-name" class="text-lg sm:text-xl font-extrabold text-white leading-tight font-heading">Cotizar servicio</h3>
-        <p class="text-xs text-indigo-200/90 mt-1">Completa estas 3 casillas para enviar un mensaje formal y directo que le ahorre tiempo al trabajador.</p>
+        <p class="text-xs text-zinc-400 mt-1">Completa estas 3 casillas para enviar un mensaje formal y directo que le ahorre tiempo al trabajador.</p>
       </div>
 
       <!-- Cuerpo del formulario -->
@@ -1277,17 +1290,17 @@
         <!-- Casilla 1: Tipo de trabajo -->
         <div class="space-y-1.5">
           <div class="flex items-center justify-between">
-            <label for="quote-trabajo" class="block text-xs font-bold text-slate-800 dark:text-slate-200">
+            <label for="quote-trabajo" class="block text-xs font-bold text-zinc-800 dark:text-zinc-200">
               1. Tipo de trabajo que necesitas <span class="text-rose-500">*</span>
             </label>
-            <span class="text-[10px] text-slate-400">Ej. reparación de fuga, portón, etc.</span>
+            <span class="text-[10px] text-zinc-400">Ej. reparación de fuga, portón, etc.</span>
           </div>
           <input 
             type="text" 
             id="quote-trabajo" 
             placeholder="ej. reparación de fuga" 
             required
-            class="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 focus:bg-white dark:focus:bg-slate-800 outline-none transition text-slate-900 dark:text-white"
+            class="w-full px-3.5 py-2.5 text-sm bg-zinc-50 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white focus:bg-white dark:focus:bg-zinc-900 outline-none transition text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
           >
           <!-- Sugerencias rápidas en chips según el oficio -->
           <div id="quote-chips" class="flex flex-wrap gap-1.5 pt-1">
@@ -1298,10 +1311,10 @@
         <!-- Casilla 2: Colonia o Sindicatura -->
         <div class="space-y-1.5">
           <div class="flex items-center justify-between">
-            <label for="quote-colonia" class="block text-xs font-bold text-slate-800 dark:text-slate-200">
+            <label for="quote-colonia" class="block text-xs font-bold text-zinc-800 dark:text-zinc-200">
               2. Colonia, Fraccionamiento o Ejido <span class="text-rose-500">*</span>
             </label>
-            <span class="text-[10px] text-slate-400">¿Dónde se realizará el trabajo?</span>
+            <span class="text-[10px] text-zinc-400">¿Dónde se realizará el trabajo?</span>
           </div>
           <input 
             type="text" 
@@ -1309,7 +1322,7 @@
             list="quote-zonas-list"
             placeholder="ej. Col. Bienestar / Álamos Country / Topolobampo" 
             required
-            class="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 focus:bg-white dark:focus:bg-slate-800 outline-none transition text-slate-900 dark:text-white"
+            class="w-full px-3.5 py-2.5 text-sm bg-zinc-50 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white focus:bg-white dark:focus:bg-zinc-900 outline-none transition text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
           >
           <datalist id="quote-zonas-list">
             <!-- Opciones extraídas dinámicamente de AHOME_ZONA_COORDS -->
@@ -1318,68 +1331,68 @@
 
         <!-- Casilla 3: Urgencia / Disponibilidad -->
         <div class="space-y-2">
-          <label class="block text-xs font-bold text-slate-800 dark:text-slate-200">
+          <label class="block text-xs font-bold text-zinc-800 dark:text-zinc-200">
             3. Urgencia / ¿Para cuándo requieres disponibilidad? <span class="text-rose-500">*</span>
           </label>
           <div class="grid grid-cols-3 gap-2">
             <button 
               type="button" 
-              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100" 
+              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700" 
               data-urgencia="hoy mismo"
             >
               <span class="text-base">🚨</span>
               <span>Hoy</span>
-              <span class="text-[9px] font-normal text-slate-400">Urgente</span>
+              <span class="text-[9px] font-normal text-zinc-400">Urgente</span>
             </button>
             <button 
               type="button" 
-              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-indigo-600 bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-btn" 
+              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-black dark:border-white bg-black dark:bg-white text-white dark:text-black shadow-btn" 
               data-urgencia="esta semana"
             >
               <span class="text-base">📅</span>
               <span>Esta semana</span>
-              <span class="text-[9px] font-mono text-indigo-100">Recomendado</span>
+              <span class="text-[9px] font-mono opacity-80">Recomendado</span>
             </button>
             <button 
               type="button" 
-              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100" 
+              class="quote-urgencia-btn py-2.5 px-2 rounded-xl border text-xs font-bold text-center transition cursor-pointer flex flex-col items-center justify-center gap-1 border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700" 
               data-urgencia="próxima semana / sin prisa"
             >
               <span class="text-base">🗓️</span>
               <span>Sin prisa</span>
-              <span class="text-[9px] font-normal text-slate-400">Próx. semana</span>
+              <span class="text-[9px] font-normal text-zinc-400">Próx. semana</span>
             </button>
           </div>
         </div>
 
         <!-- Caja de Vista Previa del Mensaje Compilado (Estilo WhatsApp) -->
-        <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-3.5 space-y-1.5">
-          <div class="flex items-center justify-between text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200">
+        <div class="bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl p-3.5 space-y-1.5">
+          <div class="flex items-center justify-between text-[11px] font-mono font-bold text-zinc-800 dark:text-zinc-200">
             <span class="flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-emerald-600 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
-              <span>Vista previa del mensaje predeterminado:</span>
+              <span>Vista previa del mensaje:</span>
             </span>
             <span class="text-[10px] text-emerald-700 dark:text-emerald-300 font-mono font-bold bg-emerald-50 dark:bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">WhatsApp</span>
           </div>
-          <div class="bg-white dark:bg-slate-900 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-200 leading-relaxed font-sans shadow-2xs relative">
-            <p id="quote-preview-text" class="text-slate-800 dark:text-slate-200 select-all"></p>
+          <div class="bg-white dark:bg-zinc-900 p-3 rounded-lg border border-zinc-200 dark:border-zinc-700 text-xs text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans shadow-2xs relative">
+            <p id="quote-preview-text" class="text-zinc-800 dark:text-zinc-200 select-all"></p>
           </div>
         </div>
 
         <!-- Aviso de Red Celular si está Offline en el Cotizador -->
-        <div id="quote-offline-warning" class="hidden bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl p-3 text-xs text-slate-900 dark:text-white space-y-1.5">
-          <div class="font-bold flex items-center gap-1.5 text-slate-900 dark:text-white">
+        <div id="quote-offline-warning" class="hidden bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-xl p-3 text-xs text-zinc-900 dark:text-white space-y-1.5">
+          <div class="font-bold flex items-center gap-1.5 text-zinc-900 dark:text-white">
             <span>⚠️</span> Sin conexión a internet activa
           </div>
-          <p class="leading-relaxed text-[11.5px] text-slate-700 dark:text-slate-300">
+          <p class="leading-relaxed text-[11.5px] text-zinc-700 dark:text-zinc-300">
             WhatsApp requiere datos móviles. Si te quedaste sin megas en la calle, <strong>llama directamente por red celular convencional</strong>:
           </p>
           <a 
             id="quote-direct-call-btn" 
             href="#" 
-            class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-3 btn-gradient-primary text-white rounded-xl font-bold text-xs shadow-btn transition"
+            class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-3 bg-black dark:bg-white text-white dark:text-black rounded-xl font-bold text-xs shadow-btn transition"
           >
-            <svg class="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             <span id="quote-direct-call-text">Llamar ahora por red celular</span>
           </a>
         </div>
@@ -1389,7 +1402,7 @@
           <button 
             type="submit" 
             id="btn-send-whatsapp-quote" 
-            class="w-full py-3.5 px-4 btn-gradient-emerald text-white font-extrabold text-sm rounded-xl shadow-btn transition flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+            class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm rounded-xl shadow-btn transition flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
           >
             <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.36.269.13.313.447 1.091.487 1.172.04.081.066.176.012.284-.054.108-.081.176-.162.271-.081.095-.17.212-.243.285-.081.081-.166.17-.071.333.095.163.424.7.91 1.134.625.557 1.152.73 1.315.811.163.081.258.072.355-.039.096-.111.414-.482.525-.647.111-.165.222-.138.373-.082.151.055.955.45 1.12.533.165.082.275.123.316.192.041.07.041.407-.103.812z"/></svg>
             <span>Abrir WhatsApp con este mensaje</span>
@@ -1398,7 +1411,7 @@
           <button 
             type="button" 
             id="btn-skip-quote" 
-            class="w-full py-2 text-center text-xs font-semibold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition cursor-pointer"
+            class="w-full py-2 text-center text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition cursor-pointer"
           >
             Omitir y abrir WhatsApp con mensaje básico
           </button>
@@ -1411,35 +1424,35 @@
   <!-- ========================================================================= -->
   <!-- MODAL: AUTO-REGISTRO "SUMA TU OFICIO" (CON SUBIDA DE FOTO)               -->
   <!-- ========================================================================= -->
-  <div id="modal-register" role="dialog" aria-modal="true" aria-label="Suma tu oficio gratis" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in-95 duration-150 max-h-[92vh] overflow-y-auto">
+  <div id="modal-register" role="dialog" aria-modal="true" aria-label="Suma tu oficio gratis" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white dark:bg-zinc-900 rounded-3xl sm:rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 relative animate-in fade-in zoom-in-95 duration-150 max-h-[92vh] overflow-y-auto">
       
       <!-- Botón de Cerrar -->
-      <button id="btn-close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-1.5 rounded-lg transition cursor-pointer" title="Cerrar modal">
+      <button id="btn-close-modal" class="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 transition cursor-pointer" title="Cerrar modal">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
 
       <!-- Encabezado del Formulario -->
       <div class="space-y-1 mb-5">
-        <span class="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200">
+        <span class="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-mono font-bold uppercase tracking-wider bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700">
           Registro Abierto y Gratuito
         </span>
-        <h3 class="text-xl font-extrabold text-slate-950">Suma tu oficio gratis</h3>
-        <p class="text-xs text-slate-500">
-          Tus datos y fotos de trabajos <strong>(puedes subir hasta 5 fotos)</strong> se publicarán en el mapa y en la lista para que los vecinos de Ahome te contacten directamente.
+        <h3 class="text-xl font-extrabold text-zinc-950 dark:text-white font-heading">Suma tu oficio gratis</h3>
+        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          Tus datos y fotos de trabajos <strong>(puedes subir hasta 5 fotos)</strong> se publicarán en el mapa y en el directorio para que los vecinos de Ahome te contacten directamente.
         </p>
       </div>
 
       <!-- Aviso de Privacidad Cívica y Compromiso Laboral -->
-      <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 mb-5 text-xs text-slate-700 space-y-1.5">
-        <div class="font-bold flex items-center gap-1.5 text-slate-900">
+      <div class="bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-4 mb-5 text-xs text-zinc-700 dark:text-zinc-300 space-y-2">
+        <div class="font-bold flex items-center gap-1.5 text-zinc-950 dark:text-white">
           <span>🛡️</span> Privacidad Cívica y Compromiso Comunitario
         </div>
         <p class="leading-relaxed">
           Este es un directorio público abierto. <strong>No proporciones tu dirección particular ni información bancaria</strong>; únicamente tu zona/colonia de trabajo, tus fotos laborales y tu teléfono directo.
         </p>
-        <p class="leading-relaxed text-[11.5px] border-t border-slate-200 pt-1.5 text-slate-700">
-          <strong class="font-bold text-slate-900">Responsabilidad:</strong> Tienes el compromiso de responder oportunamente los mensajes o solicitar tu baja temporal/permanente al WhatsApp <strong>668 395 6301</strong> para cuidar tu reputación.
+        <p class="leading-relaxed text-[11.5px] border-t border-zinc-200 dark:border-zinc-700 pt-2 text-zinc-700 dark:text-zinc-300">
+          <strong class="font-bold text-zinc-900 dark:text-white">Responsabilidad:</strong> Tienes el compromiso de responder oportunamente los mensajes o solicitar tu baja temporal/permanente al WhatsApp <strong class="text-zinc-950 dark:text-white font-mono">668 395 6301</strong> para cuidar tu reputación.
         </p>
       </div>
 
@@ -1450,18 +1463,18 @@
         <input type="text" name="empresa_verificacion" id="reg-honeypot" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <!-- Opción Alternativa: Registro Asistido por WhatsApp -->
-        <div class="p-3 bg-[#164e37]/10 dark:bg-[#164e37]/20 border border-[#164e37]/30 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+        <div class="p-3.5 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="space-y-0.5">
-            <div class="text-xs font-bold text-[#164e37] dark:text-emerald-300 flex items-center gap-1.5">
+            <div class="text-xs font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-1.5">
               <span>📲</span> ¿Prefieres registrarte por WhatsApp?
             </div>
-            <div class="text-[11px] text-slate-500 dark:text-slate-400">Si no tienes tiempo de llenar la forma, mándanos tus datos en un mensaje directo.</div>
+            <div class="text-[11px] text-emerald-800 dark:text-emerald-400">Si no tienes tiempo de llenar la forma, mándanos tus datos en un mensaje directo.</div>
           </div>
           <a 
             href="https://wa.me/526683956301?text=Hola,%20quiero%20registrar%20mi%20oficio%20en%20Oficios%20Ahome:%0A-%20Nombre%20o%20Taller:%20%0A-%20Oficio%20Principal:%20%0A-%20Sindicatura%20o%20Colonia:%20%0A-%20Teléfono%20de%20contacto:%20%0A-%20¿Atiendes%20urgencias%2024h?%20(Sí/No):%20%0A-%20Descripción%20breve:"
             target="_blank" 
             rel="noopener noreferrer"
-            class="shrink-0 px-3 py-1.5 bg-[#164e37] hover:bg-[#113d2b] text-white text-xs font-bold rounded-lg transition btn-glow text-center"
+            class="shrink-0 px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl transition text-center shadow-xs"
           >
             Registrar por WhatsApp
           </a>
@@ -1469,7 +1482,7 @@
         
         <!-- Nombre o Nombre del Taller -->
         <div>
-          <label for="reg-nombre" class="block text-xs font-bold text-slate-700 mb-1">
+          <label for="reg-nombre" class="block text-xs font-bold text-zinc-800 dark:text-zinc-200 mb-1.5">
             Nombre del Prestador o Taller <span class="text-rose-500">*</span>
           </label>
           <input 
@@ -1478,20 +1491,20 @@
             name="nombre" 
             required 
             placeholder="Ej. Herrería Don Juan / Plomería y Destapes Don Ramón"
-            class="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:bg-white outline-none transition"
+            class="w-full px-3.5 py-2.5 text-sm bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white focus:bg-white dark:focus:bg-zinc-900 outline-none transition placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
           >
         </div>
 
         <!-- Oficio Principal -->
         <div>
-          <label for="reg-oficio" class="block text-xs font-bold text-slate-700 mb-1">
+          <label for="reg-oficio" class="block text-xs font-bold text-zinc-800 dark:text-zinc-200 mb-1.5">
             Oficio Principal <span class="text-rose-500">*</span>
           </label>
           <select 
             id="reg-oficio" 
             name="oficio" 
             required 
-            class="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:bg-white outline-none transition"
+            class="w-full px-3.5 py-2.5 text-sm bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white focus:bg-white dark:focus:bg-zinc-900 outline-none transition"
           >
             <option value="">Selecciona tu oficio...</option>
             <option value="Herrería">Herrería, Balcones y Estructuras</option>
@@ -1510,14 +1523,14 @@
 
         <!-- Zona / Sindicatura / Colonia / Ejido -->
         <div>
-          <label for="reg-zona" class="block text-xs font-bold text-slate-700 mb-1">
+          <label for="reg-zona" class="block text-xs font-bold text-zinc-800 dark:text-zinc-200 mb-1.5">
             Sindicatura, Colonia o Ejido de Atención Principal <span class="text-rose-500">*</span>
           </label>
           <select 
             id="reg-zona" 
             name="zona" 
             required 
-            class="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:bg-white outline-none transition"
+            class="w-full px-3.5 py-2.5 text-sm bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white focus:bg-white dark:focus:bg-zinc-900 outline-none transition"
           >
             <option value="">Selecciona tu colonia, fraccionamiento o ejido...</option>
             
@@ -1656,6 +1669,7 @@
               <option value="Villa Fontana">Villa Fontana</option>
               <option value="Villas Centenario">Villas Centenario</option>
               <option value="Villas del Sol">Villas del Sol</option>
+              <option value="Villas del Sol">Villas del Sol</option>
               <option value="Viñedos">Viñedos</option>
               <option value="Virreyes">Virreyes</option>
             </optgroup>
@@ -1685,37 +1699,37 @@
               <option value="El Bule">El Bule</option>
             </optgroup>
           </select>
-          <p id="reg-zona-hint" class="text-[11px] text-slate-400 mt-1">El pin del mapa se ubicará de forma segura en esta zona.</p>
+          <p id="reg-zona-hint" class="text-[11px] text-zinc-400 mt-1">El pin del mapa se ubicará de forma segura en esta zona.</p>
 
           <!-- Selector Interactivo de Ubicación Exacta (GPS + Pin Arrastrable) -->
-          <div class="mt-2.5 p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="mt-2.5 p-3.5 bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 rounded-2xl space-y-2">
             <div class="flex items-center justify-between gap-2">
-              <span class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+              <span class="text-xs font-bold text-zinc-800 dark:text-zinc-200 flex items-center gap-1.5">
                 <span>📍</span> Ubicación exacta del taller o domicilio
               </span>
               <button 
                 type="button" 
                 id="btn-reg-use-gps" 
-                class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg transition shadow-2xs cursor-pointer active:scale-95"
+                class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-600 border border-zinc-300 dark:border-zinc-600 rounded-lg transition shadow-2xs cursor-pointer active:scale-95"
                 title="Detectar ubicación exacta con el GPS de tu celular o computadora"
               >
                 <span>🎯</span> Usar mi GPS
               </button>
             </div>
             
-            <p class="text-[11px] text-slate-500 leading-tight">
+            <p class="text-[11px] text-zinc-600 dark:text-zinc-400 leading-tight">
               Toca el mapa o arrastra el marcador 📍 para situarlo exactamente sobre tu calle, cruce o fachada:
             </p>
 
             <!-- Contenedor del Mini-Mapa Interactivo con Leaflet -->
-            <div id="reg-map-picker" class="w-full h-48 rounded-lg border border-slate-300 overflow-hidden relative shadow-inner z-0"></div>
+            <div id="reg-map-picker" class="w-full h-48 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-hidden relative shadow-inner z-0"></div>
 
-            <div class="flex items-center justify-between text-[11px] text-slate-600 pt-0.5">
+            <div class="flex items-center justify-between text-[11px] text-zinc-600 dark:text-zinc-400 pt-0.5">
               <span class="flex items-center gap-1.5 font-mono">
-                <span class="w-2 h-2 rounded-full bg-slate-400 animate-pulse"></span>
-                <span id="reg-coords-display" class="font-semibold text-slate-700">25.7928, -108.9967</span>
+                <span class="w-2 h-2 rounded-full bg-zinc-400 animate-pulse"></span>
+                <span id="reg-coords-display" class="font-semibold text-zinc-800 dark:text-zinc-200">25.7928, -108.9967</span>
               </span>
-              <span class="text-[10px] text-slate-400 font-medium">💡 Arrastra el pin para ajustar</span>
+              <span class="text-[10px] text-zinc-400 font-medium">💡 Arrastra el pin para ajustar</span>
             </div>
 
             <!-- Campos ocultos de coordenadas precisas -->
@@ -1726,24 +1740,24 @@
 
         <!-- FOTO DEL TRABAJO / TALLER -->
         <div>
-          <div class="flex items-center justify-between mb-1">
-            <label class="block text-xs font-bold text-slate-700">
-              Fotos de tus trabajos, taller o balcón <span class="text-xs font-normal text-slate-400">(Opcional)</span>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-xs font-bold text-zinc-800 dark:text-zinc-200">
+              Fotos de tus trabajos o taller <span class="text-xs font-normal text-zinc-400">(Opcional)</span>
             </label>
-            <span class="text-[11px] font-mono font-bold text-slate-800 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-300 flex items-center gap-1 shadow-2xs">
-              <span>📸</span> Puedes subir hasta 5 fotos
+            <span class="text-[11px] font-mono font-bold text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 px-2.5 py-0.5 rounded-full border border-zinc-300 dark:border-zinc-700 flex items-center gap-1 shadow-2xs">
+              <span>📸</span> Hasta 5 fotos
             </span>
           </div>
           
           <div class="space-y-2">
             <!-- Zona de subida de archivo -->
             <div class="flex items-center gap-2">
-              <label for="reg-foto-file" id="label-reg-foto-file" class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg border border-slate-300 transition">
-                <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <span id="label-foto-btn-text">Seleccionar fotos (hasta 5 fotos)</span>
+              <label for="reg-foto-file" id="label-reg-foto-file" class="cursor-pointer inline-flex items-center gap-1.5 px-3.5 py-2.5 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 text-xs font-bold rounded-xl border border-zinc-300 dark:border-zinc-700 transition shadow-2xs">
+                <svg class="w-4 h-4 text-zinc-700 dark:text-zinc-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span id="label-foto-btn-text">Seleccionar fotos (hasta 5)</span>
               </label>
               <input type="file" id="reg-foto-file" accept="image/*" multiple class="hidden">
-              <span id="foto-limit-badge" class="text-[11px] text-slate-500 font-mono font-medium">Máx. 5 fotos</span>
+              <span id="foto-limit-badge" class="text-[11px] text-zinc-500 font-mono font-medium">Máx. 5 fotos</span>
             </div>
 
             <!-- Opcional: Pegar URL de imagen -->
@@ -1752,12 +1766,12 @@
               id="reg-foto-url" 
               name="foto" 
               placeholder="O pega el enlace de tu foto (https://...)" 
-              class="w-full px-3 py-1.5 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:bg-white outline-none transition"
+              class="w-full px-3.5 py-2 text-xs bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white focus:bg-white dark:focus:bg-zinc-900 outline-none transition placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
             >
 
             <!-- Contenedor de Vista Previa de Fotos Múltiples -->
             <div id="foto-preview-container" class="hidden space-y-1.5">
-              <div class="text-[11px] font-bold text-slate-700 flex items-center justify-between">
+              <div class="text-[11px] font-bold text-zinc-700 dark:text-zinc-300 flex items-center justify-between">
                 <span id="foto-preview-count">0 de 5 fotos listas para publicar:</span>
                 <button type="button" id="btn-remove-all-fotos" class="text-rose-600 hover:text-rose-800 text-[11px] font-semibold transition cursor-pointer">
                   Quitar todas
@@ -1768,19 +1782,19 @@
               </div>
             </div>
           </div>
-          <p class="text-[11px] text-slate-500 mt-1 flex items-start gap-1">
-            <span class="text-slate-700 font-bold">✓</span>
-            <span><strong>Aclaración:</strong> Puedes subir <strong>hasta 5 fotos</strong> de tus trabajos (ej. fotos de portones, balcones, soldadura, instalaciones, reparaciones) para que tus vecinos conozcan tu experiencia.</span>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 flex items-start gap-1">
+            <span class="text-zinc-700 dark:text-zinc-300 font-bold">✓</span>
+            <span><strong>Aclaración:</strong> Puedes subir <strong>hasta 5 fotos</strong> de tus trabajos reales (ej. portones, balcones, reparaciones, instalaciones) para que tus vecinos conozcan tu experiencia.</span>
           </p>
         </div>
 
         <!-- Redes Sociales / Portafolio Digital (Facebook, Instagram, TikTok, Drive, Imgur) -->
-        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-2">
+        <div class="bg-zinc-100 dark:bg-zinc-800/80 p-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-700 space-y-2">
           <div class="flex flex-wrap items-center justify-between gap-1">
-            <label for="reg-enlace-trabajos" class="block text-xs font-bold text-slate-800">
-              🌐 Redes sociales o portafolio digital <span class="text-xs font-normal text-slate-400">(Opcional)</span>
+            <label for="reg-enlace-trabajos" class="block text-xs font-bold text-zinc-800 dark:text-zinc-200">
+              🌐 Redes sociales o portafolio digital <span class="text-xs font-normal text-zinc-400">(Opcional)</span>
             </label>
-            <span class="text-[10px] font-mono font-bold text-slate-700 bg-slate-200 px-2 py-0.5 rounded-full border border-slate-300">
+            <span class="text-[10px] font-mono font-bold text-zinc-700 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-700 px-2 py-0.5 rounded-full border border-zinc-300 dark:border-zinc-600">
               Facebook / Instagram / Drive / Imgur
             </span>
           </div>
@@ -1789,20 +1803,20 @@
             id="reg-enlace-trabajos" 
             name="enlaceTrabajos" 
             placeholder="ej. https://instagram.com/mi_perfil o https://facebook.com/mi_pagina"
-            class="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 outline-none transition"
+            class="w-full px-3.5 py-2 text-xs bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
           >
-          <p class="text-[11px] text-slate-500 leading-relaxed">
-            Comparte tu perfil de <strong>Instagram</strong>, página de <strong>Facebook</strong>, cuenta de <strong>TikTok</strong> o portafolio en la nube para que los clientes conozcan tus trabajos y proyectos recientes.
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            Comparte tu perfil de <strong>Instagram</strong>, página de <strong>Facebook</strong>, cuenta de <strong>TikTok</strong> o portafolio en la nube para que los clientes conozcan tus proyectos recientes.
           </p>
         </div>
 
         <!-- Teléfono de Contacto / WhatsApp -->
         <div>
-          <label for="reg-telefono" class="block text-xs font-bold text-slate-700 mb-1">
+          <label for="reg-telefono" class="block text-xs font-bold text-zinc-800 dark:text-zinc-200 mb-1.5">
             Número de WhatsApp / Teléfono (10 dígitos) <span class="text-rose-500">*</span>
           </label>
           <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-xs font-bold text-slate-400 select-none">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-xs font-bold text-zinc-400 select-none">
               🇲🇽 +52
             </span>
             <input 
@@ -1813,18 +1827,18 @@
               pattern="[0-9\s]{10,12}" 
               maxlength="12" 
               placeholder="668 123 4567"
-              class="w-full pl-16 pr-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:bg-white outline-none transition font-mono"
+              class="w-full pl-16 pr-3.5 py-2.5 text-sm bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white focus:bg-white dark:focus:bg-zinc-900 outline-none transition font-mono placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
             >
           </div>
         </div>
 
         <!-- Breve Descripción del Servicio (con contador de caracteres) -->
         <div>
-          <div class="flex items-center justify-between mb-1">
-            <label for="reg-descripcion" class="text-xs font-bold text-slate-700">
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="reg-descripcion" class="text-xs font-bold text-zinc-800 dark:text-zinc-200">
               Breve descripción del servicio <span class="text-rose-500">*</span>
             </label>
-            <span id="char-counter" class="text-[11px] font-mono text-slate-400">0/150</span>
+            <span id="char-counter" class="text-[11px] font-mono text-zinc-400">0/150</span>
           </div>
           <textarea 
             id="reg-descripcion" 
@@ -1833,76 +1847,76 @@
             maxlength="150" 
             required 
             placeholder="Describe qué trabajos realizas (ej. Herrería pesada, balcones ultra resistentes, portones y barandales a domicilio)."
-            class="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:bg-white outline-none transition resize-none"
+            class="w-full px-3.5 py-2.5 text-sm bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white focus:bg-white dark:focus:bg-zinc-900 outline-none transition resize-none placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
           ></textarea>
         </div>
 
         <!-- Palabras Clave o Trabajos Específicos -->
         <div>
-          <label for="reg-palabras" class="block text-xs font-bold text-slate-700 mb-1">
+          <label for="reg-palabras" class="block text-xs font-bold text-zinc-800 dark:text-zinc-200 mb-1.5">
             Palabras clave de búsqueda (separadas por coma)
           </label>
           <input 
             type="text" 
             id="reg-palabras" 
             name="palabrasClave" 
-            placeholder="ej. balcon, herrero, porton, soldadura, juan, barandal"
-            class="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:bg-white outline-none transition"
+            placeholder="ej. balcon, herrero, porton, soldadura, barandal"
+            class="w-full px-3.5 py-2.5 text-sm bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white focus:bg-white dark:focus:bg-zinc-900 outline-none transition placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
           >
         </div>
 
         <!-- Checkbox de Emergencias 24h -->
         <div class="pt-1">
-          <label class="flex items-start gap-2.5 cursor-pointer text-xs font-semibold text-slate-700 select-none">
-            <input type="checkbox" id="reg-emergencias" name="emergencias" class="mt-0.5 w-4 h-4 text-slate-900 rounded border-slate-300 focus:ring-slate-900">
+          <label class="flex items-start gap-2.5 cursor-pointer text-xs font-semibold text-zinc-700 dark:text-zinc-300 select-none">
+            <input type="checkbox" id="reg-emergencias" name="emergencias" class="mt-0.5 w-4 h-4 text-black rounded border-zinc-300 focus:ring-black dark:focus:ring-white">
             <span>¿Atiendes llamadas de emergencia fuera de horario o fines de semana?</span>
           </label>
         </div>
 
         <!-- Aclaración Obligatoria de Responsabilidad y Cuidado de Reputación -->
-        <div class="p-3.5 sm:p-4 bg-slate-50 border border-slate-300 rounded-xl space-y-2.5 text-xs text-slate-800">
-          <div class="flex items-center gap-2 font-bold text-slate-900 text-sm">
+        <div class="p-4 bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-300 dark:border-zinc-700 rounded-2xl space-y-2.5 text-xs text-zinc-800 dark:text-zinc-200">
+          <div class="flex items-center gap-2 font-bold text-zinc-950 dark:text-white text-sm font-heading">
             <span class="text-base">📢</span>
             <span>Aclaración Importante: Cuidado de tu Reputación</span>
           </div>
-          <p class="leading-relaxed text-slate-700">
+          <p class="leading-relaxed text-zinc-700 dark:text-zinc-300">
             Al registrar tu oficio en esta plataforma comunitaria, <strong>asumes la responsabilidad de responder con seriedad los mensajes y llamadas</strong> que te envíen los vecinos de Ahome.
           </p>
-          <div class="bg-white p-3 rounded-lg border border-slate-200 text-slate-700 text-[11.5px] leading-relaxed space-y-1">
-            <p class="font-bold text-slate-900 flex items-center gap-1.5">
+          <div class="bg-white dark:bg-zinc-900 p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 text-[11.5px] leading-relaxed space-y-1">
+            <p class="font-bold text-zinc-950 dark:text-white flex items-center gap-1.5">
               <span>⚠️</span> ¿Saldrás de la ciudad, te saturaste de trabajo o no puedes atender?
             </p>
             <p>
-              Es tu responsabilidad solicitar la <strong>baja temporal o permanente</strong> de tu ficha mandando mensaje de WhatsApp al <a href="https://wa.me/526683956301?text=Hola,%20solicito%20la%20baja%20de%20mi%20oficio%20en%20Oficios%20Ahome" target="_blank" class="font-bold text-slate-900 underline font-mono">668 395 6301</a>.
+              Es tu responsabilidad solicitar la <strong>baja temporal o permanente</strong> de tu ficha mandando mensaje de WhatsApp al <a href="https://wa.me/526683956301?text=Hola,%20solicito%20la%20baja%20de%20mi%20oficio%20en%20Oficios%20Ahome" target="_blank" class="font-bold text-zinc-950 dark:text-white underline font-mono">668 395 6301</a>.
             </p>
-            <p class="text-slate-500 italic text-[11px]">
+            <p class="text-zinc-500 dark:text-zinc-400 italic text-[11px]">
               Así evitas que los vecinos busquen tu servicio sin respuesta, protegiendo tu buena reputación profesional y la confianza comunitaria.
             </p>
           </div>
-          <label class="flex items-start gap-2.5 cursor-pointer pt-1 text-slate-900 font-semibold select-none">
-            <input type="checkbox" id="reg-compromiso" name="compromiso" required class="mt-0.5 w-4 h-4 text-slate-900 rounded border-slate-300 focus:ring-slate-900">
+          <label class="flex items-start gap-2.5 cursor-pointer pt-1 text-zinc-950 dark:text-white font-semibold select-none">
+            <input type="checkbox" id="reg-compromiso" name="compromiso" required class="mt-0.5 w-4 h-4 text-black rounded border-zinc-300 focus:ring-black dark:focus:ring-white">
             <span class="text-[11.5px] leading-snug">
-              Comprendo mi responsabilidad de responder los mensajes de los clientes o solicitar mi baja temporal o permanente al WhatsApp <strong class="text-slate-900 font-mono">668 395 6301</strong> para cuidar mi reputación. <span class="text-rose-600">*</span>
+              Comprendo mi responsabilidad de responder los mensajes de los clientes o solicitar mi baja temporal o permanente al WhatsApp <strong class="text-zinc-950 dark:text-white font-mono">668 395 6301</strong> para cuidar mi reputación. <span class="text-rose-600">*</span>
             </span>
           </label>
         </div>
 
         <!-- Aceptación de Aviso de Privacidad y Términos Cívicos (LFPDPPP) -->
-        <div class="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl space-y-1.5">
-          <label class="flex items-start gap-2.5 cursor-pointer text-slate-900 dark:text-slate-100 font-semibold select-none">
-            <input type="checkbox" id="reg-privacy-terms" name="privacyTerms" required class="mt-0.5 w-4 h-4 text-slate-900 rounded border-slate-300 focus:ring-slate-900">
-            <span class="text-[11.5px] leading-snug text-slate-700 dark:text-slate-300">
-              Acepto que mis datos comerciales de contacto y fotos de trabajo sean públicos en este directorio vecinal y confirmo que he leído y acepto los <a href="./terminos-y-privacidad.html" target="_blank" rel="noopener noreferrer" class="text-slate-900 dark:text-white font-bold underline inline-flex items-center gap-0.5">Términos Cívicos, Deslinde y Aviso de Privacidad (LFPDPPP) <span class="text-[10px]">↗</span></a>. <span class="text-rose-600">*</span>
+        <div class="p-3.5 bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 rounded-2xl space-y-1.5">
+          <label class="flex items-start gap-2.5 cursor-pointer text-zinc-900 dark:text-zinc-100 font-semibold select-none">
+            <input type="checkbox" id="reg-privacy-terms" name="privacyTerms" required class="mt-0.5 w-4 h-4 text-black rounded border-zinc-300 focus:ring-black dark:focus:ring-white">
+            <span class="text-[11.5px] leading-snug text-zinc-700 dark:text-zinc-300">
+              Acepto que mis datos comerciales de contacto y fotos de trabajo sean públicos en este directorio vecinal y confirmo que he leído y acepto los <a href="./terminos-y-privacidad.html" target="_blank" rel="noopener noreferrer" class="text-zinc-950 dark:text-white font-bold underline inline-flex items-center gap-0.5">Términos Cívicos, Deslinde y Aviso de Privacidad (LFPDPPP) <span class="text-[10px]">↗</span></a>. <span class="text-rose-600">*</span>
             </span>
           </label>
         </div>
 
         <!-- Aclaración de Validación Comunitaria (24 Horas) -->
-        <div class="p-3.5 bg-amber-50 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 rounded-xl flex items-start gap-3 text-xs text-amber-900 dark:text-amber-200">
+        <div class="p-3.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-2xl flex items-start gap-3 text-xs text-amber-900 dark:text-amber-200">
           <span class="text-base leading-none">⏳</span>
           <div class="space-y-0.5">
             <strong class="font-bold text-amber-950 dark:text-amber-100">Aviso de revisión y publicación:</strong>
-            <p class="text-[11.5px] leading-relaxed text-amber-800 dark:text-amber-300/90">
+            <p class="text-[11.5px] leading-relaxed text-amber-800 dark:text-amber-300">
               Para cuidar la confianza vecinal y evitar fraudes, cada ficha es revisada manualmente antes de aparecer en el directorio. Tu ficha puede tardar hasta <strong>24 horas</strong> en mostrarse en el mapa público, pero la registraremos y activaremos lo antes posible.
             </p>
           </div>
@@ -1913,9 +1927,9 @@
           <button 
             type="submit" 
             id="btn-submit-register" 
-            class="w-full py-3.5 px-4 btn-gradient-primary text-white font-extrabold text-sm rounded-xl shadow-btn transition flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+            class="w-full py-3.5 px-4 bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-black font-extrabold text-sm rounded-xl shadow-btn transition flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
           >
-            <span id="submit-spinner" class="hidden w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+            <span id="submit-spinner" class="hidden w-4 h-4 border-2 border-white dark:border-black border-t-transparent rounded-full animate-spin"></span>
             <span id="submit-text">Enviar oficio para revisión gratis</span>
           </button>
         </div>
@@ -1927,45 +1941,45 @@
   <!-- ========================================================================= -->
   <!-- MODAL: CONFIGURACIÓN CÍVICA / GOOGLE SHEETS WEBHOOK                       -->
   <!-- ========================================================================= -->
-  <div id="modal-settings" role="dialog" aria-modal="true" aria-label="Configuración de conexión cívica" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 relative">
-      <button id="btn-close-settings" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-1.5 rounded-lg transition cursor-pointer">
+  <div id="modal-settings" role="dialog" aria-modal="true" aria-label="Configuración de conexión cívica" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-zinc-900 rounded-3xl sm:rounded-2xl max-w-md w-full p-6 shadow-2xl border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 relative">
+      <button id="btn-close-settings" class="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 transition cursor-pointer">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
 
       <div class="space-y-1 mb-4">
-        <h3 class="text-lg font-extrabold text-slate-950">Conexión con Google Sheets</h3>
-        <p class="text-xs text-slate-500">
-          La app funciona de forma predeterminada con el archivo local <code class="bg-slate-100 px-1 py-0.5 rounded text-slate-700 font-mono">oficios.json</code>. Si desplegaste el script de Google Apps Script, puedes ingresar tu URL aquí.
+        <h3 class="text-lg font-extrabold text-zinc-950 dark:text-white font-heading">Conexión con Google Sheets</h3>
+        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          La app funciona de forma predeterminada con el archivo local <code class="bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded text-zinc-800 dark:text-zinc-200 font-mono">oficios.json</code> o con tu Webhook de Google Apps Script.
         </p>
       </div>
 
       <div class="space-y-4 text-xs">
         <div>
-          <label for="input-webhook-url" class="block font-bold text-slate-700 mb-1">
+          <label for="input-webhook-url" class="block font-bold text-zinc-800 dark:text-zinc-200 mb-1.5">
             URL de la Aplicación Web (Google Apps Script)
           </label>
           <input 
             type="url" 
             id="input-webhook-url" 
             placeholder="https://script.google.com/macros/s/.../exec"
-            class="w-full px-3 py-2 text-xs font-mono bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:bg-white outline-none transition"
+            class="w-full px-3.5 py-2.5 text-xs font-mono bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
           >
-          <p class="text-[11px] text-slate-400 mt-1">
-            Deja este campo vacío para usar únicamente el archivo local <code class="font-mono">oficios.json</code>.
+          <p class="text-[11px] text-zinc-400 mt-1">
+            Deja este campo vacío para usar la URL predeterminada oficial.
           </p>
         </div>
 
-        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-1 text-slate-600">
-          <div class="font-bold text-slate-800">Modo de almacenamiento:</div>
-          <p>Los nuevos registros enviados se guardan de inmediato en la memoria local de tu dispositivo y se enviarán al webhook si está configurado.</p>
+        <div class="bg-zinc-100 dark:bg-zinc-800/80 p-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-700 space-y-1 text-zinc-700 dark:text-zinc-300">
+          <div class="font-bold text-zinc-950 dark:text-white">Flujo de aprobación:</div>
+          <p class="text-[11.5px] leading-relaxed">Los nuevos registros enviados entran en cola de revisión comunitaria para ser aprobados desde Google Sheets antes de mostrarse en el directorio.</p>
         </div>
 
         <div class="flex items-center justify-end gap-2 pt-2">
-          <button id="btn-reset-cache" type="button" class="px-3 py-2 text-xs font-medium text-rose-700 hover:bg-rose-50 rounded-lg transition cursor-pointer">
+          <button id="btn-reset-cache" type="button" class="px-3.5 py-2 text-xs font-bold text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-xl transition cursor-pointer">
             Limpiar caché local
           </button>
-          <button id="btn-save-settings" type="button" class="px-4 py-2 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-lg transition btn-glow cursor-pointer">
+          <button id="btn-save-settings" type="button" class="px-4 py-2.5 text-xs font-extrabold text-white dark:text-black bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-zinc-200 rounded-xl transition shadow-btn cursor-pointer">
             Guardar cambios
           </button>
         </div>

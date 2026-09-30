@@ -37,12 +37,16 @@ function validateData() {
     process.exit(1);
   }
 
-  if (!Array.isArray(data) || data.length === 0) {
-    console.error('❌ Error: oficios.json debe ser un arreglo con al menos un registro.');
+  if (!Array.isArray(data)) {
+    console.error('❌ Error: oficios.json debe ser un arreglo JSON válido.');
     process.exit(1);
   }
 
   console.log(`📊 Total de registros a inspeccionar: ${data.length}`);
+  if (data.length === 0) {
+    console.log('✨ Base de datos limpia y lista para nuevos registros comunitarios.');
+    return;
+  }
 
   let errors = 0;
   let warnings = 0;
