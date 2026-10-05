@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap oficial de la plataforma
-Sitemap: https://oficiosahome.org/sitemap.xml
+Sitemap: https://oficiosahome.online/sitemap.xml

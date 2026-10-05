@@ -225,7 +225,7 @@ const formatShareMatch = appJs.match(/function formatOficioShareText\([\s\S]*?\n
 assert.ok(formatShareMatch, 'formatOficioShareText function must be present in app.js');
 const formatOficioShareTextFn = new Function('item', 'shareUrl', `${formatShareMatch[0]}; return formatOficioShareText(item, shareUrl);`);
 
-const testUrl = 'https://oficiosahome.org/?id=ahome-001';
+const testUrl = 'https://oficiosahome.online/?id=ahome-001';
 const formattedShareMsg = formatOficioShareTextFn(sampleWorker, testUrl);
 
 assert.ok(formattedShareMsg.includes('👋 *Recomendación en Oficios Ahome:*'), 'Must include friendly neighbor recommendation header');

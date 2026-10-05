@@ -2067,7 +2067,7 @@ function formatOficioShareText(item, shareUrl) {
 
   const fallbackUrl = (typeof window !== 'undefined' && window.location)
     ? `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(item.id)}`
-    : `https://oficiosahome.org/?id=${encodeURIComponent(item.id)}`;
+    : `https://oficiosahome.online/?id=${encodeURIComponent(item.id)}`;
 
   const finalUrl = shareUrl || fallbackUrl;
   const sindicaturaText = item.sindicatura ? ` (${item.sindicatura})` : '';
@@ -2106,7 +2106,7 @@ async function shareOficioViaWhatsApp(workerId) {
 
   const currentUrl = (typeof window !== 'undefined' && window.location)
     ? `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(item.id)}`
-    : `https://oficiosahome.org/?id=${encodeURIComponent(item.id)}`;
+    : `https://oficiosahome.online/?id=${encodeURIComponent(item.id)}`;
 
   const shareText = formatOficioShareText(item, currentUrl);
 
@@ -2317,7 +2317,7 @@ function downloadVCard(workerId) {
   const rawPhone = String(item.telefono || '').replace(/\D/g, '');
   const cleanPhone = rawPhone.length === 10 ? `+52 ${rawPhone.substring(0,3)} ${rawPhone.substring(3,6)} ${rawPhone.substring(6)}` : `+52 ${rawPhone}`;
   const cleanDesc = (item.descripcion || '').replace(/\r?\n/g, ' ');
-  const shareUrl = `https://oficiosahome.org/?id=${item.id}`;
+  const shareUrl = `https://oficiosahome.online/?id=${item.id}`;
 
   const vcard = [
     'BEGIN:VCARD',
@@ -2379,11 +2379,11 @@ function openPosterModal(workerId) {
   if (phoneEl) phoneEl.textContent = displayPhone || '668 000 0000';
   if (horarioEl) horarioEl.textContent = item.horario || 'Lunes a Sábado';
   if (descEl) descEl.textContent = item.descripcion || 'Servicios profesionales y atención directa.';
-  if (urlEl) urlEl.textContent = `oficiosahome.org/?id=${item.id}`;
+  if (urlEl) urlEl.textContent = `oficiosahome.online/?id=${item.id}`;
 
   if (qrContainer) {
     qrContainer.innerHTML = '';
-    const shareUrl = `https://oficiosahome.org/?id=${encodeURIComponent(item.id)}`;
+    const shareUrl = `https://oficiosahome.online/?id=${encodeURIComponent(item.id)}`;
     if (typeof QRCode !== 'undefined') {
       try {
         new QRCode(qrContainer, {
@@ -4568,7 +4568,7 @@ function downloadVCard(id) {
     `TEL;TYPE=CELL,VOICE:${phone}`,
     `ADR;TYPE=WORK:;;${item.zona};Los Mochis;Sinaloa;;México`,
     `NOTE:Contacto comunitario de Oficios Ahome. Servicios: ${item.descripcion || item.oficio}`,
-    `URL:https://oficiosahome.org/?id=${encodeURIComponent(item.id)}`,
+    `URL:https://oficiosahome.online/?id=${encodeURIComponent(item.id)}`,
     'END:VCARD'
   ].join('\r\n');
 
@@ -4590,7 +4590,7 @@ function shareOficioViaWhatsApp(id) {
   if (!item) return;
 
   const phone = String(item.telefono || '').replace(/\D/g, '');
-  const text = `🛠️ *${item.nombre}* (${item.oficio})\n📍 *Zona:* ${item.zona}\n📞 *WhatsApp:* https://wa.me/52${phone}\n\nEncontrado en el Directorio Cívico *Oficios Ahome*:\nhttps://oficiosahome.org/?id=${encodeURIComponent(item.id)}`;
+  const text = `🛠️ *${item.nombre}* (${item.oficio})\n📍 *Zona:* ${item.zona}\n📞 *WhatsApp:* https://wa.me/52${phone}\n\nEncontrado en el Directorio Cívico *Oficios Ahome*:\nhttps://oficiosahome.online/?id=${encodeURIComponent(item.id)}`;
   const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
   window.open(url, '_blank');
 }
