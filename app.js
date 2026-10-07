@@ -12,10 +12,10 @@
 // Constante configurable para Google Apps Script (Webhook)
 const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKZGja4fVGI-pvVEEhD2NGfLtF9mZ9Ox-CM16wlc_SVyAPc3vt5_whSPifrdLHB4_x/exec';
 
-const STORAGE_KEY_DATA = 'oficios_ahome_data_v5'; // v5 para base de datos limpia en producción
+const STORAGE_KEY_DATA = 'oficios_ahome_data_v6'; // v6 para base de datos limpia y purga de caché
 const STORAGE_KEY_URL = 'oficios_ahome_script_url';
 const STORAGE_KEY_USER_COLONIA = 'oficios_ahome_user_colonia';
-const SW_CACHE_NAME = 'oficios-ahome-v5.0';
+const SW_CACHE_NAME = 'oficios-ahome-v6.0';
 const MAX_OFICIO_PHOTOS = 5; // Límite máximo de fotos por oficio al registrarse
 
 // Diccionario de coordenadas para todas las sindicaturas, colonias y ejidos de Ahome
@@ -751,7 +751,7 @@ window.initRandomHeroImage = initRandomHeroImage;
 
 function bootApp() {
   try {
-    ['oficios_ahome_data_v4', 'oficios_ahome_data_v3', 'oficios_ahome_data_v2', 'oficios_ahome_data'].forEach(k => localStorage.removeItem(k));
+    ['oficios_ahome_data_v5', 'oficios_ahome_data_v4', 'oficios_ahome_data_v3', 'oficios_ahome_data_v2', 'oficios_ahome_data'].forEach(k => localStorage.removeItem(k));
   } catch (e) {}
   try { initRandomHeroImage(); } catch (e) { console.warn('initRandomHeroImage:', e); }
   try { refreshElements(); } catch (e) { console.warn('refreshElements:', e); }

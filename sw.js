@@ -1,4 +1,4 @@
-const CACHE_NAME = 'oficios-ahome-v5.0';
+const CACHE_NAME = 'oficios-ahome-v6.0';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -29,7 +29,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Precaching core assets for Oficios Ahome (v5.0)');
+      console.log('[SW] Precaching core assets for Oficios Ahome (v6.0)');
       return cache.addAll(STATIC_ASSETS);
     })
   );
