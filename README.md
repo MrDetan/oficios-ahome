@@ -120,11 +120,12 @@ Este proyecto se rige por el estándar **Contributor Covenant v2.1** para garant
 
 ---
 
-## 🌐 Infraestructura & Código Abierto
+## 🌐 Infraestructura & Alojamiento
 
-Este proyecto cívico y sin fines de lucro está alojado y desplegado gracias al programa de soporte para código abierto de **[Netlify](https://www.netlify.com)**:
+Este proyecto cívico y sin fines de lucro está alojado de forma pública y gratuita mediante **GitHub Pages** y respaldado por una arquitectura serverless con **Google Sheets**:
 
-[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg)](https://www.netlify.com)
+[![Hosted on GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-09090B?style=for-the-badge&logo=github&logoColor=white)](https://oficiosahome.online/)
+[![Zero Cost Architecture](https://img.shields.io/badge/Architecture-100%25%20Free%20%26%20Open-09090B?style=for-the-badge&logo=open-source-initiative&logoColor=white)](https://oficiosahome.online/)
 
 ---
 
@@ -214,11 +215,12 @@ This project is governed by the **Contributor Covenant v2.1** standard to ensure
 
 ---
 
-## 🌐 Infrastructure & Open Source Sponsorship
+## 🌐 Infrastructure & Hosting
 
-This non-profit civic project is hosted and deployed with the generous open-source support of **[Netlify](https://www.netlify.com)**:
+This non-profit civic project is freely and publicly hosted on **GitHub Pages** with a serverless **Google Sheets** backend architecture:
 
-[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg)](https://www.netlify.com)
+[![Hosted on GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-09090B?style=for-the-badge&logo=github&logoColor=white)](https://oficiosahome.online/)
+[![Zero Cost Architecture](https://img.shields.io/badge/Architecture-100%25%20Free%20%26%20Open-09090B?style=for-the-badge&logo=open-source-initiative&logoColor=white)](https://oficiosahome.online/)
 
 ---
 
