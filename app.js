@@ -15,7 +15,7 @@ const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKZGja4fVGI
 const STORAGE_KEY_DATA = 'oficios_ahome_data_v6'; // v6 para base de datos limpia y purga de caché
 const STORAGE_KEY_URL = 'oficios_ahome_script_url';
 const STORAGE_KEY_USER_COLONIA = 'oficios_ahome_user_colonia';
-const SW_CACHE_NAME = 'oficios-ahome-v6.0';
+const SW_CACHE_NAME = 'oficios-ahome-v6.1';
 const MAX_OFICIO_PHOTOS = 5; // Límite máximo de fotos por oficio al registrarse
 
 // Diccionario de coordenadas para todas las sindicaturas, colonias y ejidos de Ahome

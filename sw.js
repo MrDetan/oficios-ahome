@@ -1,4 +1,4 @@
-const CACHE_NAME = 'oficios-ahome-v6.0';
+const CACHE_NAME = 'oficios-ahome-v6.1';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -12,6 +12,8 @@ const STATIC_ASSETS = [
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/apple-touch-icon.png',
+  './icons/logo-dark.png',
+  './icons/logo-light.png',
   './images/hero_oficio_1.jpg',
   './images/hero_oficio_2.jpg',
   './images/hero_oficio_3.jpg',
