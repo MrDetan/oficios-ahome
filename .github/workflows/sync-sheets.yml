@@ -50,8 +50,8 @@ jobs:
               console.log('Consultando Webhook de Google Sheets...');
               const raw = await fetchWithRedirect(WEBHOOK_URL);
               const json = JSON.parse(raw);
-              if (!Array.isArray(json) || json.length === 0) {
-                throw new Error('Formato inválido o arreglo vacío recibido de Sheets');
+              if (!Array.isArray(json)) {
+                throw new Error('Formato inválido recibido de Sheets (se esperaba un arreglo JSON)');
               }
               console.log('Se recibieron ' + json.length + ' oficios correctamente.');
               fs.writeFileSync('oficios.json', JSON.stringify(json, null, 2), 'utf8');

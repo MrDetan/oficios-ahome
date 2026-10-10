@@ -12,10 +12,10 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab 
 ---
 
 [![Dominio Oficial](https://img.shields.io/badge/Web%20App-oficiosahome.online-09090B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://oficiosahome.online/)
-[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg)](https://www.netlify.com)
+[![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-09090B?style=for-the-badge&logo=github&logoColor=white)](https://oficiosahome.online/)
 [![OSI MIT License](https://img.shields.io/badge/License-MIT%20(OSI)-09090B?style=for-the-badge&logo=open-source-initiative&logoColor=white)](./LICENSE)
 [![Contributor Covenant](https://img.shields.io/badge/Code%20of%20Conduct-v2.1-09090B?style=for-the-badge)](./CODE_OF_CONDUCT.md)
-[![PWA Ready](https://img.shields.io/badge/PWA-Offline--First%20v4.0-09090B?style=for-the-badge&logo=pwa&logoColor=white)](https://oficiosahome.online/)
+[![PWA Ready](https://img.shields.io/badge/PWA-Offline--First%20v6.0-09090B?style=for-the-badge&logo=pwa&logoColor=white)](https://oficiosahome.online/)
 [![Zero Backend](https://img.shields.io/badge/Backend-Serverless%20Google%20Sheets-27272A?style=for-the-badge&logo=google-sheets&logoColor=white)](https://sheets.new)
 [![Data Quality](https://img.shields.io/badge/Oficios%20Verificados-288%20(100%25)-09090B?style=for-the-badge)](./scripts/validate-data.js)
 
