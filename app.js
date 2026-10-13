@@ -3604,7 +3604,12 @@ function createCardElement(item) {
     distanceBadge = `<span class="inline-flex items-center gap-1 text-[10.5px] font-mono font-bold px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 shrink-0 shadow-2xs" title="Distancia aproximada en línea recta">${distText}</span>`;
   }
 
+  const unverifiedWatermark = (!window.__AHOME_CORE_VERIFIED__)
+    ? '<div class="w-full text-center py-1 bg-red-900/90 text-amber-200 text-[10px] font-mono font-bold rounded-lg mb-1 border border-red-700">⚠️ Copia no oficial • Portal verificado: oficiosahome.online</div>'
+    : '';
+
   article.innerHTML = `
+    ${unverifiedWatermark}
     <!-- Contenido Superior -->
     <div class="space-y-2.5">
       ${photoSection}
@@ -4629,42 +4634,131 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================================================
-// ESCUDO DE SEGURIDAD: VERIFICACIÓN DE DOMINIO OFICIAL CONTRA CLONES
+// CORE RUNTIME INTEGRITY & GEODATA VERIFICATION SUITE
 // ============================================================================
-(function verifyDomainAuthenticity() {
+;(function(_0xroot) {
+  'use strict';
   if (typeof window === 'undefined' || !window.location) return;
-  const host = (window.location.hostname || '').toLowerCase();
-  const isAuthorized =
-    host === 'oficiosahome.online' ||
-    host === 'www.oficiosahome.online' ||
-    host === 'mrdetan.github.io' ||
-    host === 'localhost' ||
-    host === '127.0.0.1' ||
-    host === '[::1]' ||
-    host.endsWith('.github.dev') ||
-    host.endsWith('.app.github.dev') ||
-    window.location.protocol === 'file:';
 
-  if (!isAuthorized) {
-    console.warn('⚠️ Alerta de Seguridad: Este dominio no es el portal oficial verificado de PolyLab Studio.');
-    function showCloneWarning() {
-      if (document.getElementById('poly-clone-alert')) return;
-      const banner = document.createElement('div');
-      banner.id = 'poly-clone-alert';
-      banner.setAttribute('role', 'alert');
-      banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:999999;background:#991b1b;color:#ffffff;padding:12px 16px;text-align:center;font-family:system-ui,-apple-system,sans-serif;font-size:13px;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,0.45);border-bottom:2px solid #ef4444;';
-      banner.innerHTML = '⚠️ <strong>ADVERTENCIA DE SEGURIDAD:</strong> Estás accediendo a una copia o clon no oficial. Para garantizar tu seguridad y la verificación auténtica de los trabajadores, visita el único portal oficial: <a href="https://oficiosahome.online/" style="color:#fef08a;text-decoration:underline;margin-left:6px;font-weight:700;">oficiosahome.online</a>';
-      if (document.body) {
-        document.body.prepend(banner);
+  var _0xk = 0x5c;
+  var _0xd = function(_0xa) {
+    var _0xr = '';
+    for (var _0xi = 0; _0xi < _0xa.length; _0xi++) {
+      _0xr += String.fromCharCode(_0xa[_0xi] ^ _0xk);
+    }
+    return _0xr;
+  };
+
+  var _0xwh = [
+    [51, 58, 53, 63, 53, 51, 47, 61, 52, 51, 49, 57, 114, 51, 50, 48, 53, 50, 57], // oficiosahome.online
+    [43, 43, 43, 114, 51, 58, 53, 63, 53, 51, 47, 61, 52, 51, 49, 57, 114, 51, 50, 48, 53, 50, 57], // www.oficiosahome.online
+    [49, 46, 56, 57, 40, 61, 50, 114, 59, 53, 40, 52, 41, 62, 114, 53, 51], // mrdetan.github.io
+    [40, 51, 55, 53, 40, 52, 51, 47, 40], // localhost
+    [85, 86, 83, 114, 84, 114, 84, 114, 85], // 127.0.0.1
+    [39, 102, 102, 85, 37] // [::1]
+  ];
+
+  var _0xhn = (window.location.hostname || '').toLowerCase();
+  var _0xpr = (window.location.protocol || '').toLowerCase();
+  var _0xisA = false;
+
+  if (_0xpr === 'file:') {
+    _0xisA = true;
+  } else if (_0xhn.indexOf('.github.dev') !== -1 || _0xhn.indexOf('.app.github.dev') !== -1) {
+    _0xisA = true;
+  } else {
+    for (var _0xj = 0; _0xj < _0xwh.length; _0xj++) {
+      if (_0xhn === _0xd(_0xwh[_0xj])) {
+        _0xisA = true;
+        break;
       }
     }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', showCloneWarning);
-    } else {
-      showCloneWarning();
+  }
+
+  if (_0xisA) {
+    try { window.__AHOME_CORE_VERIFIED__ = 0x1; } catch(e) {}
+    return;
+  }
+
+  var _0xurl = _0xd([52, 40, 40, 44, 47, 102, 115, 115, 51, 58, 53, 63, 53, 51, 47, 61, 52, 51, 49, 57, 114, 51, 50, 48, 53, 50, 57, 115]);
+  var _0xttl = _0xd([29, 24, 10, 25, 14, 8, 25, 18, 31, 21, 29, 124, 24, 25, 124, 15, 25, 27, 9, 14, 21, 24, 29, 24]);
+  var _0xbdy = _0xd([25, 47, 40, 189, 47, 124, 61, 63, 63, 57, 56, 53, 57, 50, 56, 51, 124, 61, 124, 41, 50, 124, 63, 48, 51, 50, 124, 51, 124, 63, 51, 44, 53, 61, 124, 50, 51, 124, 51, 58, 53, 63, 53, 61, 48, 114, 124, 12, 61, 46, 61, 124, 40, 41, 124, 47, 57, 59, 41, 46, 53, 56, 61, 56, 124, 37, 124, 56, 61, 40, 51, 47, 124, 61, 41, 40, 181, 50, 40, 53, 63, 51, 47, 124, 56, 57, 124, 48, 51, 47, 124, 40, 46, 61, 62, 61, 54, 61, 56, 51, 46, 57, 47, 112, 124, 42, 53, 47, 53, 40, 61, 124, 57, 48, 124, 44, 51, 46, 40, 61, 48, 124, 51, 58, 53, 63, 53, 61, 48, 102]);
+  var _0xlbl = _0xd([51, 58, 53, 63, 53, 51, 47, 61, 52, 51, 49, 57, 114, 51, 50, 48, 53, 50, 57]);
+  var _0xid = '_0x' + (28938472).toString(16);
+  var _0xattempts = 0;
+
+  function _0xmount() {
+    var _0xex = document.getElementById(_0xid);
+    if (_0xex) {
+      _0xex.style.setProperty('display', 'block', 'important');
+      _0xex.style.setProperty('visibility', 'visible', 'important');
+      _0xex.style.setProperty('opacity', '1', 'important');
+      return;
+    }
+
+    var _0xel = document.createElement('div');
+    _0xel.id = _0xid;
+    _0xel.setAttribute('role', 'alert');
+    _0xel.style.cssText = [
+      'position:fixed!important',
+      'top:0!important',
+      'left:0!important',
+      'right:0!important',
+      'z-index:2147483647!important',
+      'background:#991b1b!important',
+      'color:#ffffff!important',
+      'padding:12px 18px!important',
+      'text-align:center!important',
+      'font-family:system-ui,-apple-system,sans-serif!important',
+      'font-size:13px!important',
+      'font-weight:600!important',
+      'line-height:1.5!important',
+      'box-shadow:0 6px 20px rgba(0,0,0,0.5)!important',
+      'border-bottom:3px solid #ef4444!important',
+      'display:block!important',
+      'visibility:visible!important',
+      'opacity:1!important'
+    ].join(';');
+
+    _0xel.innerHTML = '⚠️ <strong>' + _0xttl + ':</strong> ' + _0xbdy +
+      ' <a href="' + _0xurl + '" style="color:#fef08a!important;text-decoration:underline!important;font-weight:700!important;margin-left:6px!important;">' + _0xlbl + '</a>';
+
+    if (document.body) {
+      document.body.prepend(_0xel);
     }
   }
-})();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', _0xmount);
+  } else {
+    _0xmount();
+  }
+
+  if (typeof MutationObserver !== 'undefined') {
+    var _0xobs = new MutationObserver(function() {
+      var _0xtgt = document.getElementById(_0xid);
+      if (!_0xtgt || _0xtgt.offsetWidth === 0 || _0xtgt.offsetHeight === 0 || window.getComputedStyle(_0xtgt).display === 'none' || window.getComputedStyle(_0xtgt).visibility === 'hidden') {
+        _0xattempts++;
+        if (_0xattempts > 2) {
+          try { window.location.replace(_0xurl); } catch (e) { window.location.href = _0xurl; }
+        } else {
+          _0xmount();
+        }
+      }
+    });
+
+    try {
+      _0xobs.observe(document.documentElement || document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['style', 'class', 'hidden']
+      });
+    } catch(e) {}
+  }
+
+  setInterval(_0xmount, 1500);
+})(window);
 
 
 
