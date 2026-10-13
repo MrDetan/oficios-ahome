@@ -17,7 +17,7 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab 
 [![Contributor Covenant](https://img.shields.io/badge/Code%20of%20Conduct-v2.1-09090B?style=for-the-badge)](./CODE_OF_CONDUCT.md)
 [![PWA Ready](https://img.shields.io/badge/PWA-Offline--First%20v6.0-09090B?style=for-the-badge&logo=pwa&logoColor=white)](https://oficiosahome.online/)
 [![Zero Backend](https://img.shields.io/badge/Backend-Serverless%20Google%20Sheets-27272A?style=for-the-badge&logo=google-sheets&logoColor=white)](https://sheets.new)
-[![Data Quality](https://img.shields.io/badge/Oficios%20Verificados-288%20(100%25)-09090B?style=for-the-badge)](./scripts/validate-data.js)
+[![Data Quality](https://img.shields.io/badge/Oficios%20Verificados-100%25%20Auditados-09090B?style=for-the-badge)](./scripts/validate-data.js)
 
 ---
 
@@ -35,7 +35,7 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab 
 
 ### 🗺️ 1. Mapa Cívico Interactivo con Agrupamiento Inteligente
 - **OpenStreetMap + Leaflet.js:** Cero costos de API keys (sin Google Maps API).
-- **Marker Clustering (`Leaflet.markercluster`):** Agrupa automáticamente los 288 oficios en burbujas numéricas interactivas para evitar saturación de pantalla al hacer zoom out.
+- **Marker Clustering (`Leaflet.markercluster`):** Agrupa automáticamente los oficios en burbujas numéricas interactivas para evitar saturación de pantalla al hacer zoom out.
 - **Distribución Orbital Anti-Superposición:** Distribuye a los trabajadores de una misma colonia en radios calculados mediante trigonometría para que ningún marcador tape a otro.
 - **Selector de Ubicación con Pin Arrastrable & GPS:** Permite a nuevos trabajadores posicionar su taller o cobertura con precisión métrica.
 
@@ -82,7 +82,7 @@ Barrio/
 ├── app.js                       # Lógica reactiva PWA, geolocalización, clustering y filtros
 ├── sw.js                        # Service Worker v4.0 para funcionamiento sin conexión
 ├── manifest.json                # Manifiesto PWA para instalación en Android, iOS y PC
-├── oficios.json                 # Base de datos local (288 oficios en 7 sindicaturas)
+├── oficios.json                 # Base de datos local de oficios en 7 sindicaturas
 ├── google-apps-script.js        # Webhook serverless para sincronización con Google Sheets
 ├── CODE_OF_CONDUCT.md           # Código de Conducta bilingüe (Contributor Covenant 2.1)
 ├── LICENSE                      # Licencia MIT aprobada por la OSI

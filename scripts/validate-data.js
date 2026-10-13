@@ -3,7 +3,7 @@
  * OFICIOS AHOME - VALIDADOR DE ESQUEMA Y CALIDAD DE DATOS (DATA LINTER)
  * ============================================================================
  * Propósito: Garantizar la integridad, seguridad y calidad geográfica de los 
- * 288+ oficios registrados antes de ser desplegados a producción.
+ * oficios registrados antes de ser desplegados a producción.
  * ============================================================================
  */
 

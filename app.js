@@ -892,7 +892,7 @@ function createCustomClusterIcon(cluster) {
 
 /**
  * Actualiza los marcadores en el mapa según la lista filtrada de oficios.
- * Usa Leaflet.markercluster para compactar 288+ pines en grupos limpios.
+ * Usa Leaflet.markercluster para compactar pines en grupos limpios.
  */
 function updateMapMarkers(oficiosList) {
   if (!state.map) return;
