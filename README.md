@@ -7,10 +7,11 @@
 > **Directorio cívico, mapa interactivo y plataforma comunitaria de código abierto para el Municipio de Ahome, Sinaloa.**  
 > Conexión directa Persona a Persona (P2P) vía WhatsApp y llamada telefónica. Cero comisiones, cero intermediarios, acceso garantizado sin internet (PWA) y 100% gratuito para siempre.
 
-Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab](https://polylab-web-cliente.onrender.com/)** — **Ramsses García** en Los Mochis, Sinaloa.
+Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab](https://polylab.store)** — **Ramsses García** en Los Mochis, Sinaloa.
 
 ---
 
+[![Patrocinado por PolyLab](https://img.shields.io/badge/Patrocinado%20por-PolyLab-ea4aaa?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://polylab.store)
 [![Dominio Oficial](https://img.shields.io/badge/Web%20App-oficiosahome.online-09090B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://oficiosahome.online/)
 [![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-09090B?style=for-the-badge&logo=github&logoColor=white)](https://oficiosahome.online/)
 [![OSI MIT License](https://img.shields.io/badge/License-MIT%20(OSI)-09090B?style=for-the-badge&logo=open-source-initiative&logoColor=white)](./LICENSE)
@@ -18,6 +19,24 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab]
 [![PWA Ready](https://img.shields.io/badge/PWA-Offline--First%20v6.0-09090B?style=for-the-badge&logo=pwa&logoColor=white)](https://oficiosahome.online/)
 [![Zero Backend](https://img.shields.io/badge/Backend-Serverless%20Google%20Sheets-27272A?style=for-the-badge&logo=google-sheets&logoColor=white)](https://sheets.new)
 [![Data Quality](https://img.shields.io/badge/Oficios%20Verificados-100%25%20Auditados-09090B?style=for-the-badge)](./scripts/validate-data.js)
+
+---
+
+## 💖 Patrocinado por PolyLab
+
+<p align="center">
+  <a href="https://polylab.store" target="_blank" rel="noopener noreferrer">
+    <img src="./images/polylab-logo.png" alt="Logo de PolyLab" width="80" />
+  </a>
+</p>
+
+<p align="center">
+  Este repositorio de código abierto y la plataforma comunitaria <strong>Oficios Ahome</strong> están oficialmente patrocinados por <strong><a href="https://polylab.store" target="_blank" rel="noopener noreferrer">PolyLab</a></strong>.
+  <br>
+  Estudio mexicano independiente de diseño contemporáneo, manufactura aditiva y software cívico.
+  <br><br>
+  🛍️ <strong>Tienda oficial y catálogo:</strong> <a href="https://polylab.store" target="_blank" rel="noopener noreferrer"><strong>polylab.store</strong></a> &nbsp;|&nbsp; ✉️ <strong>Contacto:</strong> <a href="mailto:polylablm@gmail.com">polylablm@gmail.com</a>
+</p>
 
 ---
 
@@ -143,7 +162,25 @@ Se distribuye bajo la **[Licencia MIT](./LICENSE)** (aprobada por la **Open Sour
 > **Civic directory, interactive map, and open-source community platform for the Municipality of Ahome, Sinaloa, Mexico.**  
 > Direct Person-to-Person (P2P) connection via WhatsApp and phone calls. Zero commissions, zero middlemen, guaranteed offline access (PWA), and 100% free forever.
 
-A civic technology and social impact initiative developed by **[PolyLab](https://polylab-web-cliente.onrender.com/)** — **Ramsses García** in Los Mochis, Sinaloa.
+A civic technology and social impact initiative developed by **[PolyLab](https://polylab.store)** — **Ramsses García** in Los Mochis, Sinaloa.
+
+---
+
+## 💖 Sponsored by PolyLab
+
+<p align="center">
+  <a href="https://polylab.store" target="_blank" rel="noopener noreferrer">
+    <img src="./images/polylab-logo.png" alt="PolyLab Logo" width="80" />
+  </a>
+</p>
+
+<p align="center">
+  This open-source repository and the <strong>Oficios Ahome</strong> civic platform are proudly sponsored and backed by <strong><a href="https://polylab.store" target="_blank" rel="noopener noreferrer">PolyLab</a></strong>.
+  <br>
+  Independent Mexican contemporary design, additive manufacturing, and civic software studio.
+  <br><br>
+  🛍️ <strong>Official store & studio:</strong> <a href="https://polylab.store" target="_blank" rel="noopener noreferrer"><strong>polylab.store</strong></a> &nbsp;|&nbsp; ✉️ <strong>Inquiries:</strong> <a href="mailto:polylablm@gmail.com">polylablm@gmail.com</a>
+</p>
 
 ---
 
