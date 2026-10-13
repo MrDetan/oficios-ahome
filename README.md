@@ -7,7 +7,7 @@
 > **Directorio cívico, mapa interactivo y plataforma comunitaria de código abierto para el Municipio de Ahome, Sinaloa.**  
 > Conexión directa Persona a Persona (P2P) vía WhatsApp y llamada telefónica. Cero comisiones, cero intermediarios, acceso garantizado sin internet (PWA) y 100% gratuito para siempre.
 
-Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab Studio](https://polylab-web-cliente.onrender.com/)** — **Ramsses García** en Los Mochis, Sinaloa.
+Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab](https://polylab-web-cliente.onrender.com/)** — **Ramsses García** en Los Mochis, Sinaloa.
 
 ---
 
@@ -21,7 +21,7 @@ Una iniciativa de software cívico e impacto social desarrollada por **[PolyLab 
 
 ---
 
-## 🔬 Acerca de PolyLab Studio
+## 🔬 Acerca de PolyLab
 
 **PolyLab** es un estudio mexicano independiente de **diseño, fabricación aditiva y software cívico**, nacido en Los Mochis, Sinaloa. No nos entendemos como un simple servicio de impresión ni como una tienda genérica de souvenirs: somos una **marca de diseño contemporáneo** que utiliza la tecnología para crear objetos y soluciones que combinan **arte, funcionalidad, geometría y estética**.
 
@@ -143,11 +143,11 @@ Se distribuye bajo la **[Licencia MIT](./LICENSE)** (aprobada por la **Open Sour
 > **Civic directory, interactive map, and open-source community platform for the Municipality of Ahome, Sinaloa, Mexico.**  
 > Direct Person-to-Person (P2P) connection via WhatsApp and phone calls. Zero commissions, zero middlemen, guaranteed offline access (PWA), and 100% free forever.
 
-A civic technology and social impact initiative developed by **[PolyLab Studio](https://polylab-web-cliente.onrender.com/)** — **Ramsses García** in Los Mochis, Sinaloa.
+A civic technology and social impact initiative developed by **[PolyLab](https://polylab-web-cliente.onrender.com/)** — **Ramsses García** in Los Mochis, Sinaloa.
 
 ---
 
-## 🔬 About PolyLab Studio
+## 🔬 About PolyLab
 
 **PolyLab** is an independent Mexican design, additive manufacturing, and civic software studio based in Los Mochis, Sinaloa. We view our work not as a generic 3D printing shop or souvenir maker, but as a **contemporary design brand** leveraging technology to create solutions combining **art, function, geometry, and aesthetics**.
 

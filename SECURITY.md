@@ -6,7 +6,7 @@
 
 ## Política de Seguridad y Verificación de Autenticidad
 
-La seguridad, veracidad y confianza de la comunidad de Ahome son la máxima prioridad de **PolyLab Studio**. Este documento establece las directrices para el reporte de vulnerabilidades técnicas y el combate activo contra sitios clon, phishing o suplantación de identidad.
+La seguridad, veracidad y confianza de la comunidad de Ahome son la máxima prioridad de **PolyLab**. Este documento establece las directrices para el reporte de vulnerabilidades técnicas y el combate activo contra sitios clon, phishing o suplantación de identidad.
 
 ### 🌐 Dominio Único Oficial y Verificado
 
@@ -14,7 +14,7 @@ El proyecto cívico **Oficios Ahome** opera **única y exclusivamente** a travé
 
 * **Dominio Oficial:** [https://oficiosahome.online/](https://oficiosahome.online/)
 * **Repositorio Oficial:** [https://github.com/MrDetan/oficios-ahome](https://github.com/MrDetan/oficios-ahome)
-* **Organización Desarrolladora:** PolyLab Studio (Ramsses García)
+* **Organización Desarrolladora:** PolyLab (Ramsses García)
 
 Cualquier otro sitio web que use un dominio alternativo, similar o que contenga logotipos y fotografías de este proyecto sin autorización explícita **NO cuenta con respaldo ni verificación de datos** y debe considerarse un clon no autorizado.
 
@@ -24,7 +24,7 @@ Cualquier otro sitio web que use un dominio alternativo, similar o que contenga 
 
 Si detectas un sitio web que:
 1. Utiliza un nombre o dominio parecido (ej. `oficios-ahome.com`, `oficiosahome.net`, etc.).
-2. Duplica los logotipos de PolyLab Studio o se hace pasar por el portal oficial.
+2. Duplica los logotipos de PolyLab o se hace pasar por el portal oficial.
 3. Modifica los números telefónicos de los trabajadores para cometer fraudes o cobrar comisiones indebidas.
 
 Por favor repórtalo inmediatamente a través de:
@@ -32,7 +32,7 @@ Por favor repórtalo inmediatamente a través de:
 * **Correo de Contacto Cívico:** `polylab.contacto@gmail.com`
 
 **Acciones de Mitigación Inmediata:**  
-PolyLab Studio solicitará formalmente la suspensión por abuso (*Abuse Takedown / Phishing Notice*) ante el registrador del dominio engañoso y ante proveedores de infraestructura (Cloudflare, Google Safe Browsing, GitHub, Vercel, Netlify).
+PolyLab solicitará formalmente la suspensión por abuso (*Abuse Takedown / Phishing Notice*) ante el registrador del dominio engañoso y ante proveedores de infraestructura (Cloudflare, Google Safe Browsing, GitHub, Vercel, Netlify).
 
 ---
 
@@ -49,7 +49,7 @@ Si descubres una vulnerabilidad de seguridad en el código (ej. inyección, bypa
 
 ## Security Policy & Authenticity Verification
 
-The safety, data integrity, and trust of the Ahome community are the highest priorities of **PolyLab Studio**. This document sets out the guidelines for reporting vulnerabilities and actively combating counterfeit clones, phishing, or identity theft.
+The safety, data integrity, and trust of the Ahome community are the highest priorities of **PolyLab**. This document sets out the guidelines for reporting vulnerabilities and actively combating counterfeit clones, phishing, or identity theft.
 
 ### 🌐 Sole Official & Verified Domain
 
@@ -57,7 +57,7 @@ The civic initiative **Oficios Ahome** operates **exclusively** at:
 
 * **Official Domain:** [https://oficiosahome.online/](https://oficiosahome.online/)
 * **Official Repository:** [https://github.com/MrDetan/oficios-ahome](https://github.com/MrDetan/oficios-ahome)
-* **Lead Studio:** PolyLab Studio (Ramsses García)
+* **Lead Studio:** PolyLab (Ramsses García)
 
 Any third-party domain hosting a duplicate copy with PolyLab branding without express authorization is deemed an unauthorized counterfeit and is not endorsed or verified.
 
@@ -65,4 +65,4 @@ Any third-party domain hosting a duplicate copy with PolyLab branding without ex
 
 If you discover any unauthorized mirror attempting typosquatting, fraudulent monetization, or phone tampering:
 * Report via a private security advisory on GitHub or email `polylab.contacto@gmail.com`.
-* PolyLab Studio initiates swift DMCA / abuse takedown requests to DNS registrars and hosting networks.
+* PolyLab initiates swift DMCA / abuse takedown requests to DNS registrars and hosting networks.

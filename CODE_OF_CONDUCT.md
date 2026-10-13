@@ -8,7 +8,7 @@
 
 ## Nuestro Compromiso
 
-Nosotros, como miembros, contribuyentes y líderes de la iniciativa ciudadana **Oficios Ahome** y **PolyLab Studio**, nos comprometemos a hacer de la participación en nuestra comunidad y proyecto de software cívico una experiencia libre de acoso para todos, independientemente de la edad, dimensión corporal, discapacidad visible o invisible, etnicidad, características sexuales, identidad y expresión de género, nivel de experiencia, educación, nivel socioeconómico, nacionalidad, apariencia personal, raza, religión o identidad y orientación sexual.
+Nosotros, como miembros, contribuyentes y líderes de la iniciativa ciudadana **Oficios Ahome** y **PolyLab**, nos comprometemos a hacer de la participación en nuestra comunidad y proyecto de software cívico una experiencia libre de acoso para todos, independientemente de la edad, dimensión corporal, discapacidad visible o invisible, etnicidad, características sexuales, identidad y expresión de género, nivel de experiencia, educación, nivel socioeconómico, nacionalidad, apariencia personal, raza, religión o identidad y orientación sexual.
 
 Nos comprometemos a actuar e interactuar de maneras que contribuyan a una comunidad abierta, acogedora, diversa, inclusiva, cívica y saludable.
 
@@ -70,7 +70,7 @@ Este Código de Conducta es una adaptación del [Contributor Covenant](https://w
 
 ## Our Pledge
 
-We as members, contributors, and leaders of the civic initiative **Oficios Ahome** and **PolyLab Studio** pledge to make participation in our community and open-source civic tech project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+We as members, contributors, and leaders of the civic initiative **Oficios Ahome** and **PolyLab** pledge to make participation in our community and open-source civic tech project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
 We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, civic-minded, and healthy community.
 
