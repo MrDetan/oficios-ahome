@@ -52,7 +52,7 @@ Este Código de Conducta se aplica tanto dentro de los espacios del proyecto (re
 Cualquier caso de comportamiento abusivo, acosador o inaceptable puede ser reportado al equipo de liderazgo de Oficios Ahome:
 
 - **Responsable:** Ramsses García (Fundador de PolyLab)
-- **Correo electrónico:** [gmramgarcia@gmail.com](mailto:gmramgarcia@gmail.com)
+- **Correo electrónico:** [polylablm@gmail.com](mailto:polylablm@gmail.com)
 - **WhatsApp Cívico:** [+52 668 395 6301](https://wa.me/526683956301)
 
 Todos los reportes serán revisados e investigados con prontitud y confidencialidad.
@@ -114,7 +114,7 @@ This Code of Conduct applies within all project spaces (GitHub repository, Issue
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the leadership team:
 
 - **Project Lead:** Ramsses García (Founder, PolyLab)
-- **Email:** [gmramgarcia@gmail.com](mailto:gmramgarcia@gmail.com)
+- **Email:** [polylablm@gmail.com](mailto:polylablm@gmail.com)
 - **Civic WhatsApp:** [+52 668 395 6301](https://wa.me/526683956301)
 
 All reports will be reviewed and investigated promptly and fairly, with full confidentiality.

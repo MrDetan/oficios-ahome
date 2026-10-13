@@ -29,7 +29,7 @@ Si detectas un sitio web que:
 
 Por favor repórtalo inmediatamente a través de:
 * **GitHub Issues:** Abre un reporte con la etiqueta `security` / `impersonation` en este repositorio.
-* **Correo de Contacto Cívico:** `polylab.contacto@gmail.com`
+* **Correo de Contacto Cívico:** `polylablm@gmail.com`
 
 **Acciones de Mitigación Inmediata:**  
 PolyLab solicitará formalmente la suspensión por abuso (*Abuse Takedown / Phishing Notice*) ante el registrador del dominio engañoso y ante proveedores de infraestructura (Cloudflare, Google Safe Browsing, GitHub, Vercel, Netlify).
@@ -64,5 +64,5 @@ Any third-party domain hosting a duplicate copy with PolyLab branding without ex
 ### 🚨 Reporting Unauthorized Clones or Phishing
 
 If you discover any unauthorized mirror attempting typosquatting, fraudulent monetization, or phone tampering:
-* Report via a private security advisory on GitHub or email `polylab.contacto@gmail.com`.
+* Report via a private security advisory on GitHub or email `polylablm@gmail.com`.
 * PolyLab initiates swift DMCA / abuse takedown requests to DNS registrars and hosting networks.
