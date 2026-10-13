@@ -4362,7 +4362,8 @@ async function handleRegisterSubmit(e) {
     horario: 'Lunes a Sábado',
     lat: Number(finalLat.toFixed(6)),
     lng: Number(finalLng.toFixed(6)),
-    fechaRegistro: new Date().toISOString()
+    fechaRegistro: new Date().toISOString(),
+    sitioOrigen: window.location.origin
   };
 
   elements.btnSubmitRegister.disabled = true;
@@ -4626,5 +4627,44 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
+// ============================================================================
+// ESCUDO DE SEGURIDAD: VERIFICACIÓN DE DOMINIO OFICIAL CONTRA CLONES
+// ============================================================================
+(function verifyDomainAuthenticity() {
+  if (typeof window === 'undefined' || !window.location) return;
+  const host = (window.location.hostname || '').toLowerCase();
+  const isAuthorized =
+    host === 'oficiosahome.online' ||
+    host === 'www.oficiosahome.online' ||
+    host === 'mrdetan.github.io' ||
+    host === 'localhost' ||
+    host === '127.0.0.1' ||
+    host === '[::1]' ||
+    host.endsWith('.github.dev') ||
+    host.endsWith('.app.github.dev') ||
+    window.location.protocol === 'file:';
+
+  if (!isAuthorized) {
+    console.warn('⚠️ Alerta de Seguridad: Este dominio no es el portal oficial verificado de PolyLab Studio.');
+    function showCloneWarning() {
+      if (document.getElementById('poly-clone-alert')) return;
+      const banner = document.createElement('div');
+      banner.id = 'poly-clone-alert';
+      banner.setAttribute('role', 'alert');
+      banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:999999;background:#991b1b;color:#ffffff;padding:12px 16px;text-align:center;font-family:system-ui,-apple-system,sans-serif;font-size:13px;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,0.45);border-bottom:2px solid #ef4444;';
+      banner.innerHTML = '⚠️ <strong>ADVERTENCIA DE SEGURIDAD:</strong> Estás accediendo a una copia o clon no oficial. Para garantizar tu seguridad y la verificación auténtica de los trabajadores, visita el único portal oficial: <a href="https://oficiosahome.online/" style="color:#fef08a;text-decoration:underline;margin-left:6px;font-weight:700;">oficiosahome.online</a>';
+      if (document.body) {
+        document.body.prepend(banner);
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', showCloneWarning);
+    } else {
+      showCloneWarning();
+    }
+  }
+})();
+
 
 

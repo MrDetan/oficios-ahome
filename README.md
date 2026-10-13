@@ -135,6 +135,10 @@ Este proyecto es una iniciativa de **software cívico y beneficio comunitario si
 
 Se distribuye bajo la **[Licencia MIT](./LICENSE)** (aprobada por la **Open Source Initiative - OSI**). Es de uso libre y gratuito para la comunidad, auditoría pública y réplica solidaria en otros municipios.
 
+> **🛡️ Política de Marcas y Protección contra Suplantación:**  
+> La Licencia MIT cubre estrictamente el código fuente. El nombre **"Oficios Ahome"**, la marca **"PolyLab Studio"**, los logotipos, diseños y fotografías son propiedad intelectual exclusiva de sus autores. Cualquier copia, derivado o despliegue independiente debe retirar la identidad de PolyLab Studio y no puede hacerse pasar por el portal cívico oficial ni utilizar dominios engañosos (*typosquatting* / *phishing*). El único portal oficial verificado es **[oficiosahome.online](https://oficiosahome.online/)**.
+
+
 ---
 ---
 
@@ -229,3 +233,7 @@ This non-profit civic project is freely and publicly hosted on **GitHub Pages** 
 This project is an open **non-profit civic technology initiative** developed by **Ramsses García (PolyLab)**.
 
 It is licensed under the **[MIT License](./LICENSE)** (approved by the **Open Source Initiative - OSI**). Free for community audit, public benefit, and non-commercial municipal replication across Mexico and Latin America.
+
+> **🛡️ Trademark & Anti-Impersonation Policy:**  
+> The MIT License strictly applies to the source code. The project name **"Oficios Ahome"**, the **"PolyLab Studio"** brand, official logos, designs, and original photographs are proprietary intellectual property. Any derivative instance, clone, or independent deployment must remove all PolyLab Studio branding and visual identity, and may not misrepresent itself as the official Ahome civic portal or engage in typosquatting or phishing. The sole official, verified domain is **[oficiosahome.online](https://oficiosahome.online/)**.
+

@@ -355,7 +355,14 @@ function doPost(e) {
     
     const id = 'ahome-' + Date.now();
     const fecha = new Date().toISOString();
-    const estado = 'Pendiente de revisión'; // En espera de que Ramsses lo apruebe
+    
+    // Trazabilidad de origen y escudo contra clones
+    const origenSolicitud = String(body.sitioOrigen || (e.parameter && e.parameter.sitioOrigen) || '').trim().toLowerCase();
+    let estado = 'Pendiente de revisión'; // En espera de que el administrador lo apruebe
+
+    if (origenSolicitud && !origenSolicitud.includes('oficiosahome.online') && !origenSolicitud.includes('localhost') && !origenSolicitud.includes('127.0.0.1')) {
+      estado = '⚠️ Origen Externo (' + origenSolicitud.substring(0, 35) + ')';
+    }
 
     // Guardar SIEMPRE en la hoja de Ingresos_Pendientes (crearla si aún no existe)
     let sheet = ss.getSheetByName(SHEET_NAME_PENDING);
