@@ -4662,7 +4662,7 @@ document.addEventListener('keydown', (e) => {
   var _0xpr = (window.location.protocol || '').toLowerCase();
   var _0xisA = false;
 
-  if (_0xpr === 'file:') {
+  if (_0xpr === 'file:' || _0xhn === 'localhost' || _0xhn === '127.0.0.1' || _0xhn === '[::1]' || _0xhn.endsWith('.localhost')) {
     _0xisA = true;
   } else if (_0xhn.indexOf('.github.dev') !== -1 || _0xhn.indexOf('.app.github.dev') !== -1) {
     _0xisA = true;

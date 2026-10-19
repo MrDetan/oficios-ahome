@@ -35,7 +35,7 @@
       var _k=0x5c,_d=function(a){var r='';for(var i=0;i<a.length;i++)r+=String.fromCharCode(a[i]^_k);return r;};
       var _h=(window.location.hostname||'').toLowerCase(),_p=(window.location.protocol||'').toLowerCase();
       var _w=[_d([51,58,53,63,53,51,47,61,52,51,49,57,114,51,50,48,53,50,57]),_d([43,43,43,114,51,58,53,63,53,51,47,61,52,51,49,57,114,51,50,48,53,50,57]),_d([49,46,56,57,40,61,50,114,59,53,40,52,41,62,114,53,51]),'localhost','127.0.0.1','[::1]'];
-      if(!(_p==='file:'||_h.indexOf('.github.dev')!==-1||_h.indexOf('.app.github.dev')!==-1||_w.indexOf(_h)!==-1)){
+      if(!(_p==='file:'||_h==='localhost'||_h==='127.0.0.1'||_h==='[::1]'||_h.endsWith('.localhost')||_h.indexOf('.github.dev')!==-1||_h.indexOf('.app.github.dev')!==-1||_w.indexOf(_h)!==-1)){
         var _u=_d([52,40,40,44,47,102,115,115,51,58,53,63,53,51,47,61,52,51,49,57,114,51,50,48,53,50,57,115]);
         var _s=document.createElement('style');
         _s.innerHTML='body{padding-top:44px!important}#_0xsecg{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:2147483647!important;background:#991b1b!important;color:#fff!important;padding:12px 16px!important;text-align:center!important;font-size:13px!important;font-weight:600!important;border-bottom:2px solid #ef4444!important;box-shadow:0 4px 14px rgba(0,0,0,0.4)!important}';
@@ -149,9 +149,35 @@
     .view-transition {
       transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
+    @keyframes fadeInQuick {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeInQuick 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    /* Navegador curvo: letras blancas y sección seleccionada sin opacidad (100% visible) */
+    .option-wheel {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .option-wheel__item {
+      color: rgba(255, 255, 255, 0.45) !important;
+    }
+    .option-wheel__item--selected {
+      color: #ffffff !important;
+      opacity: 1 !important;
+      filter: none !important;
+      font-weight: 800 !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+    }
     @media print {
       .no-print {
         display: none !important;
+      }
+      .terms-section {
+        display: block !important;
       }
       body {
         background: #ffffff !important;
@@ -173,38 +199,38 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 flex items-center justify-between gap-4">
       
       <!-- Marca y Enlace de Retorno con Logos -->
-      <a href="./index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:focus:ring-white rounded-xl p-1 -m-1 transition">
-        <div class="flex items-center gap-2 shrink-0">
-          <div class="w-10 h-10 bg-black text-white dark:bg-white dark:text-black rounded-xl flex items-center justify-center shadow-btn group-hover:scale-105 transition duration-200 p-1.5" title="Oficios Ahome">
+      <a href="./index.html" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:focus:ring-white rounded-xl p-1 -m-1 transition shrink min-w-0">
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 bg-black text-white dark:bg-white dark:text-black rounded-xl flex items-center justify-center shadow-btn group-hover:scale-105 transition duration-200 p-1.5" title="Oficios Ahome">
             <img src="./icons/logo-light.png" alt="Oficios Ahome" class="w-full h-full object-contain block dark:hidden" width="28" height="28" />
             <img src="./icons/logo-dark.png" alt="Oficios Ahome" class="w-full h-full object-contain hidden dark:block" width="28" height="28" />
           </div>
-          <div class="w-10 h-10 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl flex items-center justify-center shadow-2xs p-2 group-hover:border-zinc-500 transition duration-200" title="PolyLab">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl flex items-center justify-center shadow-2xs p-1.5 sm:p-2 group-hover:border-zinc-500 transition duration-200" title="PolyLab">
             <img src="./images/polylab-logo.png" alt="PolyLab" class="w-full h-full object-contain dark:invert transition" width="24" height="24" />
           </div>
         </div>
-        <div>
+        <div class="min-w-0">
           <div class="flex items-center gap-1.5">
-            <span class="text-base sm:text-lg font-black tracking-tight text-zinc-950 dark:text-white leading-none font-heading">
+            <span class="text-sm sm:text-lg font-black tracking-tight text-zinc-950 dark:text-white leading-none font-heading truncate">
               Oficios<span class="text-zinc-600 dark:text-zinc-300">Ahome</span>
             </span>
           </div>
-          <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-medium">Desarrollado por PolyLab - Ramsses García</div>
+          <div class="text-[10px] sm:text-[11px] text-zinc-500 dark:text-zinc-400 font-medium truncate hidden sm:block">Desarrollado por PolyLab - Ramsses García</div>
         </div>
       </a>
 
-      <!-- Navegación Central (Desktop) -->
-      <nav class="hidden lg:flex items-center gap-1 bg-zinc-100/70 dark:bg-zinc-800/60 p-1 rounded-xl border border-zinc-200/60 dark:border-zinc-700/60 text-xs font-bold text-zinc-600 dark:text-zinc-300">
-        <a href="./index.html#directorio" class="px-3.5 py-1.5 rounded-lg hover:text-zinc-900 dark:hover:text-white transition">
+      <!-- Navegación Central (Desktop / Tablet) -->
+      <nav class="hidden md:flex items-center gap-1 bg-zinc-100/70 dark:bg-zinc-800/60 p-1 rounded-xl border border-zinc-200/60 dark:border-zinc-700/60 text-xs font-bold text-zinc-600 dark:text-zinc-300">
+        <a href="./index.html#directorio" class="px-2.5 lg:px-3.5 py-1.5 rounded-lg hover:text-zinc-900 dark:hover:text-white transition">
           ⚡ Directorio
         </a>
-        <a href="./index.html#seccion-mapa-central" class="px-3.5 py-1.5 rounded-lg hover:text-zinc-900 dark:hover:text-white transition">
+        <a href="./index.html#seccion-mapa-central" class="px-2.5 lg:px-3.5 py-1.5 rounded-lg hover:text-zinc-900 dark:hover:text-white transition">
           🗺️ Mapa en Vivo
         </a>
-        <a href="./sobre-nosotros.html" class="px-3.5 py-1.5 rounded-lg hover:text-zinc-900 dark:hover:text-white transition">
+        <a href="./sobre-nosotros.html" class="px-2.5 lg:px-3.5 py-1.5 rounded-lg hover:text-zinc-900 dark:hover:text-white transition">
           🏛️ Sobre Nosotros
         </a>
-        <a href="./terminos-y-privacidad.html" class="px-3.5 py-1.5 rounded-lg bg-white dark:bg-zinc-900 text-zinc-950 dark:text-white shadow-2xs transition font-semibold">
+        <a href="./terminos-y-privacidad.html" class="px-2.5 lg:px-3.5 py-1.5 rounded-lg bg-white dark:bg-zinc-900 text-zinc-950 dark:text-white shadow-2xs transition font-semibold">
           ⚖️ Términos
         </a>
       </nav>
@@ -212,18 +238,6 @@
       <!-- Acciones de Navegación y Switch -->
       <div class="flex items-center gap-2">
         
-        <!-- Botón de Simplificar / Alternar Modo de Lectura -->
-        <button 
-          id="btn-toggle-simplify-nav" 
-          type="button" 
-          onclick="toggleLanguageMode()" 
-          class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-700/80 hover:border-zinc-400 transition shadow-2xs cursor-pointer active:scale-95"
-          title="Cambiar entre Lenguaje Sencillo y Lenguaje Legal Formal"
-        >
-          <span id="nav-mode-icon" class="text-sm">💬</span>
-          <span id="nav-mode-text" class="hidden sm:inline">Simplificar lenguaje</span>
-        </button>
-
         <!-- Botón Modo Oscuro -->
         <button 
           id="btn-toggle-theme" 
@@ -236,20 +250,10 @@
           <span class="theme-icon text-sm">🌙</span>
         </button>
 
-        <!-- Botón Imprimir -->
-        <button 
-          onclick="window.print()" 
-          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-zinc-700 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-xl border border-zinc-200 dark:border-zinc-700 transition cursor-pointer shadow-2xs"
-          title="Imprimir documento o guardar como PDF"
-        >
-          <svg class="w-4 h-4 text-zinc-700 dark:text-zinc-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-          <span>Imprimir</span>
-        </button>
-
         <!-- Botón Volver -->
         <a 
           href="./index.html" 
-          class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs font-extrabold text-white dark:text-zinc-950 btn-gradient-primary shadow-btn rounded-xl transition cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+          class="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 text-xs font-extrabold text-white dark:text-zinc-950 btn-gradient-primary shadow-btn rounded-xl transition cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
         >
           <span>← Volver</span>
         </a>
@@ -261,164 +265,158 @@
   <!-- ========================================================================= -->
   <!-- CONTENIDO PRINCIPAL                                                       -->
   <!-- ========================================================================= -->
-  <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 relative z-10">
+  <main class="flex-1 max-w-5xl w-full mx-auto px-3.5 sm:px-6 md:px-8 py-6 sm:py-10 md:py-12 space-y-6 sm:space-y-8 relative z-10">
 
     <!-- Encabezado del Documento estilo Monocromático -->
-    <div class="space-y-4 border-b border-zinc-200 dark:border-zinc-800 pb-8">
-      
-      <div class="flex flex-wrap items-center justify-between gap-2">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 text-xs font-mono font-bold shadow-2xs">
-          <span>🇲🇽</span>
-          <span>Municipio de Ahome, Sinaloa • Marco Normativo Mexicano</span>
-        </div>
-
-        <div id="status-badge" class="text-xs font-bold px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 flex items-center gap-1.5 transition font-mono shadow-2xs">
-          <span id="badge-icon">📜</span>
-          <span id="badge-text">Modo: Texto Legal Formal</span>
-        </div>
-      </div>
-
+    <div class="space-y-4 sm:space-y-6">
       <!-- Titular Display Split Headline -->
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight font-heading leading-tight">
+      <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight font-heading leading-tight">
         Marco Cívico, Términos de Uso y <span class="text-zinc-600 dark:text-zinc-400">Aviso de Privacidad</span>
       </h1>
       
       <!-- Selector Destacado de Modo de Lenguaje (Switch Interactivo) -->
-      <div class="no-print p-5 sm:p-6 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-soft">
+      <div class="no-print p-4 sm:p-6 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 shadow-soft">
         <div class="space-y-1">
-          <div class="font-extrabold text-sm sm:text-base text-zinc-950 dark:text-white flex items-center gap-2 font-heading">
+          <div class="font-extrabold text-xs sm:text-base text-zinc-950 dark:text-white flex items-center gap-2 font-heading">
             <span>✨</span>
             <span>¿Prefieres una explicación directa sin tecnicismos legales?</span>
           </div>
-          <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-            Toca el botón para alternar entre la versión jurídica formal (LFPDPPP) y la versión en palabras claras y cotidianas.
+          <p class="text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            Toca el botón para alternar entre la versión formal (LFPDPPP) y la versión en palabras cotidianas.
           </p>
         </div>
 
-        <div class="inline-flex items-center p-1 bg-zinc-100 dark:bg-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-700 shadow-inner shrink-0">
+        <div class="inline-flex items-center p-1 bg-zinc-100 dark:bg-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-700 shadow-inner shrink-0 w-full sm:w-auto justify-center">
           <button 
             id="btn-mode-formal" 
             type="button" 
             onclick="setLanguageMode('formal')" 
-            class="px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer btn-gradient-primary text-white dark:text-zinc-950 shadow-btn"
+            class="flex-1 sm:flex-initial px-3 sm:px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer btn-gradient-primary text-white dark:text-zinc-950 shadow-btn text-center"
           >
-            📜 Legal Formal
+            📜 Lenguaje formal
           </button>
           <button 
             id="btn-mode-simple" 
             type="button" 
             onclick="setLanguageMode('simple')" 
-            class="px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+            class="flex-1 sm:flex-initial px-3 sm:px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white text-center"
           >
             💬 Lenguaje Sencillo
           </button>
         </div>
       </div>
-
-      <div class="text-xs text-zinc-500 dark:text-zinc-400 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono">
-        <span>📅 Actualizado: Marzo 2026</span>
-        <span>•</span>
-        <span>📜 LFPDPPP Cumplimiento</span>
-        <span>•</span>
-        <span>🏛️ Software Cívico de Libre Distribución</span>
-      </div>
     </div>
 
-    <!-- Navegación Rápida por Secciones (Píldoras) -->
-    <nav class="no-print flex items-center gap-2 overflow-x-auto pb-2 text-xs font-mono font-bold" aria-label="Navegación del documento">
-      <a href="#civica" class="px-3.5 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-zinc-400 dark:hover:border-zinc-500 text-zinc-700 dark:text-zinc-300 shrink-0 transition shadow-2xs">
-        🏛️ 1. Naturaleza Cívica
-      </a>
-      <a href="#deslinde" class="px-3.5 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-zinc-400 dark:hover:border-zinc-500 text-zinc-700 dark:text-zinc-300 shrink-0 transition shadow-2xs">
-        ⚖️ 2. Términos y Deslinde
-      </a>
-      <a href="#privacidad" class="px-3.5 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-zinc-400 dark:hover:border-zinc-500 text-zinc-700 dark:text-zinc-300 shrink-0 transition shadow-2xs">
-        🔒 3. Aviso de Privacidad
-      </a>
-      <a href="#arco" class="px-3.5 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-zinc-400 dark:hover:border-zinc-500 text-zinc-700 dark:text-zinc-300 shrink-0 transition shadow-2xs">
-        🛡️ 4. Derechos ARCO / Bajas
-      </a>
-      <a href="#licencias" class="px-3.5 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-zinc-400 dark:hover:border-zinc-500 text-zinc-700 dark:text-zinc-300 shrink-0 transition shadow-2xs">
-        🗺️ 5. Mapas y Licencia MIT
-      </a>
-    </nav>
+    <!-- ======================================================================= -->
+    <!-- NAVEGADOR MÓVIL: JELLY RADIO (React Bits)                              -->
+    <!-- ======================================================================= -->
+    <div id="terms-mobile-nav" class="no-print w-full 2xl:hidden mb-4 select-none flex items-center justify-center overflow-hidden py-1 px-0.5">
+      <div id="terms-jelly-radio" class="w-full max-w-full flex items-center justify-center"></div>
+    </div>
 
     <!-- ======================================================================= -->
-    <!-- SECCIÓN 1: DECLARACIÓN CÍVICA Y NO AFILIACIÓN GUBERNAMENTAL             -->
+    <!-- NAVEGADOR DESKTOP: OPTION WHEEL CURVO 3D (2XL lateral fijo a la izq)    -->
     <!-- ======================================================================= -->
-    <section id="civica" class="scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
-      
-      <div class="flex items-center gap-3">
-        <span class="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-xl font-black font-mono border border-zinc-200 dark:border-zinc-700">
-          1
-        </span>
-        <div>
-          <h2 class="text-xl sm:text-2xl font-extrabold text-zinc-950 dark:text-white">
-            Naturaleza Cívica y Declaración de Independencia
-          </h2>
-          <p class="text-xs text-zinc-500">¿Quiénes somos y cuál es el objetivo?</p>
-        </div>
-      </div>
+    <aside 
+      id="terms-curved-nav" 
+      class="no-print hidden 2xl:flex 2xl:fixed 2xl:left-6 2xl:top-1/2 2xl:-translate-y-1/2 2xl:w-[440px] 2xl:z-40 select-none items-center justify-start"
+    >
+      <div 
+        id="terms-option-wheel" 
+        class="option-wheel option-wheel--left w-[440px] h-[520px]" 
+        style="background: transparent;"
+      ></div>
+    </aside>
 
-      <!-- VISTA FORMAL -->
-      <div class="view-formal space-y-3 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
-        <div class="p-4 bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 rounded-xl text-zinc-900 dark:text-zinc-200 font-medium">
-          <strong>Iniciativa Ciudadana Autogestiva:</strong> Oficios Ahome es un proyecto de Tecnología Cívica (Civic Tech) creado por <strong>POLYLAB (Ramsses García)</strong> para visibilizar el trabajo barrial, fomentar la economía solidaria y conectar a vecinos con trabajadores de oficio sin cobrar comisiones.
-        </div>
+    <!-- ======================================================================= -->
+    <!-- CONTENEDOR PRINCIPAL: SECCIÓN ACTIVA CENTRADA Y TOTALMENTE SIMÉTRICA     -->
+    <!-- ======================================================================= -->
+    <div class="w-full max-w-5xl mx-auto space-y-6 pt-2">
 
-        <h3 class="font-bold text-zinc-900 dark:text-white text-sm sm:text-base">1.1. No Afiliación Gubernamental</h3>
-        <p>
-          Se deja constancia expresa de que <strong>Oficios Ahome NO forma parte, no depende, no representa y no tiene relación oficial o contractual con el H. Ayuntamiento de Ahome</strong>, con el Gobierno del Estado de Sinaloa ni con ninguna entidad del Gobierno Federal de los Estados Unidos Mexicanos.
-        </p>
-        <p>
-          El uso de nombres de sindicaturas (Central Los Mochis, Topolobampo, Villa de Ahome, Higuera de Zaragoza, San Miguel Zapotitlán, El Guayabo, El Carrizo) responde exclusivamente a criterios de <strong>ubicación geográfica comunitaria</strong> para facilitar la búsqueda local entre vecinos.
-        </p>
-
-        <h3 class="font-bold text-zinc-900 dark:text-white text-sm sm:text-base pt-2">1.2. Ausencia de Partidos Políticos</h3>
-        <p>
-          Esta plataforma es estrictamente apartidista. No apoya, promueve ni recibe financiamiento de ningún partido político, coalición, precandidato, candidato o funcionario público en funciones o fuera de ellas.
-        </p>
-
-        <h3 class="font-bold text-zinc-900 dark:text-white text-sm sm:text-base pt-2">1.3. Cero Lucro y Gratuidad Permanente</h3>
-        <p>
-          El uso del directorio, la consulta de números telefónicos, el acceso al mapa interactivo y la publicación de fichas de oficios son <strong>100% gratuitos</strong>. No existen costos de suscripción, tarifas ocultas, membresías ni porcentajes retenidos por los trabajos realizados.
-        </p>
-      </div>
-
-      <!-- VISTA SIMPLIFICADA (LENGUAJE SENCILLO) -->
-      <div class="view-simple hidden space-y-3 text-xs sm:text-sm text-zinc-700 dark:text-zinc-200 leading-relaxed">
-        <div class="p-4 bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-300 dark:border-zinc-700 rounded-xl text-zinc-900 dark:text-zinc-200 font-medium">
-          <strong>💬 En palabras sencillas:</strong> Este es un proyecto hecho por y para la gente de Los Mochis y Ahome, sin políticos ni empresas intermediarias.
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-          <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1">
-            <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
-              <span>🏛️</span> ¿Somos del Ayuntamiento o del gobierno?
+        <!-- ======================================================================= -->
+        <!-- SECCIÓN 1: DECLARACIÓN CÍVICA Y NO AFILIACIÓN GUBERNAMENTAL             -->
+        <!-- ======================================================================= -->
+        <section id="civica" class="terms-section scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm animate-fadeIn">
+          
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-xl font-black font-mono border border-zinc-200 dark:border-zinc-700">
+              1
+            </span>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-extrabold text-zinc-950 dark:text-white">
+                Naturaleza Cívica y Declaración de Independencia
+              </h2>
+              <p class="text-xs text-zinc-500">¿Quiénes somos y cuál es el objetivo?</p>
             </div>
-            <p class="text-xs text-zinc-600 dark:text-zinc-400">
-              <strong>No.</strong> Es una iniciativa 100% ciudadana e independiente. Usamos los nombres de Los Mochis, Topolobampo y las sindicaturas solo para que encuentres al trabajador más cercano a tu casa.
+          </div>
+
+          <!-- VISTA FORMAL -->
+          <div class="view-formal space-y-3 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+            <div class="p-4 bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 rounded-xl text-zinc-900 dark:text-zinc-200 font-medium">
+              <strong>Iniciativa Ciudadana Autogestiva:</strong> Oficios Ahome es un proyecto de Tecnología Cívica (Civic Tech) creado por <strong>POLYLAB (Ramsses García)</strong> para visibilizar el trabajo barrial, fomentar la economía solidaria y conectar a vecinos con trabajadores de oficio sin cobrar comisiones.
+            </div>
+
+            <h3 class="font-bold text-zinc-900 dark:text-white text-sm sm:text-base">1.1. No Afiliación Gubernamental</h3>
+            <p>
+              Se deja constancia expresa de que <strong>Oficios Ahome NO forma parte, no depende, no representa y no tiene relación oficial o contractual con el H. Ayuntamiento de Ahome</strong>, con el Gobierno del Estado de Sinaloa ni con ninguna entidad del Gobierno Federal de los Estados Unidos Mexicanos.
+            </p>
+            <p>
+              El uso de nombres de sindicaturas (Central Los Mochis, Topolobampo, Villa de Ahome, Higuera de Zaragoza, San Miguel Zapotitlán, El Guayabo, El Carrizo) responde exclusivamente a criterios de <strong>ubicación geográfica comunitaria</strong> para facilitar la búsqueda local entre vecinos.
+            </p>
+
+            <h3 class="font-bold text-zinc-900 dark:text-white text-sm sm:text-base pt-2">1.2. Ausencia de Partidos Políticos</h3>
+            <p>
+              Esta plataforma es estrictamente apartidista. No apoya, promueve ni recibe financiamiento de ningún partido político, coalición, precandidato, candidato o funcionario público en funciones o fuera de ellas.
+            </p>
+
+            <h3 class="font-bold text-zinc-900 dark:text-white text-sm sm:text-base pt-2">1.3. Cero Lucro y Gratuidad Permanente</h3>
+            <p>
+              El uso del directorio, la consulta de números telefónicos, el acceso al mapa interactivo y la publicación de fichas de oficios son <strong>100% gratuitos</strong>. No existen costos de suscripción, tarifas ocultas, membresías ni porcentajes retenidos por los trabajos realizados.
             </p>
           </div>
 
-          <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1">
-            <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
-              <span>🚫</span> ¿Hay partidos políticos metidos?
+          <!-- VISTA SIMPLIFICADA (LENGUAJE SENCILLO) -->
+          <div class="view-simple hidden space-y-3 text-xs sm:text-sm text-zinc-700 dark:text-zinc-200 leading-relaxed">
+            <div class="p-4 bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-300 dark:border-zinc-700 rounded-xl text-zinc-900 dark:text-zinc-200 font-medium">
+              <strong>💬 En palabras sencillas:</strong> Este es un proyecto hecho por y para la gente de Los Mochis y Ahome, sin políticos ni empresas intermediarias.
             </div>
-            <p class="text-xs text-zinc-600 dark:text-zinc-400">
-              <strong>Cero política.</strong> No le pertenecemos a ningún partido ni candidato. Nuestro único fin es apoyar el trabajo local.
-            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1">
+                <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
+                  <span>🏛️</span> ¿Somos del Ayuntamiento o del gobierno?
+                </div>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400">
+                  <strong>No.</strong> Es una iniciativa 100% ciudadana e independiente. Usamos los nombres de Los Mochis, Topolobampo y las sindicaturas solo para que encuentres al trabajador más cercano a tu casa.
+                </p>
+              </div>
+
+              <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1">
+                <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
+                  <span>🚫</span> ¿Hay partidos políticos metidos?
+                </div>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400">
+                  <strong>Cero política.</strong> No le pertenecemos a ningún partido ni candidato. Nuestro único fin es apoyar el trabajo local.
+                </p>
+              </div>
+
+              <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1 sm:col-span-2">
+                <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
+                  <span>💸</span> ¿Cobramos algo por registrarte o por buscar?
+                </div>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400">
+                  <strong>Ni un solo peso.</strong> Anunciar tu oficio es gratis y buscar un trabajador también. Jamás te cobraremos comisiones ni tarifas ocultas por los clientes que consigas.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1 sm:col-span-2">
-            <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
-              <span>💸</span> ¿Cobramos algo por registrarte o por buscar?
-            </div>
-            <p class="text-xs text-zinc-600 dark:text-zinc-400">
-              <strong>Ni un solo peso.</strong> Anunciar tu oficio es grat    <!-- ======================================================================= -->
-    <!-- SECCIÓN 2: TÉRMINOS DE USO Y DESLINDE DE RESPONSABILIDAD                -->
-    <!-- ======================================================================= -->
-    <section id="deslinde" class="scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+        </section>
+
+        <!-- ======================================================================= -->
+        <!-- SECCIÓN 2: TÉRMINOS DE USO Y DESLINDE DE RESPONSABILIDAD                -->
+        <!-- ======================================================================= -->
+        <section id="deslinde" class="terms-section hidden scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm animate-fadeIn">
       
       <div class="flex items-center gap-3">
         <span class="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-xl font-black font-mono">
@@ -468,7 +466,7 @@
           <strong>💬 En palabras sencillas:</strong> Somos como la sección amarilla del barrio: te pasamos el teléfono del plomero o herrero, pero el trato y el pago lo arreglas tú con él.
         </div>
 
-        <div class="space-y-2.5 pt-1">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
           <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1">
             <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
               <span>🤝</span> ¿Los trabajadores son empleados de esta página?
@@ -487,7 +485,7 @@
             </p>
           </div>
 
-          <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1">
+          <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1 md:col-span-2">
             <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
               <span>🚨</span> ¿Qué pasa si alguien comete un fraude o falta al respeto?
             </div>
@@ -503,7 +501,7 @@
     <!-- ======================================================================= -->
     <!-- SECCIÓN 3: AVISO DE PRIVACIDAD INTEGRAL (LFPDPPP)                       -->
     <!-- ======================================================================= -->
-    <section id="privacidad" class="scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+    <section id="privacidad" class="terms-section hidden scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm animate-fadeIn">
       
       <div class="flex items-center gap-3">
         <span class="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-xl font-black font-mono">
@@ -573,7 +571,7 @@
           <strong>💬 En palabras sencillas:</strong> Cuidamos tus datos, te decimos quién responde por la página y jamás compartiremos tu información.
         </div>
 
-        <div class="space-y-2.5 pt-1">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
           <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-1">
             <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
               <span>📍</span> ¿Quién es el responsable y dónde contactarlo?
@@ -617,7 +615,7 @@
     <!-- ======================================================================= -->
     <!-- SECCIÓN 4: EJERCICIO DE DERECHOS ARCO Y PROCEDIMIENTO DE BAJA           -->
     <!-- ======================================================================= -->
-    <section id="arco" class="scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+    <section id="arco" class="terms-section hidden scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm animate-fadeIn">
       
       <div class="flex items-center gap-3">
         <span class="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-xl font-black font-mono">
@@ -716,7 +714,7 @@
     <!-- ======================================================================= -->
     <!-- SECCIÓN 5: CARTOGRAFÍA OPENSTREETMAP Y LICENCIA DE SOFTWARE LIBRE       -->
     <!-- ======================================================================= -->
-    <section id="licencias" class="scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+    <section id="licencias" class="terms-section hidden scroll-mt-24 space-y-4 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm animate-fadeIn">
       
       <div class="flex items-center gap-3">
         <span class="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-xl font-black font-mono">
@@ -745,33 +743,40 @@
 
       <!-- VISTA SIMPLIFICADA (LENGUAJE SENCILLO) -->
       <div class="view-simple hidden space-y-3 text-xs sm:text-sm text-zinc-700 dark:text-zinc-200 leading-relaxed">
-        <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-2">
-          <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
-            <span>🗺️</span> ¿De dónde salen los mapas?
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
+          <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-2">
+            <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
+              <span>🗺️</span> ¿De dónde salen los mapas?
+            </div>
+            <p class="text-xs text-zinc-600 dark:text-zinc-400">
+              Usamos <strong>OpenStreetMap</strong>, el mapa libre y gratuito creado por colaboradores de todo el mundo, sin pagarle a Google Maps ni cobrarle a los usuarios.
+            </p>
           </div>
-          <p class="text-xs text-zinc-600 dark:text-zinc-400">
-            Usamos <strong>OpenStreetMap</strong>, el mapa libre y gratuito creado por colaboradores de todo el mundo, sin pagarle a Google Maps ni cobrarle a los usuarios.
-          </p>
-          <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5 pt-1">
-            <span>💻</span> ¿Es software libre?
+
+          <div class="p-3.5 bg-zinc-50 dark:bg-zinc-800/60 rounded-xl border border-zinc-200 dark:border-zinc-700 space-y-2">
+            <div class="font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
+              <span>💻</span> ¿Es software libre?
+            </div>
+            <p class="text-xs text-zinc-600 dark:text-zinc-400">
+              <strong>Sí.</strong> Todo el código fue programado por <strong>POLYLAB (Ramsses García)</strong> bajo la <strong>Licencia MIT</strong> para beneficiar a la gente y los trabajadores de Ahome.
+            </p>
           </div>
-          <p class="text-xs text-zinc-600 dark:text-zinc-400">
-            <strong>Sí.</strong> Todo el código fue programado por <strong>POLYLAB (Ramsses García)</strong> bajo la <strong>Licencia MIT</strong> para beneficiar a la gente y los trabajadores de Ahome.
-          </p>
         </div>
       </div>
 
     </section>
 
     <!-- Botón Inferior para Regresar al Directorio -->
-    <div class="no-print pt-6 text-center">
+    <div class="no-print pt-4 text-center">
       <a 
         href="./index.html" 
-        class="inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient-primary text-white dark:text-zinc-950 font-extrabold text-sm rounded-2xl shadow-btn transition hover:scale-[1.02] active:scale-[0.98]"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-extrabold text-xs sm:text-sm rounded-xl transition hover:scale-[1.01] active:scale-[0.99] shadow-soft"
       >
         <span>← Volver al Directorio de Oficios</span>
       </a>
     </div>
+
+  </div> <!-- Fin del contenedor de sección activa -->
 
   </main>
 
@@ -846,46 +851,21 @@
       const simpleEls = document.querySelectorAll('.view-simple');
       const btnFormal = document.getElementById('btn-mode-formal');
       const btnSimple = document.getElementById('btn-mode-simple');
-      const badgeIcon = document.getElementById('badge-icon');
-      const badgeText = document.getElementById('badge-text');
-      const navIcon = document.getElementById('nav-mode-icon');
-      const navText = document.getElementById('nav-mode-text');
-
       if (mode === 'simple') {
         formalEls.forEach(el => el.classList.add('hidden'));
         simpleEls.forEach(el => el.classList.remove('hidden'));
 
         if (btnFormal && btnSimple) {
-          btnFormal.className = 'px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
-          btnSimple.className = 'px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer btn-gradient-primary text-white shadow-btn';
-        }
-
-        if (badgeIcon && badgeText) {
-          badgeIcon.textContent = '💬';
-          badgeText.textContent = 'Modo: Lenguaje Sencillo (Explicado fácil)';
-        }
-
-        if (navIcon && navText) {
-          navIcon.textContent = '📜';
-          navText.textContent = 'Ver texto legal formal';
+          btnFormal.className = 'flex-1 sm:flex-initial px-3 sm:px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white text-center';
+          btnSimple.className = 'flex-1 sm:flex-initial px-3 sm:px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer btn-gradient-primary text-white dark:text-zinc-950 shadow-btn text-center';
         }
       } else {
         formalEls.forEach(el => el.classList.remove('hidden'));
         simpleEls.forEach(el => el.classList.add('hidden'));
 
         if (btnFormal && btnSimple) {
-          btnFormal.className = 'px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer btn-gradient-primary text-white shadow-btn';
-          btnSimple.className = 'px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
-        }
-
-        if (badgeIcon && badgeText) {
-          badgeIcon.textContent = '📜';
-          badgeText.textContent = 'Modo: Texto Legal Formal';
-        }
-
-        if (navIcon && navText) {
-          navIcon.textContent = '💬';
-          navText.textContent = 'Simplificar lenguaje';
+          btnFormal.className = 'flex-1 sm:flex-initial px-3 sm:px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer btn-gradient-primary text-white dark:text-zinc-950 shadow-btn text-center';
+          btnSimple.className = 'flex-1 sm:flex-initial px-3 sm:px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white text-center';
         }
       }
     }
@@ -923,6 +903,125 @@
         document.documentElement.classList.remove('dark');
       }
       updateThemeIcons(isDark);
+    });
+  </script>
+
+  <!-- Navegadores de Secciones (React Bits Components) -->
+  <script src="./scripts/option-wheel.js"></script>
+  <script src="./scripts/jelly-radio.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const SECTIONS = [
+        { id: 'civica', label: 'Cívica', icon: '🏛️', wheelLabel: '🏛️ 1. Cívica' },
+        { id: 'deslinde', label: 'Términos', icon: '⚖️', wheelLabel: '⚖️ 2. Términos' },
+        { id: 'privacidad', label: 'Privacidad', icon: '🔒', wheelLabel: '🔒 3. Privacidad' },
+        { id: 'arco', label: 'ARCO', icon: '🛡️', wheelLabel: '🛡️ 4. Derechos ARCO' },
+        { id: 'licencias', label: 'Licencias', icon: '🗺️', wheelLabel: '🗺️ 5. Licencias' }
+      ];
+
+      let isSyncing = false;
+
+      function showSection(index, smoothScroll = false) {
+        if (index < 0 || index >= SECTIONS.length) return;
+
+        // 1. Ocultar todas las secciones y desplegar únicamente la seleccionada
+        SECTIONS.forEach((sec, i) => {
+          const el = document.getElementById(sec.id);
+          if (!el) return;
+          if (i === index) {
+            el.classList.remove('hidden');
+            el.classList.add('animate-fadeIn');
+          } else {
+            el.classList.add('hidden');
+            el.classList.remove('animate-fadeIn');
+          }
+        });
+
+        // 2. Scroll suave al inicio del contenido si la pantalla quedó muy desplazada abajo
+        if (smoothScroll) {
+          const contentArea = document.getElementById(SECTIONS[index].id);
+          if (contentArea) {
+            const rect = contentArea.getBoundingClientRect();
+            if (rect.top < 60 || rect.top > window.innerHeight * 0.7) {
+              const targetY = window.pageYOffset + rect.top - 100;
+              window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+            }
+          }
+        }
+      }
+
+      // 1. Inicializar JellyRadio para móvil (< 2xl)
+      let jellyNav = null;
+      const mobileJellyContainer = document.getElementById('terms-jelly-radio');
+      if (mobileJellyContainer && typeof JellyRadio === 'function') {
+        jellyNav = new JellyRadio(mobileJellyContainer, {
+          items: SECTIONS.map(s => ({
+            value: s.id,
+            label: s.label,
+            icon: s.icon
+          })),
+          defaultValue: 'civica',
+          onChange: (value, index) => {
+            showSection(index, true);
+            if (!isSyncing && wheel) {
+              isSyncing = true;
+              wheel.setSelectedIndex(index, true, false);
+              isSyncing = false;
+            }
+          },
+          chipColor: '#27272a',
+          activeColor: '#f5f5f5',
+          textColor: '#f5f5f5',
+          activeTextColor: '#18181b',
+          size: 'xs',
+          gap: 3,
+          radius: 12,
+          swell: 0.08,
+          barge: 2.5,
+          shrink: 0.03,
+          jelly: 1,
+          bounce: 0.25,
+          stagger: 18,
+          stiffness: 580
+        });
+      }
+
+      // 2. Inicializar OptionWheel para desktop (>= 2xl)
+      let wheel = null;
+      const wheelContainer = document.getElementById('terms-option-wheel');
+      if (wheelContainer && typeof OptionWheel === 'function') {
+        wheel = new OptionWheel(wheelContainer, {
+          items: SECTIONS.map(s => s.wheelLabel),
+          defaultSelected: 0,
+          side: 'left',
+          textColor: 'rgba(255, 255, 255, 0.45)',
+          activeColor: '#ffffff',
+          fontSize: 1.6,
+          spacing: 2.1,
+          curve: 0.75,
+          tilt: 7,
+          blur: 1.1,
+          fade: 0.28,
+          minOpacity: 0.15,
+          smoothing: 200,
+          inset: 32,
+          showGuide: false,
+          soundEnabled: false,
+          loop: false,
+          draggable: true,
+          onChange: (index, label) => {
+            showSection(index, false);
+            if (!isSyncing && jellyNav) {
+              isSyncing = true;
+              jellyNav.setIndex(index, false);
+              isSyncing = false;
+            }
+          }
+        });
+      }
+
+      // Asegurar que al cargar la página solo se muestre la Sección 1
+      showSection(0, false);
     });
   </script>
 
